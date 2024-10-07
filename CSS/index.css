@@ -1,0 +1,71 @@
+/* Estilos gerais */
+body {
+    font-family: Montserrat;
+    background-color: #ffffff;
+}
+
+
+
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o texto com a logo */
+    font-weight: bold;
+    font-size: 1.5rem; /* Tamanho maior por padrão */
+}
+
+.navbar-brand img{
+    margin-right: 3%;
+}
+
+.navbar-nav {
+    font-size: 1.2rem;
+    margin-right: 2%;
+    align-items: center;
+}
+
+.navbar-nav a{
+    margin-right: 1%;
+    margin-left: 1%;
+    display: flex; /* Torna o link um flex container */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+.navbar-nav i {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+/* Aumenta o tamanho do ícone de perfil */
+.profile-icon {
+    font-size: 2rem; /* Ajuste o tamanho conforme necessário */
+}
+
+/* Estilos do Footer */
+footer {
+    margin-top: 500px; /* Ajuste conforme necessário */
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Colunas do Footer */
+.footer-column {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    padding: 0 10px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 5px;
+}
