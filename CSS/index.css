@@ -153,34 +153,34 @@ body {
 }
 
 
-
-/* Estilos do Footer */
 footer {
-  margin-top: 500px; /* Ajuste conforme necessário */
-  background-color: #333;
-  color: #fff;
-  text-align: left;
-  padding: 10px;
+    background-color: #343a40; /* Fundo escuro */
+    color: #ffffff; /* Texto claro */
 }
 
-/* Colunas do Footer */
-.footer-column {
-  display: inline-block;
-  vertical-align: top;
-  width: 25%;
-  padding: 0 10px;
+footer a {
+    color: #ffffff; /* Cor dos links */
 }
 
-.footer-column h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
+footer a:hover {
+    color: #17a2b8; /* Cor dos links ao passar o mouse */
 }
 
-.footer-column ul {
-  list-style: none;
-  padding: 0;
+.app-icons {
+    display: flex; /* Ativa o flexbox */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    padding: 0; /* Remove o padding padrão da lista */
+    margin: 0; /* Remove a margem padrão da lista */
 }
 
-.footer-column ul li {
-  margin-bottom: 5px;
+.apple { 
+    width: 220px; /* Define a largura desejada para as imagens */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 10px; /* Espaço entre as imagens */
+}
+
+.google { 
+    width: 200px; /* Define a largura desejada para as imagens */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 10px; /* Espaço entre as imagens */
 }
