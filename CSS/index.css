@@ -37,6 +37,53 @@ body {
     font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
 }
 
+/* Estilo do Banner */
+.banner-container {
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    width: 100%;
+    background-color: #4b4b4b; 
+    padding: 5%; 
+}
+
+.banner h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+}
+
+.banner p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Container da imagem */
+.image-container {
+    border-radius: 10px; /* Bordas arredondadas no container */
+}
+
+/* Estilo da Imagem */
+.banner .img-fluid {
+    max-width: none;
+    width: 80%;
+    height: auto;
+    border: 5px solid #888888; /* Borda branca em volta da imagem */
+    border-radius: 5%; /* Bordas arredondadas da imagem */
+}
+
+
+
+
 /* Estilos do Footer */
 footer {
     margin-top: 500px; /* Ajuste conforme necessário */
