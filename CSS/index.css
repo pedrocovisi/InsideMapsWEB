@@ -4,8 +4,6 @@ body {
     background-color: #ffffff;
 }
 
-
-
 .navbar-brand {
     display: flex;
     align-items: center; /* Centraliza verticalmente o texto com a logo */
@@ -35,8 +33,8 @@ body {
 }
 
 /* Aumenta o tamanho do ícone de perfil */
-.profile-icon {
-    font-size: 2rem; /* Ajuste o tamanho conforme necessário */
+.bi-person {
+    font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
 }
 
 /* Estilos do Footer */
