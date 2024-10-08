@@ -50,11 +50,7 @@
   font-size: 1.25rem;
 }
 
-.card-img-top {
-  width: 100%; /* Faz a imagem ocupar toda a largura do card */
-  height: 400px; /* Define uma altura fixa para as imagens */
-  object-fit: cover; /* Corta a imagem se for muito grande e mantém a proporção */
-}
+
 
 /* Estilo geral dos cards */
 .card-plan {
