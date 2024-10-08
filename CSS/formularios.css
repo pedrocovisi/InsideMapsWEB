@@ -17,3 +17,7 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.container.margin-bottom{
+    margin-bottom: 150px;
+}

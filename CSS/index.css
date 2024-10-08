@@ -1,4 +1,3 @@
-
 /* Estilo do Banner */
 .banner-container {
   width: 100vw;
@@ -43,12 +42,12 @@
   border-radius: 5%; /* Bordas arredondadas da imagem */
 }
 
-.rouded-image{
-    border-radius: 5%;
+.rouded-image {
+  border-radius: 5%;
 }
 
-.text{
-    font-size: 1.25rem;
+.text {
+  font-size: 1.25rem;
 }
 
 .card-img-top {
@@ -59,58 +58,81 @@
 
 /* Estilo geral dos cards */
 .card-plan {
-    border: 2px solid #007bff; /* Borda azul */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: transform 0.3s; /* Efeito de transição */
+  border: 2px solid #007bff; /* Borda azul */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s; /* Efeito de transição */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* Altura fixa para todos os cards */
+  min-height: 250px; /* Defina uma altura mínima que se ajuste ao conteúdo */
+}
+
+/* Define flexbox para a row dos cards, forçando os cards a terem a mesma altura */
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Alinha os cards para ocupar a mesma altura */
 }
 
 .card-plan:hover {
-    transform: translateY(-5px); /* Levanta o card ao passar o mouse */
+  transform: translateY(-5px); /* Levanta o card ao passar o mouse */
 }
 
 /* Estilo do cabeçalho do card */
 .card-header {
-    background-color: #007bff; /* Cor de fundo azul */
-    color: white; /* Texto branco */
-    font-weight: bold; /* Negrito */
-    padding: 15px; /* Espaçamento interno */
-    border-top-left-radius: 10px; /* Bordas arredondadas no topo */
-    border-top-right-radius: 10px; /* Bordas arredondadas no topo */
+  background-color: #007bff; /* Cor de fundo azul */
+  color: white; /* Texto branco */
+  font-weight: bold; /* Negrito */
+  padding: 15px; /* Espaçamento interno */
+  border-top-left-radius: 10px; /* Bordas arredondadas no topo */
+  border-top-right-radius: 10px; /* Bordas arredondadas no topo */
 }
 
 /* Estilo do título do plano */
 .plan-title {
-    margin: 0; /* Remove margens */
-    font-size: 1.5rem; /* Tamanho da fonte */
-    color: #007bff; /* Título em azul */
+  margin: 0; /* Remove margens */
+  font-size: 1.5rem; /* Tamanho da fonte */
+  color: #007bff; /* Título em azul */
 }
 
 /* Estilo do preço */
 .price {
-    font-size: 2rem; /* Tamanho do texto do preço */
-    font-weight: bold; /* Negrito */
-    color: #007bff; /* Cor azul para o preço */
-    margin: 10px 0; /* Margens superior e inferior */
+  font-size: 2rem; /* Tamanho do texto do preço */
+  font-weight: bold; /* Negrito */
+  color: #007bff; /* Cor azul para o preço */
+  margin: 10px 0; /* Margens superior e inferior */
+}
+
+/* Faz a altura dos cards serem iguais */
+.card-body {
+  flex-grow: 1; /* Faz o card ocupar todo o espaço disponível */
+  
 }
 
 /* Estilo da lista de características */
 .card-body ul li {
-    padding: 5px 0; /* Espaçamento entre os itens da lista */
-    font-size: 1.1rem; /* Tamanho da fonte */
+  padding: 5px 0; /* Espaçamento entre os itens da lista */
+  font-size: 1.1rem; /* Tamanho da fonte */
+  text-align: left;
+}
+
+/* O botão de "Saiba Mais" fica sempre alinhado ao final do card */
+.card-body .btn {
+  margin-top: auto;
 }
 
 /* Estilo do botão */
 .btn-primary {
-    background-color: #007bff; /* Cor de fundo azul */
-    border: none; /* Remove borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-size: 1rem; /* Tamanho da fonte */
-    transition: background-color 0.3s; /* Transição da cor de fundo */
+  background-color: #007bff; /* Cor de fundo azul */
+  border: none; /* Remove borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 1rem; /* Tamanho da fonte */
+  transition: background-color 0.3s; /* Transição da cor de fundo */
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
 }
-
