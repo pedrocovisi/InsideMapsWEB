@@ -1,0 +1,93 @@
+/* ESTILOS DE TODAS AS PÁGINAS */
+/* Estilos gerais */
+body {
+    font-family: Montserrat;
+    background-color: #ffffff;
+  }
+  
+  .navbar .navbar-brand {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o texto com a logo */
+    font-weight: bold;
+    font-size: 1.8rem; /* Tamanho maior por padrão */
+  }
+  
+  .navbar-brand img {
+    margin-right: 3%;
+  }
+  
+  .navbar-nav {
+    font-size: 1.2rem;
+    margin-right: 2%;
+    align-items: center;
+  }
+  
+  .navbar-nav a {
+    margin-right: 1%;
+    margin-left: 1%;
+    display: flex; /* Torna o link um flex container */
+    align-items: center; /* Alinha os itens verticalmente */
+  }
+  
+  .navbar-nav i {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+  }
+  
+  /* Aumenta o tamanho do ícone de perfil */
+  .bi-person {
+    font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
+  }
+  
+  
+  footer {
+    background-color: #343a40; /* Fundo escuro */
+    color: #ffffff; /* Texto claro */
+  }
+  
+  footer a {
+    color: #ffffff; /* Cor dos links */
+  }
+  
+  footer a:hover {
+    color: #17a2b8; /* Cor dos links ao passar o mouse */
+  }
+  
+  .app-icons {
+    display: flex; /* Ativa o flexbox */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    padding: 0; /* Remove o padding padrão da lista */
+    margin: 0; /* Remove a margem padrão da lista */
+  }
+  
+  .app-icon { 
+    width: 200px; /* Define a largura desejada para as imagens */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 10px; /* Espaço entre as imagens */
+  }
+  
+  .text-center {
+    margin-top: 0%;
+  }
+  
+  /* FIM DOS ESTILOS DE TODAS AS PÁGINAS */
+
+/* Estilos específicos da página de contato */
+.container {
+  margin-top: 120px; /* Ajuste para compensar a navbar fixa */
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}

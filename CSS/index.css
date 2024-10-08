@@ -1,3 +1,4 @@
+/* ESTILOS DE TODAS AS PÁGINAS */
 /* Estilos gerais */
 body {
   font-family: Montserrat;
@@ -36,6 +37,41 @@ body {
 .bi-person {
   font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
 }
+
+
+footer {
+  background-color: #343a40; /* Fundo escuro */
+  color: #ffffff; /* Texto claro */
+}
+
+footer a {
+  color: #ffffff; /* Cor dos links */
+}
+
+footer a:hover {
+  color: #17a2b8; /* Cor dos links ao passar o mouse */
+}
+
+.app-icons {
+  display: flex; /* Ativa o flexbox */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  padding: 0; /* Remove o padding padrão da lista */
+  margin: 0; /* Remove a margem padrão da lista */
+}
+
+.app-icon { 
+  width: 200px; /* Define a largura desejada para as imagens */
+  height: auto; /* Mantém a proporção da imagem */
+  margin: 0 10px; /* Espaço entre as imagens */
+}
+
+.text-center{
+  margin-top: 0%;
+}
+
+
+/* FIM DOS ESTILOS DE TODAS AS PÁGINAS */
+
 
 /* Estilo do Banner */
 .banner-container {
@@ -152,35 +188,3 @@ body {
     background-color: #0056b3; /* Cor de fundo ao passar o mouse */
 }
 
-
-footer {
-    background-color: #343a40; /* Fundo escuro */
-    color: #ffffff; /* Texto claro */
-}
-
-footer a {
-    color: #ffffff; /* Cor dos links */
-}
-
-footer a:hover {
-    color: #17a2b8; /* Cor dos links ao passar o mouse */
-}
-
-.app-icons {
-    display: flex; /* Ativa o flexbox */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    padding: 0; /* Remove o padding padrão da lista */
-    margin: 0; /* Remove a margem padrão da lista */
-}
-
-.apple { 
-    width: 220px; /* Define a largura desejada para as imagens */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 10px; /* Espaço entre as imagens */
-}
-
-.google { 
-    width: 200px; /* Define a largura desejada para as imagens */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 10px; /* Espaço entre as imagens */
-}
