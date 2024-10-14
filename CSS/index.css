@@ -1,6 +1,6 @@
 /* Estilo do Banner */
 .banner-container {
-  width: 100vw;
+  width: 100%;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -85,7 +85,6 @@
   border-top-left-radius: 10px; /* Bordas arredondadas no topo */
   border-top-right-radius: 10px; /* Bordas arredondadas no topo */
   vertical-align: center;
-
 }
 
 /* Estilo do título do plano */
