@@ -84,6 +84,8 @@
   padding: 15px; /* Espaçamento interno */
   border-top-left-radius: 10px; /* Bordas arredondadas no topo */
   border-top-right-radius: 10px; /* Bordas arredondadas no topo */
+  vertical-align: center;
+
 }
 
 /* Estilo do título do plano */
@@ -104,7 +106,6 @@
 /* Faz a altura dos cards serem iguais */
 .card-body {
   flex-grow: 1; /* Faz o card ocupar todo o espaço disponível */
-  
 }
 
 /* Estilo da lista de características */
@@ -112,6 +113,7 @@
   padding: 5px 0; /* Espaçamento entre os itens da lista */
   font-size: 1.1rem; /* Tamanho da fonte */
   text-align: left;
+  height: 7rem;
 }
 
 /* O botão de "Saiba Mais" fica sempre alinhado ao final do card */

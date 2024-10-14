@@ -75,8 +75,7 @@ th, td, tr {
   
   /* Faz a altura dos cards serem iguais */
   .card-body {
-    flex-grow: 1; /* Faz o card ocupar todo o espaço disponível */
-    
+    flex-grow: 1; /* Faz o card ocupar todo o espaço disponível */    
   }
   
   /* Estilo da lista de características */
