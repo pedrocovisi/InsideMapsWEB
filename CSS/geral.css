@@ -1,8 +1,29 @@
 /* ESTILOS DE TODAS AS PÁGINAS */
 /* Estilos gerais */
-body {
+body.claro {
   font-family: Montserrat;
   background-color: #ffffff;
+  color: #000000;
+}
+
+body.escuro {
+  font-family: Montserrat;
+  background-color: #464545;
+  color: #ffffff;
+}
+
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+}
+
+/* Título da navbar - cor muda com base no modo */
+body.claro .navbar-brand {
+  color: #000000; /* Cor do título no modo claro */
+}
+
+body.escuro .navbar-brand {
+  color: #ffffff; /* Cor do título no modo escuro */
 }
 
 .navbar .navbar-brand {
@@ -29,25 +50,60 @@ body {
   align-items: center; /* Alinha os itens verticalmente */
 }
 
-.navbar-nav i {
-  margin-right: 5px; /* Espaço entre o ícone e o texto */
-}
-
 /* Aumenta o tamanho do ícone de perfil */
 .bi-person {
   font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
 }
 
-footer {
-  background-color: #343a40; /* Fundo escuro */
-  color: #ffffff; /* Texto claro */
+/* Modo Claro */
+body.claro .navbar {
+  background-color: #ffffff !important; /* Cor de fundo da navbar no modo claro */
 }
 
-footer a {
-  color: #ffffff; /* Cor dos links */
+body.claro .navbar-nav a {
+  color: #000000 !important; /* Cor dos links na navbar */
 }
 
-footer a:hover {
+body.claro .navbar-nav a:hover {
+  color: #007bff !important; /* Cor dos links ao passar o mouse no modo claro */
+}
+
+body.claro footer {
+  background-color: #f8f9fa; /* Fundo claro do footer */
+  color: #000000; /* Texto escuro no footer */
+}
+
+body.claro footer a {
+  color: #000000; /* Cor dos links no footer */
+}
+
+body.claro footer a:hover {
+  color: #007bff; /* Cor dos links ao passar o mouse */
+}
+
+/* Modo Escuro */
+body.escuro .navbar {
+  background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
+}
+
+body.escuro .navbar-nav a {
+  color: #ffffff !important; /* Cor dos links na navbar */
+}
+
+body.escuro .navbar-nav a:hover {
+  color: #17a2b8 !important; /* Cor dos links ao passar o mouse no modo escuro */
+}
+
+body.escuro footer {
+  background-color: #343a40; /* Fundo escuro do footer */
+  color: #ffffff; /* Texto claro no footer */
+}
+
+body.escuro footer a {
+  color: #ffffff; /* Cor dos links no footer */
+}
+
+body.escuro footer a:hover {
   color: #17a2b8; /* Cor dos links ao passar o mouse */
 }
 
