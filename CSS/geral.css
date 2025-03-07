@@ -65,7 +65,7 @@ body.claro .navbar-nav a {
 }
 
 body.claro .navbar-nav a:hover {
-  color: #007bff !important; /* Cor dos links ao passar o mouse no modo claro */
+  color: #348C70 !important; /* Cor dos links ao passar o mouse no modo claro */
 }
 
 body.claro footer {
@@ -91,7 +91,7 @@ body.escuro .navbar-nav a {
 }
 
 body.escuro .navbar-nav a:hover {
-  color: #17a2b8 !important; /* Cor dos links ao passar o mouse no modo escuro */
+  color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
 }
 
 body.escuro footer {

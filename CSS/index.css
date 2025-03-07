@@ -1,4 +1,4 @@
-/* Estilo do Banner */
+/* MODO CLARO */
 .banner-container {
   width: 100%;
   background-size: cover;
@@ -28,18 +28,16 @@
   color: white;
 }
 
-/* Container da imagem */
 .image-container {
-  border-radius: 10px; /* Bordas arredondadas no container */
+  border-radius: 10px;
 }
 
-/* Estilo da Imagem */
 .banner .img-fluid {
   max-width: none;
   width: 80%;
   height: auto;
-  border: 5px solid #888888; /* Borda branca em volta da imagem */
-  border-radius: 5%; /* Bordas arredondadas da imagem */
+  border: 5px solid #888888;
+  border-radius: 5%;
 }
 
 .rouded-image {
@@ -50,86 +48,121 @@
   font-size: 1.25rem;
 }
 
-
-
-/* Estilo geral dos cards */
-.card-plan {
-  border: 2px solid #007bff; /* Borda azul */
-  border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  transition: transform 0.3s; /* Efeito de transição */
+.card-plan {  
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 400px; /* Altura fixa para todos os cards */
-  min-height: 250px; /* Defina uma altura mínima que se ajuste ao conteúdo */
+  height: 400px;
+  min-height: 250px;
+  background-color: #ffffff;
 }
 
-/* Define flexbox para a row dos cards, forçando os cards a terem a mesma altura */
 .row {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* Alinha os cards para ocupar a mesma altura */
+  align-items: stretch;
 }
 
 .card-plan:hover {
-  transform: translateY(-5px); /* Levanta o card ao passar o mouse */
+  transform: translateY(-5px);
 }
 
-/* Estilo do cabeçalho do card */
 .card-header {
-  background-color: #007bff; /* Cor de fundo azul */
-  color: white; /* Texto branco */
-  font-weight: bold; /* Negrito */
-  padding: 15px; /* Espaçamento interno */
-  border-top-left-radius: 10px; /* Bordas arredondadas no topo */
-  border-top-right-radius: 10px; /* Bordas arredondadas no topo */
+  font-weight: bold;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   vertical-align: center;
 }
 
-/* Estilo do título do plano */
-.plan-title {
-  margin: 0; /* Remove margens */
-  font-size: 1.5rem; /* Tamanho da fonte */
-  color: #007bff; /* Título em azul */
+body .plan-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #348C70 !important ;
 }
 
-/* Estilo do preço */
-.price {
-  font-size: 2rem; /* Tamanho do texto do preço */
-  font-weight: bold; /* Negrito */
-  color: #007bff; /* Cor azul para o preço */
-  margin: 10px 0; /* Margens superior e inferior */
+body .price  {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #348C70 !important;
+  margin: 10px 0;
 }
 
-/* Faz a altura dos cards serem iguais */
 .card-body {
-  flex-grow: 1; /* Faz o card ocupar todo o espaço disponível */
+  flex-grow: 1;
 }
 
-/* Estilo da lista de características */
 .card-body ul li {
-  padding: 5px 0; /* Espaçamento entre os itens da lista */
-  font-size: 1.1rem; /* Tamanho da fonte */
+  padding: 5px 0;
+  font-size: 1.1rem;
   text-align: left;
   height: 7rem;
 }
 
-/* O botão de "Saiba Mais" fica sempre alinhado ao final do card */
 .card-body .btn {
   margin-top: auto;
 }
 
-/* Estilo do botão */
-.btn-primary {
-  background-color: #007bff; /* Cor de fundo azul */
-  border: none; /* Remove borda */
-  border-radius: 5px; /* Bordas arredondadas */
-  padding: 10px 20px; /* Espaçamento interno */
-  font-size: 1rem; /* Tamanho da fonte */
-  transition: background-color 0.3s; /* Transição da cor de fundo */
+ body .btn-primary {
+  background-color: #1fb183;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+  background-color: #348C70;
+}
+
+/* ============================= */
+/* ====== MODO ESCURO ====== */
+/* ============================= */
+body.escuro .banner {
+  background-color: #1c1c1c;
+}
+
+body.escuro .banner h1, 
+body.escuro .banner p {
+  color: #f5f5f5;
+}
+
+body.escuro .banner .img-fluid {
+  border: 5px solid #444444;
+}
+
+body.escuro .card-plan {
+  background-color: #3f3f3f;
+
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.escuro .card-body{
+  color: #ffffff;
+}
+
+body.escuro .card-header {
+  background-color: #348C70 !important;
+  
+}
+
+body.escuro .plan-title {
+  color: #ffffff !important;
+}
+
+body.escuro .price {
+  color: #348C70 !important;
+}
+
+body.escuro .btn-primary {
+  border: none;
+  background-color: #1fb183 !important;
+}
+
+body.escuro .btn-primary:hover {
+  background-color: #348C70 !important;
 }
