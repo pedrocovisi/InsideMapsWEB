@@ -1,29 +1,9 @@
-/* ESTILOS DE TODAS AS PÁGINAS */
-/* Estilos gerais */
-body.claro {
-  font-family: Montserrat;
-  background-color: #ffffff;
-  color: #000000;
-}
-
-body.escuro {
-  font-family: Montserrat;
-  background-color: #464545;
-  color: #ffffff;
-}
-
+/* ============================= */
+/* ====== GERAL ====== */
+/* ============================= */
 .navbar-brand {
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 700;
-}
-
-/* Título da navbar - cor muda com base no modo */
-body.claro .navbar-brand {
-  color: #000000; /* Cor do título no modo claro */
-}
-
-body.escuro .navbar-brand {
-  color: #ffffff; /* Cor do título no modo escuro */
 }
 
 .navbar .navbar-brand {
@@ -55,7 +35,36 @@ body.escuro .navbar-brand {
   font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
 }
 
-/* Modo Claro */
+.app-icons {
+  display: flex; /* Ativa o flexbox */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  padding: 0; /* Remove o padding padrão da lista */
+  margin: 0; /* Remove a margem padrão da lista */
+}
+
+.app-icon {
+  width: 200px; /* Define a largura desejada para as imagens */
+  height: auto; /* Mantém a proporção da imagem */
+  margin: 0 10px; /* Espaço entre as imagens */
+}
+
+.text-center {
+  margin-top: 0%;
+}
+
+/* ============================= */
+/* ====== GERAL CLARO ====== */
+/* ============================= */
+body.claro {
+  font-family: Montserrat !important;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.claro .navbar-brand {
+  color: #000000; /* Cor do título no modo claro */
+}
+
 body.claro .navbar {
   background-color: #ffffff !important; /* Cor de fundo da navbar no modo claro */
 }
@@ -81,7 +90,19 @@ body.claro footer a:hover {
   color: #007bff; /* Cor dos links ao passar o mouse */
 }
 
-/* Modo Escuro */
+/* ============================= */
+/* ====== GERAL ESCURO  ====== */
+/* ============================= */
+body.escuro {
+  font-family: Montserrat !important;
+  background-color: #464545;
+  color: #ffffff;
+}
+
+body.escuro .navbar-brand {
+  color: #ffffff; /* Cor do título no modo escuro */
+}
+
 body.escuro .navbar {
   background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
 }
@@ -106,22 +127,3 @@ body.escuro footer a {
 body.escuro footer a:hover {
   color: #17a2b8; /* Cor dos links ao passar o mouse */
 }
-
-.app-icons {
-  display: flex; /* Ativa o flexbox */
-  justify-content: center; /* Centraliza os itens horizontalmente */
-  padding: 0; /* Remove o padding padrão da lista */
-  margin: 0; /* Remove a margem padrão da lista */
-}
-
-.app-icon {
-  width: 200px; /* Define a largura desejada para as imagens */
-  height: auto; /* Mantém a proporção da imagem */
-  margin: 0 10px; /* Espaço entre as imagens */
-}
-
-.text-center {
-  margin-top: 0%;
-}
-
-/* FIM DOS ESTILOS DE TODAS AS PÁGINAS */
