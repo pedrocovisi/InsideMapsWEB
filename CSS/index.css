@@ -16,6 +16,7 @@
   width: 100%;
   background-color: #4b4b4b;
   padding: 5%;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .banner h1 {
@@ -53,7 +54,7 @@
 .card-plan {  
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s, background-color 0.5s ease-in-out !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -69,7 +70,7 @@
 }
 
 .card-plan:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) !important;
 }
 
 .card-header {
@@ -84,6 +85,7 @@ body .plan-title {
   margin: 0;
   font-size: 1.5rem;
   color: #348C70 !important ;
+  transition: color 0.3s ease-in-out;
 }
 
 body .price  {
@@ -91,6 +93,7 @@ body .price  {
   font-weight: bold;
   color: #348C70 !important;
   margin: 10px 0;
+  transition: color 0.3s ease-in-out;
 }
 
 .card-body {
@@ -114,7 +117,7 @@ body .price  {
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1rem;
-  transition: background-color 0.3s;
+  transition: transform 0.3s, background-color 0.5s ease-in-out !important;
 }
 
 .btn-primary:hover {
@@ -126,11 +129,13 @@ body .price  {
 /* ============================= */
 body.escuro .banner {
   background-color: #1c1c1c;
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.escuro .banner h1, 
 body.escuro .banner p {
   color: #f5f5f5;
+
 }
 
 body.escuro .banner .img-fluid {
@@ -139,34 +144,40 @@ body.escuro .banner .img-fluid {
 
 body.escuro .card-plan {
   background-color: #3f3f3f;
-
+  transition: background-color 0.5s ease-in-out;
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
 body.escuro .card-body{
   color: #ffffff;
+  transition: color 0.3s ease-in-out;
 }
 
 body.escuro .card-header {
   background-color: #348C70 !important;
+  transition: background-color 0.5s ease-in-out;
   
 }
 
 body.escuro .plan-title {
   color: #ffffff !important;
+  transition: color 0.3s ease-in-out;
 }
 
 body.escuro .price {
   color: #348C70 !important;
+  transition: color 0.3s ease-in-out;
 }
 
 body.escuro .btn-primary {
   border: none;
   background-color: #1fb183 !important;
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.escuro .btn-primary:hover {
   background-color: #348C70 !important;
+  transition: background-color 0.5s ease-in-out;
 }
 
 /* ============================= */
@@ -240,6 +251,7 @@ body.claro .navbar {
 
 body.claro .navbar-brand {
   color: #000000; /* Cor do título no modo claro */
+  transition: color 0.3s ease-in-out;
 }
 
 body.claro .navbar-nav a {
@@ -263,10 +275,6 @@ body.claro footer a {
   transition: color 0.3s ease-in-out;
 }
 
-body.claro footer a {
-  color: #000000;
-  transition: color 0.3s ease-in-out;
-}
 
 /* ============================= */
 /* ====== GERAL ESCURO  ====== */
@@ -275,31 +283,39 @@ body.escuro {
   font-family: Montserrat !important;
   background-color: #464545;
   color: #ffffff;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 body.escuro .navbar-brand {
   color: #ffffff; /* Cor do título no modo escuro */
+  transition: color 0.3s ease-in-out;
+  
 }
 
 body.escuro .navbar {
   background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.escuro .navbar-nav a {
   color: #ffffff !important; /* Cor dos links na navbar */
+  transition: color 0.3s ease-in-out;
 }
 
 body.escuro .navbar-nav a:hover {
   color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
+  transform: scale(1.05);
 }
 
 body.escuro footer {
   background-color: #343a40; /* Fundo escuro do footer */
   color: #ffffff; /* Texto claro no footer */
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.escuro footer a {
   color: #ffffff; /* Cor dos links no footer */
+  transition: color 0.3s ease-in-out;
 }
 
 body.escuro footer a:hover {
