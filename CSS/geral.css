@@ -56,39 +56,43 @@
 /* ====== GERAL CLARO ====== */
 /* ============================= */
 body.claro {
-  font-family: Montserrat !important;
+  font-family: Montserrat;
   background-color: #ffffff;
   color: #000000;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+body.claro .navbar {
+  background-color: #ffffff !important;
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.claro .navbar-brand {
   color: #000000; /* Cor do título no modo claro */
-}
-
-body.claro .navbar {
-  background-color: #ffffff !important; /* Cor de fundo da navbar no modo claro */
+  transition: color 0.3s ease-in-out;
 }
 
 body.claro .navbar-nav a {
-  color: #000000 !important; /* Cor dos links na navbar */
+  color: #000000 !important;
+  transition: color 0.3s ease-in-out;
 }
 
 body.claro .navbar-nav a:hover {
-  color: #348C70 !important; /* Cor dos links ao passar o mouse no modo claro */
+  color: #348C70 !important;
+  transform: scale(1.05);
 }
 
 body.claro footer {
-  background-color: #f8f9fa; /* Fundo claro do footer */
-  color: #000000; /* Texto escuro no footer */
+  background-color: #f8f9fa;
+  color: #000000;
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.claro footer a {
-  color: #000000; /* Cor dos links no footer */
+  color: #000000;
+  transition: color 0.3s ease-in-out;
 }
 
-body.claro footer a:hover {
-  color: #007bff; /* Cor dos links ao passar o mouse */
-}
 
 /* ============================= */
 /* ====== GERAL ESCURO  ====== */
@@ -97,33 +101,66 @@ body.escuro {
   font-family: Montserrat !important;
   background-color: #464545;
   color: #ffffff;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 body.escuro .navbar-brand {
   color: #ffffff; /* Cor do título no modo escuro */
+  transition: color 0.3s ease-in-out;
+  
 }
 
 body.escuro .navbar {
   background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.escuro .navbar-nav a {
   color: #ffffff !important; /* Cor dos links na navbar */
+  transition: color 0.3s ease-in-out;
 }
 
 body.escuro .navbar-nav a:hover {
   color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
+  transform: scale(1.05);
 }
 
 body.escuro footer {
   background-color: #343a40; /* Fundo escuro do footer */
   color: #ffffff; /* Texto claro no footer */
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.escuro footer a {
   color: #ffffff; /* Cor dos links no footer */
+  transition: color 0.3s ease-in-out;
 }
 
 body.escuro footer a:hover {
   color: #17a2b8; /* Cor dos links ao passar o mouse */
+}
+
+/* ============================= */
+/* ====== ANIMAÇÕES GERAIS ====== */
+/* ============================= */
+body {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-primary {
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  transform: scale(1.08);
 }

@@ -1,4 +1,258 @@
-/* Estilos específicos para a página de planos */
+/* ============================= */
+/* ====== GERAL ====== */
+/* ============================= */
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+  }
+  
+  .navbar .navbar-brand {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o texto com a logo */
+    font-weight: bold;
+    font-size: 1.8rem; /* Tamanho maior por padrão */
+  }
+  
+  .navbar-brand img {
+    margin-right: 3%;
+  }
+  
+  .navbar-nav {
+    font-size: 1.2rem;
+    margin-right: 2%;
+    align-items: center;
+  }
+  
+  .navbar-nav a {
+    margin-right: 1%;
+    margin-left: 1%;
+    display: flex; /* Torna o link um flex container */
+    align-items: center; /* Alinha os itens verticalmente */
+  }
+  
+  /* Aumenta o tamanho do ícone de perfil */
+  .bi-person {
+    font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
+  }
+  
+  .app-icons {
+    display: flex; /* Ativa o flexbox */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    padding: 0; /* Remove o padding padrão da lista */
+    margin: 0; /* Remove a margem padrão da lista */
+  }
+  
+  .app-icon {
+    width: 200px; /* Define a largura desejada para as imagens */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 10px; /* Espaço entre as imagens */
+  }
+  
+  .text-center {
+    margin-top: 0%;
+  }
+  
+  /* ============================= */
+  /* ====== GERAL CLARO ====== */
+  /* ============================= */
+  body.claro {
+    font-family: Montserrat;
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+  
+  body.claro .navbar {
+    background-color: #ffffff !important;
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  body.claro .navbar-brand {
+    color: #000000; /* Cor do título no modo claro */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  body.claro .navbar-nav a {
+    color: #000000 !important;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  body.claro .navbar-nav a:hover {
+    color: #348C70 !important;
+    transform: scale(1.05);
+  }
+  
+  body.claro footer {
+    background-color: #f8f9fa;
+    color: #000000;
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  body.claro footer a {
+    color: #000000;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  
+  /* ============================= */
+  /* ====== GERAL ESCURO  ====== */
+  /* ============================= */
+  body.escuro {
+    font-family: Montserrat !important;
+    background-color: #464545;
+    color: #ffffff;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+  
+  body.escuro .navbar-brand {
+    color: #ffffff; /* Cor do título no modo escuro */
+    transition: color 0.3s ease-in-out;
+    
+  }
+  
+  body.escuro .navbar {
+    background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  body.escuro .navbar-nav a {
+    color: #ffffff !important; /* Cor dos links na navbar */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  body.escuro .navbar-nav a:hover {
+    color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
+    transform: scale(1.05);
+  }
+  
+  body.escuro footer {
+    background-color: #343a40; /* Fundo escuro do footer */
+    color: #ffffff; /* Texto claro no footer */
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  body.escuro footer a {
+    color: #ffffff; /* Cor dos links no footer */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  body.escuro footer a:hover {
+    color: #17a2b8; /* Cor dos links ao passar o mouse */
+  }
+  
+  /* ============================= */
+  /* ====== ANIMAÇÕES GERAIS ====== */
+  /* ============================= */
+  body {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .btn-primary {
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    transform: scale(1.08);
+  }
+  
+  /* ============================= */
+  /* ====== PLANOS CLARO ====== */
+  /* ============================= */
+
+
+  body .plan-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #348C70 !important ;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  body .price  {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #348C70 !important;
+    margin: 10px 0;
+    transition: color 0.3s ease-in-out;
+  }
+
+  body .btn-primary {
+    background-color: #1fb183;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: transform 0.3s, background-color 0.5s ease-in-out !important;
+  }
+  
+  .btn-primary:hover {
+    background-color: #348C70 !important;
+  }
+
+  .card-plan {  
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.5s ease-in-out !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    flex-grow: 1;
+    min-height: 100%;
+    background-color: #ffffff;
+  }
+  
+  .card-plan .btn {
+    margin-top: auto; /* Empurra o botão para o final */
+    width: 40%;
+    margin: 10%;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+  .card-plan:hover {
+    transform: translateY(-5px) !important;
+  }
+  
+  .card-header {
+    font-weight: bold;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    vertical-align: center;
+    width: 100%;
+  }
+
+  .card-body {
+    flex-grow: 1;
+  }
+  
+  .card-body ul li {
+    padding: 5px 0;
+    font-size: 1.1rem;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  
+  .card-body small{
+    color: #000000 !important;
+    transition: color 0.3s ease-in-out;
+  }
 
 .container.margin-top {
     margin-top: 120px;
@@ -23,30 +277,6 @@ th, td, tr {
     font-weight: bold;
 }
 
-.card-plan {
-    border: 2px solid #348C70; /* Cor alinhada ao tema */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, background-color 0.5s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 400px;
-    min-height: 250px;
-}
-
-.card-plan:hover {
-    transform: translateY(-5px);
-}
-
-.card-header {
-    background-color: #348C70; /* Cor alinhada ao tema */
-    color: white;
-    font-weight: bold;
-    padding: 15px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
 
 .plan-title {
     margin: 0;
@@ -61,8 +291,61 @@ th, td, tr {
     margin: 10px 0;
 }
 
-.card-body ul li {
-    padding: 5px 0;
-    font-size: 1.1rem;
-    text-align: left;
+  /* ============================= */
+  /* ====== PLANOS ESCURO ====== */
+  /* ============================= */
+
+  body.escuro .card-plan {
+    background-color: #3f3f3f;
+    transition: background-color 0.5s ease-in-out;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  }
+  
+  body.escuro .card-body{
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  body.escuro .card-body small{
+    color: #ffffff !important;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  
+  body.escuro .card-header {
+    background-color: #348C70 !important;
+    transition: background-color 0.5s ease-in-out;
+    
+  }
+  
+  body.escuro .plan-title {
+    color: #ffffff !important;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  body.escuro .price {
+    color: #348C70 !important;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  body.escuro .btn-primary {
+    border: none;
+    background-color: #1fb183 !important;
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  body.escuro .btn-primary:hover {
+    background-color: #348C70 !important;
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  body.escuro table,
+body.escuro table thead,
+body.escuro table tbody,
+body.escuro table tr,
+body.escuro table td,
+body.escuro table th {
+    background-color: #464545 !important; /* Cinza escuro */
+    color: #ffffff !important; /* Texto branco */
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
