@@ -291,6 +291,17 @@ th, td, tr {
     margin: 10px 0;
 }
 
+body.claro table,
+body.claro table thead,
+body.claro table tbody,
+body.claro table tr,
+body.claro table td,
+body.claro table th {
+    background-color: #ffffff !important; 
+    color: #464545 !important; 
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out !important;
+}
+
   /* ============================= */
   /* ====== PLANOS ESCURO ====== */
   /* ============================= */
