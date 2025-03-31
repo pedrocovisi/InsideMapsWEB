@@ -74,7 +74,7 @@ body.claro .navbar-brand {
 
 body.claro .navbar-nav a {
   color: #000000 !important;
-  transition: color 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 body.claro .navbar-nav a:hover {
@@ -117,7 +117,7 @@ body.escuro .navbar {
 
 body.escuro .navbar-nav a {
   color: #ffffff !important; /* Cor dos links na navbar */
-  transition: color 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 body.escuro .navbar-nav a:hover {

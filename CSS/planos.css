@@ -2,168 +2,169 @@
 /* ====== GERAL ====== */
 /* ============================= */
 .navbar-brand {
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 700;
-  }
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+}
+
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente o texto com a logo */
+  font-weight: bold;
+  font-size: 1.8rem; /* Tamanho maior por padrão */
+}
+
+.navbar-brand img {
+  margin-right: 3%;
+}
+
+.navbar-nav {
+  font-size: 1.2rem;
+  margin-right: 2%;
+  align-items: center;
+}
+
+.navbar-nav a {
+  margin-right: 1%;
+  margin-left: 1%;
+  display: flex; /* Torna o link um flex container */
+  align-items: center; /* Alinha os itens verticalmente */
+}
+
+/* Aumenta o tamanho do ícone de perfil */
+.bi-person {
+  font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
+}
+
+.app-icons {
+  display: flex; /* Ativa o flexbox */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  padding: 0; /* Remove o padding padrão da lista */
+  margin: 0; /* Remove a margem padrão da lista */
+}
+
+.app-icon {
+  width: 200px; /* Define a largura desejada para as imagens */
+  height: auto; /* Mantém a proporção da imagem */
+  margin: 0 10px; /* Espaço entre as imagens */
+}
+
+.text-center {
+  margin-top: 0%;
+}
+
+/* ============================= */
+/* ====== GERAL CLARO ====== */
+/* ============================= */
+body.claro {
+  font-family: Montserrat;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+body.claro .navbar {
+  background-color: #ffffff !important;
+  transition: background-color 0.5s ease-in-out;
+}
+
+body.claro .navbar-brand {
+  color: #000000; /* Cor do título no modo claro */
+  transition: color 0.3s ease-in-out;
+}
+
+body.claro .navbar-nav a {
+  color: #000000 !important;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body.claro .navbar-nav a:hover {
+  color: #348C70 !important;
+  transform: scale(1.05);
+}
+
+body.claro footer {
+  background-color: #f8f9fa;
+  color: #000000;
+  transition: background-color 0.5s ease-in-out;
+}
+
+body.claro footer a {
+  color: #000000;
+  transition: color 0.3s ease-in-out;
+}
+
+
+/* ============================= */
+/* ====== GERAL ESCURO  ====== */
+/* ============================= */
+body.escuro {
+  font-family: Montserrat !important;
+  background-color: #464545;
+  color: #ffffff;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+body.escuro .navbar-brand {
+  color: #ffffff; /* Cor do título no modo escuro */
+  transition: color 0.3s ease-in-out;
   
-  .navbar .navbar-brand {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente o texto com a logo */
-    font-weight: bold;
-    font-size: 1.8rem; /* Tamanho maior por padrão */
-  }
-  
-  .navbar-brand img {
-    margin-right: 3%;
-  }
-  
-  .navbar-nav {
-    font-size: 1.2rem;
-    margin-right: 2%;
-    align-items: center;
-  }
-  
-  .navbar-nav a {
-    margin-right: 1%;
-    margin-left: 1%;
-    display: flex; /* Torna o link um flex container */
-    align-items: center; /* Alinha os itens verticalmente */
-  }
-  
-  /* Aumenta o tamanho do ícone de perfil */
-  .bi-person {
-    font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
-  }
-  
-  .app-icons {
-    display: flex; /* Ativa o flexbox */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    padding: 0; /* Remove o padding padrão da lista */
-    margin: 0; /* Remove a margem padrão da lista */
-  }
-  
-  .app-icon {
-    width: 200px; /* Define a largura desejada para as imagens */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 10px; /* Espaço entre as imagens */
-  }
-  
-  .text-center {
-    margin-top: 0%;
-  }
-  
-  /* ============================= */
-  /* ====== GERAL CLARO ====== */
-  /* ============================= */
-  body.claro {
-    font-family: Montserrat;
-    background-color: #ffffff;
-    color: #000000;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-  }
-  
-  body.claro .navbar {
-    background-color: #ffffff !important;
-    transition: background-color 0.5s ease-in-out;
-  }
-  
-  body.claro .navbar-brand {
-    color: #000000; /* Cor do título no modo claro */
-    transition: color 0.3s ease-in-out;
-  }
-  
-  body.claro .navbar-nav a {
-    color: #000000 !important;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  body.claro .navbar-nav a:hover {
-    color: #348C70 !important;
-    transform: scale(1.05);
-  }
-  
-  body.claro footer {
-    background-color: #f8f9fa;
-    color: #000000;
-    transition: background-color 0.5s ease-in-out;
-  }
-  
-  body.claro footer a {
-    color: #000000;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  
-  /* ============================= */
-  /* ====== GERAL ESCURO  ====== */
-  /* ============================= */
-  body.escuro {
-    font-family: Montserrat !important;
-    background-color: #464545;
-    color: #ffffff;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-  }
-  
-  body.escuro .navbar-brand {
-    color: #ffffff; /* Cor do título no modo escuro */
-    transition: color 0.3s ease-in-out;
-    
-  }
-  
-  body.escuro .navbar {
-    background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
-    transition: background-color 0.5s ease-in-out;
-  }
-  
-  body.escuro .navbar-nav a {
-    color: #ffffff !important; /* Cor dos links na navbar */
-    transition: color 0.3s ease-in-out;
-  }
-  
-  body.escuro .navbar-nav a:hover {
-    color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
-    transform: scale(1.05);
-  }
-  
-  body.escuro footer {
-    background-color: #343a40; /* Fundo escuro do footer */
-    color: #ffffff; /* Texto claro no footer */
-    transition: background-color 0.5s ease-in-out;
-  }
-  
-  body.escuro footer a {
-    color: #ffffff; /* Cor dos links no footer */
-    transition: color 0.3s ease-in-out;
-  }
-  
-  body.escuro footer a:hover {
-    color: #17a2b8; /* Cor dos links ao passar o mouse */
-  }
-  
-  /* ============================= */
-  /* ====== ANIMAÇÕES GERAIS ====== */
-  /* ============================= */
-  body {
+}
+
+body.escuro .navbar {
+  background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
+  transition: background-color 0.5s ease-in-out;
+}
+
+body.escuro .navbar-nav a {
+  color: #ffffff !important; /* Cor dos links na navbar */
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body.escuro .navbar-nav a:hover {
+  color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
+  transform: scale(1.05);
+}
+
+body.escuro footer {
+  background-color: #343a40; /* Fundo escuro do footer */
+  color: #ffffff; /* Texto claro no footer */
+  transition: background-color 0.5s ease-in-out;
+}
+
+body.escuro footer a {
+  color: #ffffff; /* Cor dos links no footer */
+  transition: color 0.3s ease-in-out;
+}
+
+body.escuro footer a:hover {
+  color: #17a2b8; /* Cor dos links ao passar o mouse */
+}
+
+/* ============================= */
+/* ====== ANIMAÇÕES GERAIS ====== */
+/* ============================= */
+body {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    animation: fadeIn 0.5s ease-in forwards;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
   }
-  
-  .btn-primary {
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-  }
-  
-  .btn-primary:hover {
-    transform: scale(1.08);
-  }
+}
+
+.btn-primary {
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  transform: scale(1.08);
+}
+
   
   /* ============================= */
   /* ====== PLANOS CLARO ====== */
