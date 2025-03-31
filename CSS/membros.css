@@ -52,6 +52,8 @@
   margin-top: 0%;
 }
 
+
+
 /* ============================= */
 /* ====== GERAL CLARO ====== */
 /* ============================= */
@@ -93,6 +95,9 @@ body.claro footer a {
   transition: color 0.3s ease-in-out;
 }
 
+body.claro .navbar-nav .nav-link.active {
+  color: #348C70 !important; /* Verde mais claro */
+}
 
 /* ============================= */
 /* ====== GERAL ESCURO  ====== */
@@ -140,6 +145,10 @@ body.escuro footer a:hover {
   color: #17a2b8; /* Cor dos links ao passar o mouse */
 }
 
+body.escuro .navbar-nav .nav-link.active {
+  color: #248c60  !important; /* Verde mais claro */
+}
+
 /* ============================= */
 /* ====== ANIMAÇÕES GERAIS ====== */
 /* ============================= */
@@ -164,6 +173,8 @@ body {
 .btn-primary:hover {
   transform: scale(1.08);
 }
+
+
 
 
 /* ============================= */
