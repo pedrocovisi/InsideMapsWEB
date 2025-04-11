@@ -1,5 +1,6 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,22 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <!-- <link rel="stylesheet" href="CSS/geral.css" /> -->
-    <link rel="stylesheet" href="CSS/index.css" />
-
+    <link rel="stylesheet" href="CSS/index.css" />  
     <script>
-    (function() {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'escuro') {
-            document.documentElement.classList.add('escuro');
-        }
-    })();
-</script>   
+        (function () {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'escuro') {
+                document.documentElement.classList.add('escuro');
+            }
+        })();
+    </script>
 </head>
 
 <body>
 
-    
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
@@ -44,13 +43,14 @@
 
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="theme" id="btnclaro" autocomplete="off" checked>
-                        <label class="btn btn-outline-secondary" for="btnclaro"><i class="bi bi-brightness-high-fill"></i></label>
-                    
+                        <label class="btn btn-outline-secondary" for="btnclaro"><i
+                                class="bi bi-brightness-high-fill"></i></label>
+
                         <input type="radio" class="btn-check" name="theme" id="btnescuro" autocomplete="off">
                         <label class="btn btn-outline-secondary" for="btnescuro"><i class="bi bi-moon-fill"></i></label>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
@@ -92,14 +92,19 @@
             </div>
             <div class="col-md-6">
                 <h2>Sobre nós</h2>
-                <p class="text">O Inside Maps é um aplicativo inovador projetado especialmente para pessoas cegas e com deficiência visual, facilitando a locomoção em espaços internos pré-mapeados. Nossa missão é proporcionar independência e segurança, permitindo que você explore novos ambientes com facilidade.</p>
+                <p class="text">O Inside Maps é um aplicativo inovador projetado especialmente para pessoas cegas e com
+                    deficiência visual, facilitando a locomoção em espaços internos pré-mapeados. Nossa missão é
+                    proporcionar independência e segurança, permitindo que você explore novos ambientes com facilidade.
+                </p>
             </div>
         </div>
 
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
                 <h2>Como Funciona?</h2>
-                <p class="text">Nosso aplicativo utiliza tecnologia de geolocalização e mapas internos para fornecer direções em tempo real através de guias de áudio. Os usuários podem navegar facilmente dentro dos estabelecimentos, recebendo instruções claras e concisas.</p>
+                <p class="text">Nosso aplicativo utiliza tecnologia de geolocalização e mapas internos para fornecer
+                    direções em tempo real através de guias de áudio. Os usuários podem navegar facilmente dentro dos
+                    estabelecimentos, recebendo instruções claras e concisas.</p>
             </div>
             <!-- Imagem à Direita -->
             <div class="col-md-6">
@@ -145,7 +150,7 @@
                     </div>
                     <div class="card-body">
                         <h2 class="price text-primary">
-                            <span style="text-decoration: line-through;">R$ 9,90/mês</span> 
+                            <span style="text-decoration: line-through;">R$ 9,90/mês</span>
                             <br>
                             <small class="text-success" style="font-size: 70%;">Teste grátis por 14 dias!</small>
                         </h2>
@@ -165,30 +170,31 @@
 
 
     <footer class="bg-dark text-light mt-5 pt-4 pb-4">
-      <div class="container text-center">
-          <h3>Baixar</h3>
-          <ul class="list-unstyled d-flex justify-content-center app-icons">
-              <li>
-                  <a href="#" class="text-light">
-                      <img src="assets/google.png" class="app-icon" alt="Baixar no Google Play">
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-light">
-                      <img src="assets/apple.png" class="app-icon" alt="Baixar na App Store">
-                  </a>
-              </li>
-          </ul>
-          <hr class="bg-light my-4" />
-          <p>&copy; 2024 Inside Maps. Todos os direitos reservados.</p>
-          <a href="#"><img src="assets/InsideMapsLogoVerde.svg" alt="Logo" width="30" height="24" class="d-inline-block" /></a>
-          <p>Inside Maps</p>
-      </div>
+        <div class="container text-center">
+            <h3>Baixar</h3>
+            <ul class="list-unstyled d-flex justify-content-center app-icons">
+                <li>
+                    <a href="#" class="text-light">
+                        <img src="assets/google.png" class="app-icon" alt="Baixar no Google Play">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="text-light">
+                        <img src="assets/apple.png" class="app-icon" alt="Baixar na App Store">
+                    </a>
+                </li>
+            </ul>
+            <hr class="bg-light my-4" />
+            <p>&copy; 2024 Inside Maps. Todos os direitos reservados.</p>
+            <a href="#"><img src="assets/InsideMapsLogoVerde.svg" alt="Logo" width="30" height="24"
+                    class="d-inline-block" /></a>
+            <p>Inside Maps</p>
+        </div>
     </footer>
-  
-  
-  
-  
+
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -204,4 +210,5 @@
         });
     </script>
 </body>
+
 </html>

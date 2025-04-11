@@ -140,61 +140,61 @@ body .price  {
 /* ============================= */
 /* ====== INDEX ESCURO ====== */
 /* ============================= */
-body.escuro .banner {
+.escuro body .banner {
   background-color: #1c1c1c;
   transition: background-color 0.5s ease-in-out;
 }
 
-body.escuro .banner h1, 
-body.escuro .banner p {
+.escuro body .banner h1, 
+.escuro body .banner p {
   color: #f5f5f5;
 
 }
 
-body.escuro .banner .img-fluid {
+.escuro body .banner .img-fluid {
   border: 5px solid #444444;
 }
 
-body.escuro .card-plan {
+.escuro body .card-plan {
   background-color: #3f3f3f;
   transition: background-color 0.5s ease-in-out;
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
-body.escuro .card-body{
+.escuro body .card-body{
   color: #ffffff;
   transition: color 0.3s ease-in-out;
 }
 
-body.escuro .card-body small{
+.escuro body .card-body small{
   color: #ffffff !important;
   transition: color 0.3s ease-in-out;
 }
 
 
-body.escuro .card-header {
+.escuro body .card-header {
   background-color: #348C70 !important;
   transition: background-color 0.5s ease-in-out;
   
 }
 
-body.escuro .plan-title {
+.escuro body .plan-title {
   color: #ffffff !important;
   transition: color 0.3s ease-in-out;
 }
 
-body.escuro .price {
+.escuro body .price {
   color: #348C70 !important;
   transition: color 0.3s ease-in-out;
 }
 
-body.escuro .btn-primary {
+.escuro body .btn-primary {
   border: none;
   background-color: #1fb183 !important;
   transition: background-color 0.5s ease-in-out;
 }
 
-body.escuro .btn-primary:hover {
+.escuro body .btn-primary:hover {
   background-color: #348C70 !important;
   transition: background-color 0.5s ease-in-out;
 }
@@ -258,95 +258,95 @@ body.escuro .btn-primary:hover {
 /* ============================= */
 /* ====== GERAL CLARO ====== */
 /* ============================= */
-body.claro {
+.claro body {
   font-family: Montserrat;
   background-color: #ffffff;
   color: #000000;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-body.claro .navbar {
+.claro body .navbar {
   background-color: #ffffff !important;
   transition: background-color 0.5s ease-in-out;
 }
 
-body.claro .navbar-brand {
+.claro body .navbar-brand {
   color: #000000; /* Cor do título no modo claro */
   transition: color 0.3s ease-in-out;
 }
 
-body.claro .navbar-nav a {
+.claro body .navbar-nav a {
   color: #000000 !important;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-body.claro .navbar-nav a:hover {
+.claro body .navbar-nav a:hover {
   color: #348C70 !important;
   transform: scale(1.05);
 }
 
-body.claro footer {
+.claro body footer {
   background-color: #f8f9fa;
   color: #000000;
   transition: background-color 0.5s ease-in-out;
 }
 
-body.claro footer a {
+.claro body footer a {
   color: #000000;
   transition: color 0.3s ease-in-out;
 }
 
-body.claro .navbar-nav .nav-link.active {
+.claro body .navbar-nav .nav-link.active {
   color: #348C70 !important; /* Verde mais claro */
 }
 
 /* ============================= */
 /* ====== GERAL ESCURO  ====== */
 /* ============================= */
-body.escuro {
+.escuro body {
   font-family: Montserrat !important;
   background-color: #464545;
   color: #ffffff;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-body.escuro .navbar-brand {
+.escuro body .navbar-brand {
   color: #ffffff; /* Cor do título no modo escuro */
   transition: color 0.3s ease-in-out;
   
 }
 
-body.escuro .navbar {
+.escuro body .navbar {
   background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
   transition: background-color 0.5s ease-in-out;
 }
 
-body.escuro .navbar-nav a {
+.escuro body .navbar-nav a {
   color: #ffffff !important; /* Cor dos links na navbar */
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-body.escuro .navbar-nav a:hover {
+.escuro body .navbar-nav a:hover {
   color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
   transform: scale(1.05);
 }
 
-body.escuro footer {
+.escuro body footer {
   background-color: #343a40; /* Fundo escuro do footer */
   color: #ffffff; /* Texto claro no footer */
   transition: background-color 0.5s ease-in-out;
 }
 
-body.escuro footer a {
+.escuro body footer a {
   color: #ffffff; /* Cor dos links no footer */
   transition: color 0.3s ease-in-out;
 }
 
-body.escuro footer a:hover {
+.escuro body footer a:hover {
   color: #17a2b8; /* Cor dos links ao passar o mouse */
 }
 
-body.escuro .navbar-nav .nav-link.active {
+.escuro body .navbar-nav .nav-link.active {
   color: #248c60  !important; /* Verde mais claro */
 }
 
@@ -371,8 +371,10 @@ body {
   transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
+
 .btn-primary:hover {
   transform: scale(1.08);
 }
+
 
 

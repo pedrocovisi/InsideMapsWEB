@@ -1,29 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
     const btnClaro = document.getElementById('btnclaro');
     const btnEscuro = document.getElementById('btnescuro');
-    const body = document.body;
+    const html = document.documentElement; // <- agora controlamos a tag <html>
 
-    // Aplica o tema salvo no localStorage
-    const theme = localStorage.getItem("theme");
-    if (theme === "escuro") {
-        body.classList.add("escuro");
+    // Aplica o tema salvo no localStorage o mais cedo possível
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "escuro") {
+        html.classList.add("escuro");
         btnEscuro.checked = true;
     } else {
-        body.classList.add("claro");
+        html.classList.add("claro");
         btnClaro.checked = true;
     }
 
-    // Função para alternar para o modo claro
+    // Alterna para o modo claro
     btnClaro.addEventListener("click", () => {
-        body.classList.add("claro");
-        body.classList.remove("escuro");
+        html.classList.remove("escuro");
+        html.classList.add("claro");
         localStorage.setItem("theme", "claro");
     });
 
-    // Função para alternar para o modo escuro
+    // Alterna para o modo escuro
     btnEscuro.addEventListener("click", () => {
-        body.classList.add("escuro");
-        body.classList.remove("claro");
+        html.classList.remove("claro");
+        html.classList.add("escuro");
         localStorage.setItem("theme", "escuro");
     });
 });

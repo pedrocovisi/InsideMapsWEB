@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="CSS/membros.css" />
     <script>
-        (function() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'escuro') {
-                document.documentElement.classList.add('escuro');
-            }
+        (function () {
+          const theme = localStorage.getItem("theme");
+          if (theme === "escuro") {
+            document.documentElement.classList.add("escuro");
+          } else {
+            document.documentElement.classList.add("claro");
+          }
         })();
-    </script>
+      </script>      
 </head>
+
 <body>
 
     <!-- NAVBAR -->
@@ -40,19 +44,20 @@
 
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="theme" id="btnclaro" autocomplete="off" checked>
-                        <label class="btn btn-outline-secondary" for="btnclaro"><i class="bi bi-brightness-high-fill"></i></label>
-                    
+                        <label class="btn btn-outline-secondary" for="btnclaro"><i
+                                class="bi bi-brightness-high-fill"></i></label>
+
                         <input type="radio" class="btn-check" name="theme" id="btnescuro" autocomplete="off">
                         <label class="btn btn-outline-secondary" for="btnescuro"><i class="bi bi-moon-fill"></i></label>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
     </nav>
     <!-- FIM DA NAVBAR -->
-    
+
 
     <div class="container margin-top">
         <h2 class="text-center">Membros</h2>
@@ -126,16 +131,19 @@
             </ul>
             <hr class="bg-light my-4" />
             <p>&copy; 2024 Inside Maps. Todos os direitos reservados.</p>
-            <a href="#"><img src="assets/InsideMapsLogoVerde.svg" alt="Logo" width="30" height="24" class="d-inline-block" /></a>
+            <a href="#"><img src="assets/InsideMapsLogoVerde.svg" alt="Logo" width="30" height="24"
+                    class="d-inline-block" /></a>
             <p>Inside Maps</p>
         </div>
     </footer>
 
     <!-- Mantém apenas o necessário para Bootstrap 5 -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Ícones do FontAwesome -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap 5 JS -->
-    <script src="JS/geral.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="JS/geral.js"></script>
 
 
 </body>
+
 </html>
