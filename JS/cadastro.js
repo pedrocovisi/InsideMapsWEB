@@ -37,5 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Erro na requisição:", error);
       alert("Erro de conexão com o servidor.");
     }
+
+
   });
 });
