@@ -135,6 +135,11 @@ body .price  {
   background-color: #348C70 !important;
 }
 
+.sobre-container{
+  background-color: #4b4b4b;
+  padding: 2%;
+  border-radius: 20px;
+}
 
 
 /* ============================= */
