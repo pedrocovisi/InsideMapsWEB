@@ -1,35 +1,66 @@
 /* ============================= */
 /* ====== INDEX CLARO ====== */
 /* ============================= */
+
 .banner-container {
   width: 100%;
-  background-size: cover;
-  background-position: center;
   display: flex;
-  align-items: center;
   justify-content: center;
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
 }
 
 .banner {
-  width: 100%;
+  width: 90%;
+  max-width: 1300px;
   background-color: #4b4b4b;
-  padding: 5%;
+  padding: 40px;
+  border-radius: 15px;
+  margin: 20px 0;
   transition: background-color 0.5s ease-in-out;
+}
+
+.banner .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.banner .col-md-6 {
+  padding: 15px;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .banner h1 {
   font-size: 3rem;
   font-weight: bold;
   color: white;
+  margin-bottom: 20px;
 }
 
 .banner p {
   font-size: 1.25rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: white;
 }
+
+.banner .btn {
+  align-self: flex-start;
+}
+
+
+.banner .img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5%;
+  object-fit: contain;
+}
+
 
 .image-container {
   border-radius: 10px;
@@ -39,7 +70,7 @@
   max-width: none;
   width: 80%;
   height: auto;
-  border: 5px solid #888888;
+  /* border: 5px solid #888888; */
   border-radius: 5%;
 }
 
@@ -135,12 +166,6 @@ body .price  {
   background-color: #348C70 !important;
 }
 
-.sobre-container{
-  background-color: #4b4b4b;
-  padding: 2%;
-  border-radius: 20px;
-}
-
 
 /* ============================= */
 /* ====== INDEX ESCURO ====== */
@@ -157,7 +182,8 @@ body .price  {
 }
 
 .escuro body .banner .img-fluid {
-  border: 5px solid #444444;
+  /* border: 5px solid #444444; */
+  transition: color 0.3s ease-in-out;
 }
 
 .escuro body .card-plan {
@@ -264,7 +290,7 @@ body .price  {
 /* ====== GERAL CLARO ====== */
 /* ============================= */
 .claro body {
-  font-family: Montserrat;
+  font-family: Montserrat !important;
   background-color: #ffffff;
   color: #000000;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
@@ -381,5 +407,270 @@ body {
   transform: scale(1.08);
 }
 
+/* ============================= */
+/* ====== RESPONSIVIDADE GERAL ====== */
+/* ============================= */
 
+/* Container principal */
+.container {
+  padding: 0 15px;
+  max-width: 1400px;
+}
+
+/* Ajustes gerais para telas pequenas */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  h1, h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  p, li {
+    font-size: 1rem !important;
+  }
+}
+
+/* ===== BANNER ===== */
+@media (max-width: 992px) {
+  .banner h1 {
+    font-size: 2.2rem !important;
+  }
+  
+  .banner p {
+    font-size: 1.1rem !important;
+  }
+  
+  .banner .btn {
+    font-size: 0.9rem !important;
+    padding: 8px 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .banner {
+    padding: 20px 15px !important;
+  }
+  
+  .banner h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .banner p {
+    font-size: 0.95rem !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .banner .img-fluid {
+    width: 100% !important;
+    margin: 15px auto !important;
+  }
+}
+
+/* ===== SEÇÃO SOBRE NÓS ===== */
+.sobre-container {
+  padding: 30px !important;
+}
+
+@media (max-width: 992px) {
+  .sobre-container {
+    flex-direction: column !important;
+    padding: 20px !important;
+  }
+  
+  .sobre-container .col-md-6 {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+  
+  .sobre-container img {
+    order: -1;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sobre-container {
+    padding: 15px !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* ===== CARDS DE PLANOS ===== */
+.pricing-header h1 {
+  font-size: 2.5rem;
+}
+
+.pricing-header p {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+  .pricing-header h1 {
+    font-size: 2rem !important;
+  }
+  
+  .pricing-header p {
+    font-size: 1rem !important;
+  }
+  
+  .card-plan {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .row.text-center {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .col-lg-4, .col-md-6, .col-sm-12 {
+    width: 100% !important;
+    max-width: 400px;
+  }
+  
+  .card-plan .btn {
+    width: 60% !important;
+    margin: 5% auto !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-plan {
+    padding: 15px !important;
+  }
+  
+  .card-header h4 {
+    font-size: 1.3rem !important;
+  }
+
+  .card-header{
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  .price {
+    font-size: 1.8rem !important;
+  }
+  
+  .card-body ul li {
+    font-size: 1rem !important;
+  }
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 30px 0;
+}
+
+.app-icons {
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.app-icon {
+  width: 150px !important;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 0;
+  }
+  
+  .app-icon {
+    width: 120px !important;
+  }
+  
+  footer p {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .app-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .app-icon {
+    width: 180px !important;
+    margin: 5px 0 !important;
+  }
+}
+
+/* ===== NAVBAR ===== */
+.navbar-brand {
+  font-size: 1.5rem !important;
+}
+
+.navbar-brand img {
+  width: 50px !important;
+  margin-right: 10px !important;
+}
+
+.navbar-nav {
+  font-size: 1rem !important;
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    padding-top: 15px;
+  }
+  
+  .navbar-nav {
+    margin-right: 0 !important;
+  }
+  
+  .navbar-nav a {
+    margin: 5px 0 !important;
+    padding: 8px 15px !important;
+  }
+  
+  .btn-group {
+    margin-top: 10px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.3rem !important;
+  }
+  
+  .navbar-brand img {
+    width: 40px !important;
+  }
+  
+  .bi-person {
+    font-size: 1.4rem !important;
+  }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== MELHORIAS PARA DISPOSITIVOS MÓVEIS ===== */
+/* Evita zoom em inputs em iOS */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Melhora a área de toque para mobile */
+.btn, .nav-link {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
