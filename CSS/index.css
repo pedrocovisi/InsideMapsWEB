@@ -267,6 +267,20 @@ body .price  {
   font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
 }
 
+.btn-group .btn {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-group i {
+    vertical-align: middle;
+    line-height: 1;
+}
+
+
 .app-icons {
   display: flex; /* Ativa o flexbox */
   justify-content: center; /* Centraliza os itens horizontalmente */
@@ -603,18 +617,6 @@ footer {
 }
 
 /* ===== NAVBAR ===== */
-.navbar-brand {
-  font-size: 1.5rem !important;
-}
-
-.navbar-brand img {
-  width: 50px !important;
-  margin-right: 10px !important;
-}
-
-.navbar-nav {
-  font-size: 1rem !important;
-}
 
 @media (max-width: 992px) {
   .navbar-collapse {

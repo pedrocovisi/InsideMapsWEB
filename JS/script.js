@@ -27,3 +27,16 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("theme", "escuro");
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const btnPerfil = document.getElementById("btnPerfil");
+    const usuarioLogado = localStorage.getItem("usuarioLogado");
+
+    if (usuarioLogado) {
+       
+        btnPerfil.href = "perfil.html"; 
+    } else {
+        
+        btnPerfil.href = "login.html";
+    }
+}); 

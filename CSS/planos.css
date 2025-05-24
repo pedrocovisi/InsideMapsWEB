@@ -58,7 +58,7 @@
 /* ====== GERAL CLARO ====== */
 /* ============================= */
 .claro body {
-  font-family: Montserrat;
+  font-family: Montserrat !important;
   background-color: #ffffff;
   color: #000000;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;

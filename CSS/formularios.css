@@ -247,3 +247,22 @@ body {
   border: 1px solid #777; /* Você pode ajustar a cor da borda se desejar */
   outline: none !important; /* Remove o contorno padrão do foco */
 }
+
+.escuro input:-webkit-autofill,
+.escuro textarea:-webkit-autofill,
+.escuro select:-webkit-autofill {
+  background-color: #2c2c2c !important;
+  -webkit-box-shadow: 0 0 0 1000px #2c2c2c inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+  caret-color: #ffffff !important; /* Cursor branco */
+  border: 1px solid #555 !important;
+}
+
+/* Aplica o estilo de foco */
+.escuro input:-webkit-autofill:focus,
+.escuro textarea:-webkit-autofill:focus,
+.escuro select:-webkit-autofill:focus {
+  border: 1px solid #777 !important;
+  outline: none !important;
+}
