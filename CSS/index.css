@@ -3,44 +3,47 @@
 /* ============================= */
 
 .banner-container {
-  width: 100%;
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 120px !important;
+  min-height: 50vh;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 20px 0;
+  align-items: stretch;
 }
 
 .banner {
-  width: 90%;
-  max-width: 1300px;
-  background-color: #4b4b4b;
-  padding: 40px;
-  border-radius: 15px;
-  margin: 20px 0;
-  transition: background-color 0.5s ease-in-out;
-}
-
-.banner .row {
+  flex: 1;
+  position: relative;
+  background-image: url('../assets/freepik3overlay.png');
+  background-size: cover;
+  background-position: center left;
+  background-repeat: no-repeat;
   display: flex;
-  flex-wrap: wrap;
-}
-
-.banner .col-md-6 {
-  padding: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 60px;
+  border-radius: 30px;
 }
 
 .banner-text {
+  color: white;
+  max-width: 600px;
+  width: 50%;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  align-items: flex-start; /* alinha filhos à esquerda */
 }
 
 .banner h1 {
   font-size: 3rem;
   font-weight: bold;
-  color: white;
   margin-bottom: 20px;
+  color: white;
 }
 
 .banner p {
@@ -49,40 +52,22 @@
   color: white;
 }
 
+
 .banner .btn {
   align-self: flex-start;
 }
 
 
-.banner .img-fluid {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5%;
-  object-fit: contain;
-}
-
-
-.image-container {
-  border-radius: 10px;
-}
-
-.banner .img-fluid {
-  max-width: none;
-  width: 80%;
-  height: auto;
-  /* border: 5px solid #888888; */
-  border-radius: 5%;
-}
-
 .rouded-image {
   border-radius: 5%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .text {
   font-size: 1.25rem;
 }
 
-.card-plan {  
+.card-plan {
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, background-color 0.5s ease-in-out !important;
@@ -97,7 +82,8 @@
 }
 
 .card-plan .btn {
-  margin-top: auto; /* Empurra o botão para o final */
+  margin-top: auto;
+  /* Empurra o botão para o final */
   width: 40%;
   margin: 10%;
 }
@@ -125,11 +111,11 @@
 body .plan-title {
   margin: 0;
   font-size: 1.5rem;
-  color: #348C70 !important ;
+  color: #348C70 !important;
   transition: color 0.3s ease-in-out;
 }
 
-body .price  {
+body .price {
   font-size: 2rem;
   font-weight: bold;
   color: #348C70 !important;
@@ -148,12 +134,12 @@ body .price  {
   margin-bottom: 5px;
 }
 
-.card-body small{
+.card-body small {
   color: #000000 !important;
   transition: color 0.3s ease-in-out;
 }
 
- body .btn-primary {
+body .btn-primary {
   background-color: #1fb183;
   border: none;
   border-radius: 5px;
@@ -175,7 +161,7 @@ body .price  {
   transition: background-color 0.5s ease-in-out;
 }
 
-.escuro body .banner h1, 
+.escuro body .banner h1,
 .escuro body .banner p {
   color: #f5f5f5;
 
@@ -192,12 +178,12 @@ body .price  {
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
-.escuro body .card-body{
+.escuro body .card-body {
   color: #ffffff;
   transition: color 0.3s ease-in-out;
 }
 
-.escuro body .card-body small{
+.escuro body .card-body small {
   color: #ffffff !important;
   transition: color 0.3s ease-in-out;
 }
@@ -206,7 +192,7 @@ body .price  {
 .escuro body .card-header {
   background-color: #348C70 !important;
   transition: background-color 0.5s ease-in-out;
-  
+
 }
 
 .escuro body .plan-title {
@@ -240,9 +226,11 @@ body .price  {
 
 .navbar .navbar-brand {
   display: flex;
-  align-items: center; /* Centraliza verticalmente o texto com a logo */
+  align-items: center;
+  /* Centraliza verticalmente o texto com a logo */
   font-weight: bold;
-  font-size: 1.8rem; /* Tamanho maior por padrão */
+  font-size: 1.8rem;
+  /* Tamanho maior por padrão */
 }
 
 .navbar-brand img {
@@ -258,40 +246,50 @@ body .price  {
 .navbar-nav a {
   margin-right: 1%;
   margin-left: 1%;
-  display: flex; /* Torna o link um flex container */
-  align-items: center; /* Alinha os itens verticalmente */
+  display: flex;
+  /* Torna o link um flex container */
+  align-items: center;
+  /* Alinha os itens verticalmente */
 }
 
 /* Aumenta o tamanho do ícone de perfil */
 .bi-person {
-  font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
+  font-size: 1.7rem;
+  /* Ajuste o tamanho conforme necessário */
 }
 
 .btn-group .btn {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-group i {
-    vertical-align: middle;
-    line-height: 1;
+  vertical-align: middle;
+  line-height: 1;
 }
 
 
 .app-icons {
-  display: flex; /* Ativa o flexbox */
-  justify-content: center; /* Centraliza os itens horizontalmente */
-  padding: 0; /* Remove o padding padrão da lista */
-  margin: 0; /* Remove a margem padrão da lista */
+  display: flex;
+  /* Ativa o flexbox */
+  justify-content: center;
+  /* Centraliza os itens horizontalmente */
+  padding: 0;
+  /* Remove o padding padrão da lista */
+  margin: 0;
+  /* Remove a margem padrão da lista */
 }
 
 .app-icon {
-  width: 200px; /* Define a largura desejada para as imagens */
-  height: auto; /* Mantém a proporção da imagem */
-  margin: 0 10px; /* Espaço entre as imagens */
+  width: 200px;
+  /* Define a largura desejada para as imagens */
+  height: auto;
+  /* Mantém a proporção da imagem */
+  margin: 0 10px;
+  /* Espaço entre as imagens */
 }
 
 .text-center {
@@ -316,7 +314,8 @@ body .price  {
 }
 
 .claro body .navbar-brand {
-  color: #000000; /* Cor do título no modo claro */
+  color: #000000;
+  /* Cor do título no modo claro */
   transition: color 0.3s ease-in-out;
 }
 
@@ -342,7 +341,8 @@ body .price  {
 }
 
 .claro body .navbar-nav .nav-link.active {
-  color: #348C70 !important; /* Verde mais claro */
+  color: #348C70 !important;
+  /* Verde mais claro */
 }
 
 /* ============================= */
@@ -356,43 +356,52 @@ body .price  {
 }
 
 .escuro body .navbar-brand {
-  color: #ffffff; /* Cor do título no modo escuro */
+  color: #ffffff;
+  /* Cor do título no modo escuro */
   transition: color 0.3s ease-in-out;
-  
+
 }
 
 .escuro body .navbar {
-  background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
+  background-color: #414141 !important;
+  /* Cor de fundo da navbar no modo escuro */
   transition: background-color 0.5s ease-in-out;
 }
 
 .escuro body .navbar-nav a {
-  color: #ffffff !important; /* Cor dos links na navbar */
+  color: #ffffff !important;
+  /* Cor dos links na navbar */
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .escuro body .navbar-nav a:hover {
-  color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
+  color: #348C70 !important;
+  /* Cor dos links ao passar o mouse no modo escuro */
   transform: scale(1.05);
 }
 
 .escuro body footer {
-  background-color: #343a40; /* Fundo escuro do footer */
-  color: #ffffff; /* Texto claro no footer */
+  background-color: #343a40;
+  /* Fundo escuro do footer */
+  color: #ffffff;
+  /* Texto claro no footer */
   transition: background-color 0.5s ease-in-out;
 }
 
 .escuro body footer a {
-  color: #ffffff; /* Cor dos links no footer */
+  color: #ffffff;
+  /* Cor dos links no footer */
   transition: color 0.3s ease-in-out;
 }
 
 .escuro body footer a:hover {
-  color: #17a2b8; /* Cor dos links ao passar o mouse */
+  color: #17a2b8;
+  /* Cor dos links ao passar o mouse */
 }
 
 .escuro body .navbar-nav .nav-link.active {
-  color: #248c60  !important; /* Verde mais claro */
+  color: #248c60 !important;
+  /* Verde mais claro */
 }
 
 /* ============================= */
@@ -407,6 +416,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -436,12 +446,14 @@ body {
   .container {
     padding: 0 10px;
   }
-  
-  h1, h2 {
+
+  h1,
+  h2 {
     font-size: 1.8rem !important;
   }
-  
-  p, li {
+
+  p,
+  li {
     font-size: 1rem !important;
   }
 }
@@ -451,11 +463,11 @@ body {
   .banner h1 {
     font-size: 2.2rem !important;
   }
-  
+
   .banner p {
     font-size: 1.1rem !important;
   }
-  
+
   .banner .btn {
     font-size: 0.9rem !important;
     padding: 8px 16px !important;
@@ -466,17 +478,17 @@ body {
   .banner {
     padding: 20px 15px !important;
   }
-  
+
   .banner h1 {
     font-size: 1.8rem !important;
     margin-bottom: 15px !important;
   }
-  
+
   .banner p {
     font-size: 0.95rem !important;
     margin-bottom: 20px !important;
   }
-  
+
   .banner .img-fluid {
     width: 100% !important;
     margin: 15px auto !important;
@@ -493,12 +505,12 @@ body {
     flex-direction: column !important;
     padding: 20px !important;
   }
-  
+
   .sobre-container .col-md-6 {
     width: 100% !important;
     margin-bottom: 20px;
   }
-  
+
   .sobre-container img {
     order: -1;
     margin-bottom: 20px;
@@ -525,11 +537,11 @@ body {
   .pricing-header h1 {
     font-size: 2rem !important;
   }
-  
+
   .pricing-header p {
     font-size: 1rem !important;
   }
-  
+
   .card-plan {
     margin-bottom: 20px;
   }
@@ -540,12 +552,14 @@ body {
     flex-direction: column;
     align-items: center;
   }
-  
-  .col-lg-4, .col-md-6, .col-sm-12 {
+
+  .col-lg-4,
+  .col-md-6,
+  .col-sm-12 {
     width: 100% !important;
     max-width: 400px;
   }
-  
+
   .card-plan .btn {
     width: 60% !important;
     margin: 5% auto !important;
@@ -556,20 +570,20 @@ body {
   .card-plan {
     padding: 15px !important;
   }
-  
+
   .card-header h4 {
     font-size: 1.3rem !important;
   }
 
-  .card-header{
+  .card-header {
     width: 100% !important;
     margin: 0 !important;
   }
-  
+
   .price {
     font-size: 1.8rem !important;
   }
-  
+
   .card-body ul li {
     font-size: 1rem !important;
   }
@@ -594,11 +608,11 @@ footer {
   footer {
     padding: 20px 0;
   }
-  
+
   .app-icon {
     width: 120px !important;
   }
-  
+
   footer p {
     font-size: 0.9rem !important;
   }
@@ -609,7 +623,7 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .app-icon {
     width: 180px !important;
     margin: 5px 0 !important;
@@ -622,16 +636,16 @@ footer {
   .navbar-collapse {
     padding-top: 15px;
   }
-  
+
   .navbar-nav {
     margin-right: 0 !important;
   }
-  
+
   .navbar-nav a {
     margin: 5px 0 !important;
     padding: 8px 15px !important;
   }
-  
+
   .btn-group {
     margin-top: 10px;
     justify-content: center;
@@ -642,11 +656,11 @@ footer {
   .navbar-brand {
     font-size: 1.3rem !important;
   }
-  
+
   .navbar-brand img {
     width: 40px !important;
   }
-  
+
   .bi-person {
     font-size: 1.4rem !important;
   }
@@ -663,16 +677,19 @@ footer {
 /* ===== MELHORIAS PARA DISPOSITIVOS MÓVEIS ===== */
 /* Evita zoom em inputs em iOS */
 @media (max-width: 768px) {
-  input, select, textarea {
+
+  input,
+  select,
+  textarea {
     font-size: 16px !important;
   }
 }
 
 /* Melhora a área de toque para mobile */
-.btn, .nav-link {
+.btn,
+.nav-link {
   min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
