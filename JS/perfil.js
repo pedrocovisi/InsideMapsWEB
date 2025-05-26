@@ -37,6 +37,86 @@ document.addEventListener("DOMContentLoaded", () => {
         feedback.className = tipo === "sucesso" ? "text-success" : "text-danger";
     }
 
+    // Função para validar email
+    function validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    // Função para validar idade (mínimo 13 anos)
+function validarIdade(dataNascimento) {
+    const nascimento = new Date(dataNascimento);
+    const hoje = new Date();
+
+    if (isNaN(nascimento.getTime())) return false; // data inválida
+
+    const idadeMinima = 13;
+
+    const dataMinima = new Date(
+        hoje.getFullYear() - idadeMinima,
+        hoje.getMonth(),
+        hoje.getDate()
+    );
+
+    return nascimento <= dataMinima;
+}
+
+
+    // Função para exibir erro
+    function exibirErro(campo, mensagem) {
+        const erroAnterior = campo.parentNode.querySelector('.erro-mensagem');
+        if (erroAnterior) {
+            erroAnterior.remove();
+        }
+
+        campo.classList.add('campo-erro');
+
+        const divErro = document.createElement('div');
+        divErro.className = 'erro-mensagem';
+        divErro.textContent = mensagem;
+        divErro.style.color = 'red';
+        divErro.style.fontSize = '12px';
+        divErro.style.marginTop = '2px';
+
+        campo.parentNode.insertBefore(divErro, campo.nextSibling);
+    }
+
+    // Função para remover erro
+    function removerErro(campo) {
+        campo.classList.remove('campo-erro');
+        const erro = campo.parentNode.querySelector('.erro-mensagem');
+        if (erro) {
+            erro.remove();
+        }
+    }
+
+    // Validação em tempo real
+    nomeInput.addEventListener('blur', () => {
+        if (nomeInput.value.trim().length < 2) {
+            exibirErro(nomeInput, 'Nome deve ter pelo menos 2 caracteres');
+        } else {
+            removerErro(nomeInput);
+        }
+    });
+
+    emailInput.addEventListener('blur', () => {
+        if (!validarEmail(emailInput.value)) {
+            exibirErro(emailInput, 'Email inválido');
+        } else {
+            removerErro(emailInput);
+        }
+    });
+
+    dataNascimentoInput.addEventListener('input', () => {
+        if (!dataNascimentoInput.value) {
+            exibirErro(dataNascimentoInput, 'Data de nascimento é obrigatória');
+        } else if (!validarIdade(dataNascimentoInput.value)) {
+            exibirErro(dataNascimentoInput, 'Você deve ter pelo menos 13 anos');
+        } else {
+            removerErro(dataNascimentoInput);
+        }
+    });
+
     editarBtn.addEventListener("click", async () => {
         if (!editando) {
             // Ativar edição
@@ -48,6 +128,17 @@ document.addEventListener("DOMContentLoaded", () => {
             // Salvar alterações
             if (!nomeInput.value.trim() || !emailInput.value.trim() || !dataNascimentoInput.value) {
                 mostrarFeedback("Todos os campos são obrigatórios.", "erro");
+                return;
+            }
+
+            // Validações
+            if (!validarEmail(emailInput.value.trim())) {
+                mostrarFeedback("Email inválido.", "erro");
+                return;
+            }
+
+            if (!validarIdade(dataNascimentoInput.value)) {
+                mostrarFeedback("Você deve ter pelo menos 13 anos.", "erro");
                 return;
             }
 

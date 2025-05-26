@@ -8,9 +8,11 @@
 
 .navbar .navbar-brand {
   display: flex;
-  align-items: center; /* Centraliza verticalmente o texto com a logo */
+  align-items: center;
+  /* Centraliza verticalmente o texto com a logo */
   font-weight: bold;
-  font-size: 1.8rem; /* Tamanho maior por padrão */
+  font-size: 1.8rem;
+  /* Tamanho maior por padrão */
 }
 
 .navbar-brand img {
@@ -26,26 +28,36 @@
 .navbar-nav a {
   margin-right: 1%;
   margin-left: 1%;
-  display: flex; /* Torna o link um flex container */
-  align-items: center; /* Alinha os itens verticalmente */
+  display: flex;
+  /* Torna o link um flex container */
+  align-items: center;
+  /* Alinha os itens verticalmente */
 }
 
 /* Aumenta o tamanho do ícone de perfil */
 .bi-person {
-  font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
+  font-size: 1.7rem;
+  /* Ajuste o tamanho conforme necessário */
 }
 
 .app-icons {
-  display: flex; /* Ativa o flexbox */
-  justify-content: center; /* Centraliza os itens horizontalmente */
-  padding: 0; /* Remove o padding padrão da lista */
-  margin: 0; /* Remove a margem padrão da lista */
+  display: flex;
+  /* Ativa o flexbox */
+  justify-content: center;
+  /* Centraliza os itens horizontalmente */
+  padding: 0;
+  /* Remove o padding padrão da lista */
+  margin: 0;
+  /* Remove a margem padrão da lista */
 }
 
 .app-icon {
-  width: 200px; /* Define a largura desejada para as imagens */
-  height: auto; /* Mantém a proporção da imagem */
-  margin: 0 10px; /* Espaço entre as imagens */
+  width: 200px;
+  /* Define a largura desejada para as imagens */
+  height: auto;
+  /* Mantém a proporção da imagem */
+  margin: 0 10px;
+  /* Espaço entre as imagens */
 }
 
 .text-center {
@@ -70,7 +82,8 @@
 }
 
 .claro body .navbar-brand {
-  color: #000000; /* Cor do título no modo claro */
+  color: #000000;
+  /* Cor do título no modo claro */
   transition: color 0.3s ease-in-out;
 }
 
@@ -96,7 +109,8 @@
 }
 
 .claro body .navbar-nav .nav-link.active {
-  color: #348C70 !important; /* Verde mais claro */
+  color: #348C70 !important;
+  /* Verde mais claro */
 }
 
 /* ============================= */
@@ -110,43 +124,52 @@
 }
 
 .escuro body .navbar-brand {
-  color: #ffffff; /* Cor do título no modo escuro */
+  color: #ffffff;
+  /* Cor do título no modo escuro */
   transition: color 0.3s ease-in-out;
-  
+
 }
 
 .escuro body .navbar {
-  background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
+  background-color: #414141 !important;
+  /* Cor de fundo da navbar no modo escuro */
   transition: background-color 0.5s ease-in-out;
 }
 
 .escuro body .navbar-nav a {
-  color: #ffffff !important; /* Cor dos links na navbar */
+  color: #ffffff !important;
+  /* Cor dos links na navbar */
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .escuro body .navbar-nav a:hover {
-  color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
+  color: #348C70 !important;
+  /* Cor dos links ao passar o mouse no modo escuro */
   transform: scale(1.05);
 }
 
 .escuro body footer {
-  background-color: #343a40; /* Fundo escuro do footer */
-  color: #ffffff; /* Texto claro no footer */
+  background-color: #343a40;
+  /* Fundo escuro do footer */
+  color: #ffffff;
+  /* Texto claro no footer */
   transition: background-color 0.5s ease-in-out;
 }
 
 .escuro body footer a {
-  color: #ffffff; /* Cor dos links no footer */
+  color: #ffffff;
+  /* Cor dos links no footer */
   transition: color 0.3s ease-in-out;
 }
 
 .escuro body footer a:hover {
-  color: #17a2b8; /* Cor dos links ao passar o mouse */
+  color: #17a2b8;
+  /* Cor dos links ao passar o mouse */
 }
 
 .escuro body .navbar-nav .nav-link.active {
-  color: #248c60  !important; /* Verde mais claro */
+  color: #248c60 !important;
+  /* Verde mais claro */
 }
 
 /* ============================= */
@@ -161,6 +184,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -175,8 +199,8 @@ body {
 /* ============================= */
 /* ====== FORMULÁRIOS CLARO ====== */
 /* ============================= */
- .container.margin-top {
-  margin-top: 120px;
+.container.margin-top {
+  margin-top: 200px;
 }
 
 .form-container {
@@ -185,7 +209,8 @@ body {
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  /* Aumenta a sombra */
   transition: background-color 0.5s ease-in-out;
 }
 
@@ -197,11 +222,11 @@ body {
 }
 
 
-.container.margin-bottom{
-    margin-bottom: 150px;
+.container.margin-bottom {
+  margin-bottom: 180px;
 }
 
- .btn-primary {
+.btn-primary {
   background-color: #1fb183 !important;
   border: none !important;
   border-radius: 5px;
@@ -214,12 +239,12 @@ body {
   background-color: #348C70 !important;
 }
 
-.link-primary{
+.link-primary {
   color: #1fb183 !important;
   text-decoration-color: #1fb183 !important;
 }
 
-.link-primary:hover{
+.link-primary:hover {
   color: #348C70 !important;
   text-decoration-color: #348C70 !important;
   transition: color 0.3s ease-in-out;
@@ -233,19 +258,25 @@ body {
   transition: background-color 0.5s ease-in-out;
 }
 
-.escuro body input, 
+.escuro body input,
 .escuro body textarea {
-  background-color: #2c2c2c !important; /* Cor de fundo escura */
-  color: #ffffff !important; /* Texto branco */
-  border: 1px solid #555; /* Borda mais escura */
+  background-color: #2c2c2c !important;
+  /* Cor de fundo escura */
+  color: #ffffff !important;
+  /* Texto branco */
+  border: 1px solid #555;
+  /* Borda mais escura */
   transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out, border 0.5s ease-in-out;
 }
 
-.escuro body input:focus, 
+.escuro body input:focus,
 .escuro body textarea:focus {
-  color: #ffffff !important; /* Texto branco quando em foco */
-  border: 1px solid #777; /* Você pode ajustar a cor da borda se desejar */
-  outline: none !important; /* Remove o contorno padrão do foco */
+  color: #ffffff !important;
+  /* Texto branco quando em foco */
+  border: 1px solid #777;
+  /* Você pode ajustar a cor da borda se desejar */
+  outline: none !important;
+  /* Remove o contorno padrão do foco */
 }
 
 .escuro input:-webkit-autofill,
@@ -255,7 +286,8 @@ body {
   -webkit-box-shadow: 0 0 0 1000px #2c2c2c inset !important;
   -webkit-text-fill-color: #ffffff !important;
   color: #ffffff !important;
-  caret-color: #ffffff !important; /* Cursor branco */
+  caret-color: #ffffff !important;
+  /* Cursor branco */
   border: 1px solid #555 !important;
 }
 
@@ -379,8 +411,13 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: translateY(-50%) rotate(0deg); }
-  100% { transform: translateY(-50%) rotate(360deg); }
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 /* ============================= */
