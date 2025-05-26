@@ -266,3 +266,159 @@ body {
   border: 1px solid #777 !important;
   outline: none !important;
 }
+
+/* ============================= */
+/* ====== VALIDAÇÃO - MODO CLARO ====== */
+/* ============================= */
+
+/* Estilos para campos com erro - Modo Claro */
+.campo-erro {
+  border: 2px solid #e74c3c !important;
+  background-color: #fdf2f2 !important;
+  box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
+}
+
+.campo-erro:focus {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25) !important;
+  outline: none !important;
+}
+
+/* Mensagens de erro - Modo Claro */
+.erro-mensagem {
+  color: #e74c3c !important;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilo para campos válidos - Modo Claro (opcional) */
+.campo-valido {
+  border: 2px solid #1fb183 !important;
+  background-color: #f0fff4 !important;
+  transition: border-color 0.3s ease, background-color 0.3s ease !important;
+}
+
+/* ============================= */
+/* ====== VALIDAÇÃO - MODO ESCURO ====== */
+/* ============================= */
+
+/* Estilos para campos com erro - Modo Escuro */
+.escuro .campo-erro {
+  border: 2px solid #e74c3c !important;
+  background-color: #3d2828 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
+}
+
+.escuro .campo-erro:focus {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25) !important;
+  outline: none !important;
+  color: #ffffff !important;
+}
+
+/* Mensagens de erro - Modo Escuro */
+.escuro .erro-mensagem {
+  color: #ff6b6b !important;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilo para campos válidos - Modo Escuro (opcional) */
+.escuro .campo-valido {
+  border: 2px solid #1fb183 !important;
+  background-color: #2d3f2d !important;
+  color: #ffffff !important;
+  transition: border-color 0.3s ease, background-color 0.3s ease !important;
+}
+
+/* ============================= */
+/* ====== BOTÃO COM ESTADO DE CARREGAMENTO ====== */
+/* ============================= */
+
+/* Estilo para botão desabilitado durante envio */
+.btn-primary:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  transform: none !important;
+}
+
+.btn-primary:disabled:hover {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  transform: none !important;
+}
+
+/* Indicador visual de carregamento no botão */
+.btn-loading {
+  position: relative;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* ============================= */
+/* ====== MELHORIAS GERAIS DE VALIDAÇÃO ====== */
+/* ============================= */
+
+/* Suavização de transições para todos os inputs */
+.form-control {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
+}
+
+/* Ajuste do foco padrão do Bootstrap para manter consistência */
+.form-control:focus {
+  border-color: #1fb183 !important;
+  box-shadow: 0 0 0 0.2rem rgba(31, 177, 131, 0.25) !important;
+}
+
+.escuro .form-control:focus {
+  border-color: #1fb183 !important;
+  box-shadow: 0 0 0 0.2rem rgba(31, 177, 131, 0.25) !important;
+}
+
+/* Espaçamento adequado para as mensagens de erro */
+.mb-3 {
+  position: relative;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Garantir que as mensagens de erro não quebrem o layout */
+.erro-mensagem {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Ajuste para campos que possuem mensagem de erro */
+.mb-3:has(.erro-mensagem) {
+  margin-bottom: 2rem !important;
+}
