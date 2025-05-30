@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("🚀 DOM carregado, iniciando cadastro.js");
+  
   const form = document.querySelector("form");
+  if (!form) {
+    console.error("❌ Formulário não encontrado!");
+    return;
+  }
+  
+  console.log("✅ Formulário encontrado");
   form.setAttribute('novalidate', '');
 
   // Função para validar email
@@ -13,16 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
     return senha.length >= 6 && /\d/.test(senha);
   }
 
-  // Função para validar idade (mínimo 13 anos)
+  // Função para validar idade (mínimo 13 anos) - CORRIGIDA
   function validarIdade(dataNascimento) {
     const hoje = new Date();
     const nascimento = new Date(dataNascimento);
-    const idade = hoje.getFullYear() - nascimento.getFullYear();
+    let idade = hoje.getFullYear() - nascimento.getFullYear(); // ← CORRIGIDO: const para let
     const mesAtual = hoje.getMonth();
     const mesNascimento = nascimento.getMonth();
     
     if (mesAtual < mesNascimento || (mesAtual === mesNascimento && hoje.getDate() < nascimento.getDate())) {
-      idade--;
+        idade--; // ← AGORA FUNCIONA: pode alterar porque é let
     }
     
     return idade >= 13;
@@ -74,6 +82,28 @@ document.addEventListener("DOMContentLoaded", () => {
     dataNascimento: document.getElementById("data-nascimento")
   };
 
+  // Verificar se todos os elementos foram encontrados
+  console.log("🔍 Elementos encontrados:", {
+    nome: !!campos.nome,
+    email: !!campos.email,
+    senha: !!campos.senha,
+    dataNascimento: !!campos.dataNascimento
+  });
+
+  // Verificação de segurança - parar se algum elemento não foi encontrado
+  if (!campos.nome || !campos.email || !campos.senha || !campos.dataNascimento) {
+    console.error("❌ Alguns elementos do formulário não foram encontrados!");
+    console.error("Elementos faltando:", {
+      nome: !campos.nome ? "FALTANDO" : "OK",
+      email: !campos.email ? "FALTANDO" : "OK", 
+      senha: !campos.senha ? "FALTANDO" : "OK",
+      dataNascimento: !campos.dataNascimento ? "FALTANDO" : "OK"
+    });
+    return;
+  }
+
+  console.log("✅ Todos os elementos encontrados, configurando validações");
+
   // Validação do nome em tempo real
   campos.nome.addEventListener('blur', () => {
     if (campos.nome.value.trim().length < 2) {
@@ -112,45 +142,65 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  console.log("✅ Event listeners de validação configurados");
+
+  // Event listener do formulário
   form.addEventListener("submit", async (event) => {
+    console.log("🚀 Submit do formulário iniciado");
     event.preventDefault();
     
     // Limpa erros anteriores
     limparErros();
+    console.log("✅ Erros anteriores limpos");
 
     const nome = campos.nome.value.trim();
     const email = campos.email.value.trim();
     const senha = campos.senha.value;
     const dataNascimento = campos.dataNascimento.value;
 
+    console.log("📝 Dados capturados:", {
+      nome: nome,
+      email: email,
+      senha: senha ? "***" : "VAZIO", // Não mostrar senha real no log
+      dataNascimento: dataNascimento
+    });
+
     let temErro = false;
 
     // Validações
     if (!nome || nome.length < 2) {
+      console.log("❌ Erro: Nome inválido");
       exibirErro(campos.nome, 'Nome é obrigatório e deve ter pelo menos 2 caracteres');
       temErro = true;
     }
 
     if (!email || !validarEmail(email)) {
+      console.log("❌ Erro: Email inválido");
       exibirErro(campos.email, 'Email válido é obrigatório');
       temErro = true;
     }
 
     if (!senha || !validarSenha(senha)) {
+      console.log("❌ Erro: Senha inválida");
       exibirErro(campos.senha, 'Senha deve ter pelo menos 6 caracteres e conter pelo menos 1 número');
       temErro = true;
     }
 
     if (!dataNascimento) {
+      console.log("❌ Erro: Data de nascimento não informada");
       exibirErro(campos.dataNascimento, 'Data de nascimento é obrigatória');
       temErro = true;
     } else if (!validarIdade(dataNascimento)) {
+      console.log("❌ Erro: Idade menor que 13 anos");
       exibirErro(campos.dataNascimento, 'Você deve ter pelo menos 13 anos');
       temErro = true;
     }
 
+    console.log("🔍 Resultado da validação - Tem erro:", temErro);
+
     // Se há erros, não envia o formulário
     if (temErro) {
+      console.log("❌ Parando execução devido a erros de validação");
       return;
     }
 
@@ -163,6 +213,11 @@ document.addEventListener("DOMContentLoaded", () => {
       status: 1
     };
 
+    console.log("📦 Objeto usuário criado:", {
+      ...usuario,
+      senha: "***" // Não mostrar senha real no log
+    });
+
     // Desabilita o botão de submit durante o envio
     const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('input[type="submit"]');
     if (submitBtn) {
@@ -171,9 +226,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const textoOriginal = submitBtn.textContent || submitBtn.value;
       submitBtn.textContent = 'Cadastrando...';
       submitBtn.value = 'Cadastrando...';
+      console.log("🔒 Botão desabilitado, texto alterado para 'Cadastrando...'");
     }
 
     try {
+      console.log("🌐 Iniciando requisição para API...");
+      
       const response = await fetch("http://localhost:8080/api/usuarios", {
         method: "POST",
         headers: {
@@ -182,22 +240,49 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(usuario)
       });
 
+      console.log("📡 Resposta recebida - Status:", response.status);
+
       if (response.ok) {
+        console.log("✅ Cadastro realizado com sucesso!");
         alert("Cadastro realizado com sucesso!");
         window.location.href = "login.html";
       } else {
-        const errorData = await response.json().catch(() => response.text());
+        console.log("❌ Erro na resposta da API - Status:", response.status);
+        
+        let errorData;
+        try {
+          errorData = await response.json();
+          console.log("📄 Dados do erro (JSON):", errorData);
+        } catch (jsonError) {
+          console.log("⚠️ Erro não é JSON, tentando como texto");
+          errorData = await response.text();
+          console.log("📄 Dados do erro (texto):", errorData);
+        }
         
         // Se o erro for um objeto com campos específicos (do backend)
         if (typeof errorData === 'object' && errorData !== null) {
+          console.log("🔍 Processando erros específicos por campo");
+          
           // Limpa erros anteriores
           limparErros();
           
           // Exibe erros específicos para cada campo
-          if (errorData.nome) exibirErro(campos.nome, errorData.nome);
-          if (errorData.email) exibirErro(campos.email, errorData.email);
-          if (errorData.senha) exibirErro(campos.senha, errorData.senha);
-          if (errorData.dataNascimento) exibirErro(campos.dataNascimento, errorData.dataNascimento);
+          if (errorData.nome) {
+            console.log("❌ Erro no campo nome:", errorData.nome);
+            exibirErro(campos.nome, errorData.nome);
+          }
+          if (errorData.email) {
+            console.log("❌ Erro no campo email:", errorData.email);
+            exibirErro(campos.email, errorData.email);
+          }
+          if (errorData.senha) {
+            console.log("❌ Erro no campo senha:", errorData.senha);
+            exibirErro(campos.senha, errorData.senha);
+          }
+          if (errorData.dataNascimento) {
+            console.log("❌ Erro no campo dataNascimento:", errorData.dataNascimento);
+            exibirErro(campos.dataNascimento, errorData.dataNascimento);
+          }
           
           // Se houver outros erros não específicos
           const outrosErros = Object.keys(errorData).filter(key => 
@@ -205,24 +290,31 @@ document.addEventListener("DOMContentLoaded", () => {
           );
           
           if (outrosErros.length > 0) {
+            console.log("⚠️ Outros erros encontrados:", outrosErros);
             alert(`Erro ao cadastrar: ${Object.values(errorData).join(', ')}`);
           }
         } else {
           // Erro genérico ou string
+          console.log("⚠️ Erro genérico:", errorData);
           alert(`Erro ao cadastrar: ${errorData}`);
         }
       }
     } catch (error) {
-      console.error("Erro na requisição:", error);
+      console.error("💥 Erro na requisição (catch):", error);
       alert("Erro de conexão com o servidor.");
     } finally {
       // Reabilita o botão
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.classList.remove('btn-loading');
+        const textoOriginal = submitBtn.getAttribute('data-texto-original') || 'Cadastrar';
         submitBtn.textContent = textoOriginal;
         submitBtn.value = textoOriginal;
+        console.log("🔓 Botão reabilitado");
       }
     }
   });
+
+  console.log("✅ Event listener do submit configurado");
+  console.log("🎯 Cadastro.js totalmente carregado e configurado");
 });
