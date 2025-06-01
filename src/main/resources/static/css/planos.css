@@ -1,6 +1,10 @@
 /* ============================= */
 /* ====== GERAL ====== */
 /* ============================= */
+body {
+  padding-top: 80px; /* Ajuste conforme a altura real da sua navbar */
+}
+
 .navbar-brand {
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 700;
