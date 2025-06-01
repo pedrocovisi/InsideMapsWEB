@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sairBtn = document.getElementById("sairBtn");
     const feedback = document.getElementById("feedback");
     const avatarImg = document.getElementById("avatar");
+    const alterarSenhaBtn = document.getElementById("alterarSenhaBtn");
+
 
     if (!usuarioLogado) {
         alert("Você não está logado. Redirecionando para login.");
@@ -44,22 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Função para validar idade (mínimo 13 anos)
-function validarIdade(dataNascimento) {
-    const nascimento = new Date(dataNascimento);
-    const hoje = new Date();
+    function validarIdade(dataNascimento) {
+        const nascimento = new Date(dataNascimento);
+        const hoje = new Date();
 
-    if (isNaN(nascimento.getTime())) return false; // data inválida
+        if (isNaN(nascimento.getTime())) return false; // data inválida
 
-    const idadeMinima = 13;
+        const idadeMinima = 13;
 
-    const dataMinima = new Date(
-        hoje.getFullYear() - idadeMinima,
-        hoje.getMonth(),
-        hoje.getDate()
-    );
+        const dataMinima = new Date(
+            hoje.getFullYear() - idadeMinima,
+            hoje.getMonth(),
+            hoje.getDate()
+        );
 
-    return nascimento <= dataMinima;
-}
+        return nascimento <= dataMinima;
+    }
 
 
     // Função para exibir erro
@@ -189,5 +191,9 @@ function validarIdade(dataNascimento) {
     sairBtn.addEventListener("click", () => {
         localStorage.removeItem("usuarioLogado");
         window.location.href = "login.html"; // Redireciona para login após logout
+    });
+
+    alterarSenhaBtn.addEventListener("click", () => {
+        window.location.href = "alterar.html";
     });
 });

@@ -29,14 +29,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const btnPerfil = document.getElementById("btnPerfil");
-    const usuarioLogado = localStorage.getItem("usuarioLogado");
+    const btnPerfil = document.getElementById('btnPerfil');
 
-    if (usuarioLogado) {
-       
-        btnPerfil.href = "perfil.html"; 
-    } else {
-        
-        btnPerfil.href = "login.html";
+    if (btnPerfil) {
+        btnPerfil.addEventListener('click', (event) => {
+            event.preventDefault(); // Impede o comportamento padrão do link
+
+            // Verifica se o usuário está logado
+            const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+            if (usuarioLogado && usuarioLogado !== 'null') {
+                // Usuário está logado - vai para o perfil
+                window.location.href = 'perfil.html';
+            } else {
+                // Usuário não está logado - vai para o login
+                window.location.href = 'login.html';
+            }
+        });
     }
-}); 
+});

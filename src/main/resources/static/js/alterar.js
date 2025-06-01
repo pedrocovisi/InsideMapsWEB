@@ -1,5 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById('redefinirSenhaForm');
+    console.log("🚀 alterar.js carregado");
+    
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    console.log("👤 Usuário logado:", usuarioLogado);
+    
+    const form = document.getElementById('alterarSenhaForm');
+    console.log("📋 Formulário encontrado:", !!form);
+    
+    // Verificar se usuário está logado
+    if (!usuarioLogado) {
+        alert('Você precisa estar logado para alterar a senha.');
+        window.location.href = 'login.html';
+        return;
+    }
+
     form.setAttribute('novalidate', '');
 
     // Função para validar senha (mínimo 6 caracteres, pelo menos 1 número)
@@ -7,23 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return senha.length >= 6 && /\d/.test(senha);
     }
 
-    // Função para verificar se as senhas coincidem
-    function senhasCoincidentes(senha1, senha2) {
-        return senha1 === senha2 && senha1.length > 0;
-    }
-
     // Função para exibir erro
     function exibirErro(campo, mensagem) {
-        // Remove erro anterior se existir
         const erroAnterior = campo.parentNode.querySelector('.erro-mensagem');
         if (erroAnterior) {
             erroAnterior.remove();
         }
 
-        // Adiciona classe de erro ao campo
         campo.classList.add('campo-erro');
 
-        // Cria elemento de erro
         const divErro = document.createElement('div');
         divErro.className = 'erro-mensagem';
         divErro.textContent = mensagem;
@@ -31,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         divErro.style.fontSize = '12px';
         divErro.style.marginTop = '2px';
 
-        // Insere o erro após o campo
         campo.parentNode.insertBefore(divErro, campo.nextSibling);
     }
 
@@ -63,30 +68,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Referências dos campos
     const campos = {
+        senhaAtual: document.getElementById("senhaAtual"),
         novaSenha: document.getElementById("novaSenha"),
         confirmarSenha: document.getElementById("confirmarSenha")
     };
 
-    // Validação da nova senha em tempo real (blur)
+    // Botão voltar
+    const voltarBtn = document.getElementById('voltarBtn');
+    if (voltarBtn) {
+        voltarBtn.addEventListener('click', () => {
+            window.location.href = 'perfil.html';
+        });
+    }
+
+    // Validações em tempo real (igual ao código anterior)
+    campos.senhaAtual.addEventListener('blur', () => {
+        const senha = campos.senhaAtual.value;
+        if (!senha) {
+            exibirErro(campos.senhaAtual, 'Senha atual é obrigatória');
+        } else {
+            removerErro(campos.senhaAtual);
+        }
+    });
+
     campos.novaSenha.addEventListener('blur', () => {
         const senha = campos.novaSenha.value;
-        
         if (!senha) {
             exibirErro(campos.novaSenha, 'Nova senha é obrigatória');
         } else if (senha.length < 6) {
-            exibirErro(campos.novaSenha, 'Senha deve ter pelo menos 6 caracteres');
+            exibirErro(campos.novaSenha, 'Nova senha deve ter pelo menos 6 caracteres');
         } else if (!/\d/.test(senha)) {
-            exibirErro(campos.novaSenha, 'Senha deve conter pelo menos 1 número');
+            exibirErro(campos.novaSenha, 'Nova senha deve conter pelo menos 1 número');
         } else {
             marcarComoValido(campos.novaSenha);
-            // Revalida confirmação se já foi preenchida
             if (campos.confirmarSenha.value) {
                 validarConfirmacaoSenha();
             }
         }
     });
 
-    // Função para validar confirmação de senha
     function validarConfirmacaoSenha() {
         const novaSenha = campos.novaSenha.value;
         const confirmarSenha = campos.confirmarSenha.value;
@@ -100,17 +120,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Validação da confirmação de senha em tempo real (blur)
     campos.confirmarSenha.addEventListener('blur', validarConfirmacaoSenha);
 
-    // Validação em tempo real durante digitação (input)
+    // Validação durante digitação
+    campos.senhaAtual.addEventListener('input', () => {
+        if (campos.senhaAtual.classList.contains('campo-erro')) {
+            removerErro(campos.senhaAtual);
+        }
+    });
+
     campos.novaSenha.addEventListener('input', () => {
-        // Remove erro se estava com erro
         if (campos.novaSenha.classList.contains('campo-erro')) {
             removerErro(campos.novaSenha);
         }
-        
-        // Se confirmação já foi preenchida, revalida
         if (campos.confirmarSenha.value) {
             if (campos.confirmarSenha.classList.contains('campo-erro')) {
                 removerErro(campos.confirmarSenha);
@@ -119,12 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     campos.confirmarSenha.addEventListener('input', () => {
-        // Remove erro se estava com erro
         if (campos.confirmarSenha.classList.contains('campo-erro')) {
             removerErro(campos.confirmarSenha);
         }
         
-        // Validação em tempo real para senhas coincidentes
         const novaSenha = campos.novaSenha.value;
         const confirmarSenha = campos.confirmarSenha.value;
         
@@ -133,37 +153,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Captura o token da URL uma vez
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
-
-    // Verifica se o token existe na URL
-    if (!token) {
-        alert('Token de recuperação não encontrado. Solicite uma nova recuperação de senha.');
-        window.location.href = 'recuperar.html';
-        return;
-    }
-
+    // Submit do formulário
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
+        console.log("📤 Formulário enviado");
         
-        // Limpa erros anteriores
         limparErros();
 
+        const senhaAtual = campos.senhaAtual.value;
         const novaSenha = campos.novaSenha.value;
         const confirmarSenha = campos.confirmarSenha.value;
 
+        console.log("📝 Dados:", { senhaAtual: "***", novaSenha: "***", confirmarSenha: "***" });
+
         let temErro = false;
 
-        // Validações completas no submit
+        // Validações
+        if (!senhaAtual) {
+            exibirErro(campos.senhaAtual, 'Senha atual é obrigatória');
+            temErro = true;
+        }
+
         if (!novaSenha) {
             exibirErro(campos.novaSenha, 'Nova senha é obrigatória');
             temErro = true;
         } else if (!validarSenha(novaSenha)) {
             if (novaSenha.length < 6) {
-                exibirErro(campos.novaSenha, 'Senha deve ter pelo menos 6 caracteres');
+                exibirErro(campos.novaSenha, 'Nova senha deve ter pelo menos 6 caracteres');
             } else {
-                exibirErro(campos.novaSenha, 'Senha deve conter pelo menos 1 número');
+                exibirErro(campos.novaSenha, 'Nova senha deve conter pelo menos 1 número');
             }
             temErro = true;
         }
@@ -176,66 +194,65 @@ document.addEventListener("DOMContentLoaded", () => {
             temErro = true;
         }
 
-        // Se há erros, não envia o formulário
         if (temErro) {
+            console.log("❌ Erro de validação");
             return;
         }
 
-        // Desabilita o botão de submit durante o envio
-        const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('input[type="submit"]');
+        // Desabilita o botão
+        const submitBtn = form.querySelector('button[type="submit"]');
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.classList.add('btn-loading');
-            const textoOriginal = submitBtn.textContent || submitBtn.value;
-            submitBtn.textContent = 'Redefinindo...';
-            submitBtn.value = 'Redefinindo...';
+            const textoOriginal = submitBtn.textContent;
+            submitBtn.textContent = 'Alterando...';
         }
 
         try {
-            const response = await fetch('http://localhost:8080/api/usuarios/redefinir-senha', {
-                method: 'POST',
+            const userId = usuarioLogado.usuario?.id || usuarioLogado.id;
+            console.log("🆔 User ID:", userId);
+            
+            const response = await fetch(`http://localhost:8080/api/usuarios/${userId}/alterar-senha`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ 
-                    token: token, 
+                    senhaAtual: senhaAtual,
                     novaSenha: novaSenha 
                 })
             });
 
+            console.log("📡 Response status:", response.status);
+
             if (response.ok) {
-                // Sucesso - redireciona para o login
-                alert('Senha redefinida com sucesso! Você será redirecionado para o login.');
-                window.location.href = 'login.html';
+                alert('Senha alterada com sucesso! Você será redirecionado para o perfil.');
+                window.location.href = 'perfil.html';
             } else {
-                // Trata diferentes tipos de erro
                 const errorText = await response.text().catch(() => 'Erro desconhecido');
+                console.log("❌ Erro:", errorText);
                 
                 if (response.status === 400) {
-                    if (errorText.includes('Token')) {
-                        alert('Token inválido ou expirado. Você será redirecionado para solicitar uma nova recuperação.');
-                        setTimeout(() => {
-                            window.location.href = 'recuperar.html';
-                        }, 2000);
-                    } else if (errorText.includes('senha')) {
+                    if (errorText.includes('Senha atual incorreta') || errorText.includes('senha atual')) {
+                        exibirErro(campos.senhaAtual, 'Senha atual incorreta');
+                    } else if (errorText.includes('Nova senha')) {
                         exibirErro(campos.novaSenha, errorText);
                     } else {
                         alert(`Erro: ${errorText}`);
                     }
                 } else {
-                    alert(`Erro ao redefinir senha: ${errorText}`);
+                    alert(`Erro ao alterar senha: ${errorText}`);
                 }
             }
         } catch (error) {
-            console.error('Erro ao redefinir a senha:', error);
+            console.error('💥 Erro na requisição:', error);
             alert('Erro de conexão com o servidor. Verifique sua internet e tente novamente.');
         } finally {
             // Reabilita o botão
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('btn-loading');
-                submitBtn.textContent = textoOriginal;
-                submitBtn.value = textoOriginal;
+                submitBtn.textContent = 'Alterar Senha';
             }
         }
     });
