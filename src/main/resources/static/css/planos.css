@@ -1,20 +1,71 @@
 /* ============================= */
-/* ====== GERAL ====== */
+/* ====== 1. VARIÁVEIS CSS (CUSTOM PROPERTIES) ====== */
 /* ============================= */
-body {
-  padding-top: 80px; /* Ajuste conforme a altura real da sua navbar */
+:root {
+  --primary-green: #1fb183;
+  --primary-green-hover: #348C70;
+  --primary-green-dark: #248c60;
+
+  --text-light: #ffffff;
+  --text-dark: #000000;
+  --text-muted: #6c757d;
+
+  --bg-light: #ffffff;
+  --bg-dark: #464545;
+  --bg-navbar-dark: #414141;
+  --bg-footer-light: #f8f9fa;
+  --bg-footer-dark: #343a40;
+  --bg-card-light: #ffffff;
+  --bg-card-dark: #3f3f3f;
+
+  --navbar-height: 80px;
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+  --transition-speed-slow: 0.5s;
+
+  --font-size-navbar: 1.2rem;
+  --font-size-navbar-brand: 1.8rem;
+  --font-size-icon-person: 1.7rem;
 }
 
+/* ============================= */
+/* ====== 2. RESET E BASE ====== */
+/* ============================= */
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  padding-top: var(--navbar-height);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+  transition: background-color var(--transition-speed-slow) ease-in-out,
+    color var(--transition-speed-slow) ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================= */
+/* ====== 3. LAYOUT - NAVBAR ====== */
+/* ============================= */
 .navbar-brand {
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-navbar-brand);
 }
 
 .navbar .navbar-brand {
   display: flex;
-  align-items: center; /* Centraliza verticalmente o texto com a logo */
+  align-items: center;
   font-weight: bold;
-  font-size: 1.8rem; /* Tamanho maior por padrão */
+  font-size: var(--font-size-navbar-brand);
 }
 
 .navbar-brand img {
@@ -22,7 +73,7 @@ body {
 }
 
 .navbar-nav {
-  font-size: 1.2rem;
+  font-size: var(--font-size-navbar);
   margin-right: 2%;
   align-items: center;
 }
@@ -30,285 +81,191 @@ body {
 .navbar-nav a {
   margin-right: 1%;
   margin-left: 1%;
-  display: flex; /* Torna o link um flex container */
-  align-items: center; /* Alinha os itens verticalmente */
+  display: flex;
+  align-items: center;
+  transition: transform var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
 }
 
-/* Aumenta o tamanho do ícone de perfil */
+.navbar-nav a:hover {
+  color: var(--primary-green-hover) !important;
+  transform: scale(1.05);
+}
+
 .bi-person {
-  font-size: 1.7rem; /* Ajuste o tamanho conforme necessário */
+  font-size: var(--font-size-icon-person);
 }
 
+/* ============================= */
+/* ====== 4. LAYOUT - FOOTER ====== */
+/* ============================= */
 .app-icons {
-  display: flex; /* Ativa o flexbox */
-  justify-content: center; /* Centraliza os itens horizontalmente */
-  padding: 0; /* Remove o padding padrão da lista */
-  margin: 0; /* Remove a margem padrão da lista */
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 .app-icon {
-  width: 200px; /* Define a largura desejada para as imagens */
-  height: auto; /* Mantém a proporção da imagem */
-  margin: 0 10px; /* Espaço entre as imagens */
+  width: 200px;
+  height: auto;
+  margin: 0 10px;
 }
 
 .text-center {
   margin-top: 0%;
 }
 
+/* ============================= */
+/* ====== 5. COMPONENTES - PLANOS ====== */
+/* ============================= */
+.plan-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary-green-hover) !important;
+  transition: color 0.3s ease-in-out;
+}
 
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-green-hover) !important;
+  margin: 10px 0;
+  transition: color 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--primary-green);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: transform 0.3s, background-color 0.5s ease-in-out !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-green-hover) !important;
+  transform: scale(1.08);
+}
+
+.card-plan {
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.5s ease-in-out !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  flex-grow: 1;
+  min-height: 100%;
+  background-color: var(--bg-card-light);
+}
+
+.card-plan .btn {
+  margin-top: auto;
+  width: 40%;
+  margin: 10%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.card-plan:hover {
+  transform: translateY(-5px) !important;
+}
+
+.card-header {
+  font-weight: bold;
+  padding: 15px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  vertical-align: center;
+  width: 100%;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.card-body ul li {
+  padding: 5px 0;
+  font-size: 1.1rem;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.card-body small {
+  color: var(--text-dark) !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.container.margin-top {
+  margin-top: 120px;
+}
+
+table {
+  margin: 0 auto;
+  width: 80%;
+}
+
+th,
+td,
+tr {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.header {
+  background-color: var(--primary-green-hover);
+  color: white;
+}
+
+.table .plan-title {
+  font-weight: bold;
+}
 
 /* ============================= */
-/* ====== GERAL CLARO ====== */
+/* ====== 6. TEMA CLARO ====== */
 /* ============================= */
 .claro body {
-  font-family: Montserrat !important;
-  background-color: #ffffff;
-  color: #000000;
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .claro body .navbar {
-  background-color: #ffffff !important;
+  background-color: var(--bg-light) !important;
   transition: background-color 0.5s ease-in-out;
 }
 
 .claro body .navbar-brand {
-  color: #000000; /* Cor do título no modo claro */
+  color: var(--text-dark);
   transition: color 0.3s ease-in-out;
 }
 
 .claro body .navbar-nav a {
-  color: #000000 !important;
+  color: var(--text-dark) !important;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.claro body .navbar-nav a:hover {
-  color: #348C70 !important;
-  transform: scale(1.05);
+.claro body .navbar-nav .nav-link.active {
+  color: var(--primary-green-hover) !important;
 }
 
 .claro body footer {
-  background-color: #f8f9fa;
-  color: #000000;
+  background-color: var(--bg-footer-light);
+  color: var(--text-dark);
   transition: background-color 0.5s ease-in-out;
 }
 
 .claro body footer a {
-  color: #000000;
+  color: var(--text-dark);
   transition: color 0.3s ease-in-out;
-}
-
-.claro body .navbar-nav .nav-link.active {
-  color: #348C70 !important; /* Verde mais claro */
-}
-
-/* ============================= */
-/* ====== GERAL ESCURO  ====== */
-/* ============================= */
-.escuro body {
-  font-family: Montserrat !important;
-  background-color: #464545;
-  color: #ffffff;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-.escuro body .navbar-brand {
-  color: #ffffff; /* Cor do título no modo escuro */
-  transition: color 0.3s ease-in-out;
-  
-}
-
-.escuro body .navbar {
-  background-color: #414141 !important; /* Cor de fundo da navbar no modo escuro */
-  transition: background-color 0.5s ease-in-out;
-}
-
-.escuro body .navbar-nav a {
-  color: #ffffff !important; /* Cor dos links na navbar */
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.escuro body .navbar-nav a:hover {
-  color: #348C70 !important; /* Cor dos links ao passar o mouse no modo escuro */
-  transform: scale(1.05);
-}
-
-.escuro body footer {
-  background-color: #343a40; /* Fundo escuro do footer */
-  color: #ffffff; /* Texto claro no footer */
-  transition: background-color 0.5s ease-in-out;
-}
-
-.escuro body footer a {
-  color: #ffffff; /* Cor dos links no footer */
-  transition: color 0.3s ease-in-out;
-}
-
-.escuro body footer a:hover {
-  color: #17a2b8; /* Cor dos links ao passar o mouse */
-}
-
-.escuro body .navbar-nav .nav-link.active {
-  color: #248c60  !important; /* Verde mais claro */
-}
-
-/* ============================= */
-/* ====== ANIMAÇÕES GERAIS ====== */
-/* ============================= */
-body {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.btn-primary {
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-
-.btn-primary:hover {
-  transform: scale(1.08);
-}
-
-
-
-
-
-
-  
-  /* ============================= */
-  /* ====== PLANOS CLARO ====== */
-  /* ============================= */
-
-
-  body .plan-title {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #348C70 !important ;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  body .price  {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #348C70 !important;
-    margin: 10px 0;
-    transition: color 0.3s ease-in-out;
-  }
-
-  body .btn-primary {
-    background-color: #1fb183;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    transition: transform 0.3s, background-color 0.5s ease-in-out !important;
-  }
-  
-  .btn-primary:hover {
-    background-color: #348C70 !important;
-  }
-
-  .card-plan {  
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, background-color 0.5s ease-in-out !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: auto;
-    flex-grow: 1;
-    min-height: 100%;
-    background-color: #ffffff;
-  }
-  
-  .card-plan .btn {
-    margin-top: auto; /* Empurra o botão para o final */
-    width: 40%;
-    margin: 10%;
-  }
-  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-  }
-  
-  .card-plan:hover {
-    transform: translateY(-5px) !important;
-  }
-  
-  .card-header {
-    font-weight: bold;
-    padding: 15px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    vertical-align: center;
-    width: 100%;
-  }
-
-  .card-body {
-    flex-grow: 1;
-  }
-  
-  .card-body ul li {
-    padding: 5px 0;
-    font-size: 1.1rem;
-    text-align: left;
-    margin-bottom: 5px;
-  }
-  
-  .card-body small{
-    color: #000000 !important;
-    transition: color 0.3s ease-in-out;
-  }
-
-.container.margin-top {
-    margin-top: 120px;
-}
-
-table {
-    margin: 0 auto;
-    width: 80%;
-}
-
-th, td, tr {
-    text-align: center;
-    vertical-align: middle;
-}
-
-.header {
-    background-color: #348C70; /* Cor alinhada ao tema */
-    color: white;
-}
-
-.table .plan-title {
-    font-weight: bold;
-}
-
-
-.plan-title {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #348C70; /* Cor alinhada ao tema */
-}
-
-.price {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #348C70; /* Cor alinhada ao tema */
-    margin: 10px 0;
 }
 
 .claro body table,
@@ -317,66 +274,169 @@ th, td, tr {
 .claro body table tr,
 .claro body table td,
 .claro body table th {
-    background-color: #ffffff !important; 
-    color: #464545 !important; 
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out !important;
+  background-color: var(--bg-light) !important;
+  color: var(--bg-dark) !important;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out !important;
 }
 
-  /* ============================= */
-  /* ====== PLANOS ESCURO ====== */
-  /* ============================= */
+/* ============================= */
+/* ====== 7. TEMA ESCURO ====== */
+/* ============================= */
+.escuro body {
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
 
-  .escuro body .card-plan {
-    background-color: #3f3f3f;
-    transition: background-color 0.5s ease-in-out;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-  }
-  
-  .escuro body .card-body{
-    color: #ffffff;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .escuro body .card-body small{
-    color: #ffffff !important;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  
-  .escuro body .card-header {
-    background-color: #348C70 !important;
-    transition: background-color 0.5s ease-in-out;
-    
-  }
-  
-  .escuro body .plan-title {
-    color: #ffffff !important;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .escuro body .price {
-    color: #348C70 !important;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .escuro body .btn-primary {
-    border: none;
-    background-color: #1fb183 !important;
-    transition: background-color 0.5s ease-in-out;
-  }
-  
-  .escuro body .btn-primary:hover {
-    background-color: #348C70 !important;
-    transition: background-color 0.5s ease-in-out;
-  }
+.escuro body .navbar {
+  background-color: var(--bg-navbar-dark) !important;
+  transition: background-color 0.5s ease-in-out;
+}
 
-  .escuro body table,
+.escuro body .navbar-brand {
+  color: var(--text-light);
+  transition: color 0.3s ease-in-out;
+}
+
+.escuro body .navbar-nav a {
+  color: var(--text-light) !important;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.escuro body .navbar-nav .nav-link.active {
+  color: var(--primary-green-dark) !important;
+}
+
+.escuro body footer {
+  background-color: var(--bg-footer-dark);
+  color: var(--text-light);
+  transition: background-color 0.5s ease-in-out;
+}
+
+.escuro body footer a {
+  color: var(--text-light);
+  transition: color 0.3s ease-in-out;
+}
+
+.escuro body footer a:hover {
+  color: #17a2b8;
+}
+
+.escuro body .card-plan {
+  background-color: var(--bg-card-dark);
+  transition: background-color 0.5s ease-in-out;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.escuro body .card-body {
+  color: var(--text-light);
+  transition: color 0.3s ease-in-out;
+}
+
+.escuro body .card-body small {
+  color: var(--text-light) !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.escuro body .card-header {
+  background-color: var(--primary-green-hover) !important;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.escuro body .plan-title {
+  color: var(--text-light) !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.escuro body .price {
+  color: var(--primary-green-hover) !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.escuro body .btn-primary {
+  border: none;
+  background-color: var(--primary-green) !important;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.escuro body .btn-primary:hover {
+  background-color: var(--primary-green-hover) !important;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.escuro body table,
 .escuro body table thead,
 .escuro body table tbody,
 .escuro body table tr,
 .escuro body table td,
 .escuro body table th {
-    background-color: #464545 !important; /* Cinza escuro */
-    color: #ffffff !important; /* Texto branco */
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  background-color: var(--bg-dark) !important;
+  color: var(--text-light) !important;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* ============================= */
+/* ====== 8. RESPONSIVIDADE ====== */
+/* ============================= */
+
+/* Espaçamento entre cards quando empilham em telas pequenas */
+/* Telas médias - Cards em 2 colunas (se necessário) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .row.text-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .row.text-center>.col-md-6 {
+    flex: 0 0 50%;
+    /* 2 colunas */
+    max-width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0;
+    /* Remove margin-bottom aqui */
+  }
+
+  .row.text-center {
+    row-gap: 30px;
+    /* Espaço vertical entre linhas de cards */
+  }
+}
+
+/* Telas pequenas - Cards empilhados */
+@media (max-width: 767.98px) {
+  .row.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    /* Espaço vertical entre cards */
+  }
+
+  .row.text-center>.col-sm-12 {
+    width: 100%;
+    max-width: 400px;
+    /* Opcional: limitar largura do card */
+  }
+
+  /* Opcional: Remover margin do último card */
+  .row.text-center>.col-sm-12:last-child .card-plan {
+    margin-bottom: 0;
+  }
+}
+
+
+/* Footer responsivo: imagens uma embaixo da outra em telas pequenas */
+@media (max-width: 576px) {
+  .app-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app-icon {
+    width: 180px !important;
+    margin: 5px 0 !important;
+  }
 }

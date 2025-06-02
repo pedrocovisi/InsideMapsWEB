@@ -1,22 +1,89 @@
 /* ============================= */
-/* ====== GERAL ====== */
+/* ====== 1. VARIÁVEIS CSS (CUSTOM PROPERTIES) ====== */
 /* ============================= */
-body {
-  padding-top: 80px; /* Ajuste conforme a altura real da sua navbar */
+:root {
+    /* Cores principais */
+    --primary-green: #1fb183;
+    --primary-green-hover: #348C70;
+    --primary-green-dark: #248c60;
+    
+    /* Cores de texto */
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --text-muted: #6c757d;
+    
+    /* Cores de fundo */
+    --bg-light: #ffffff;
+    --bg-dark: #464545;
+    --bg-navbar-dark: #414141;
+    --bg-footer-light: #f8f9fa;
+    --bg-footer-dark: #343a40;
+    --bg-form-light: #ffffff;
+    --bg-form-dark: #3f3f3f; /* Um pouco mais claro que o fundo do body escuro */
+    
+    /* Cores de erro */
+    --error-color: #e74c3c;
+    
+    /* Espaçamentos */
+    --navbar-height: 80px;
+    --border-radius: 10px;
+    --border-radius-large: 20px;
+    --transition-speed: 0.3s;
+    --transition-speed-slow: 0.5s;
+    --margin-top-perfil: 200px;
+    
+    /* Tamanhos de fonte */
+    --font-size-navbar: 1.2rem;
+    --font-size-navbar-brand: 1.8rem;
+    --font-size-icon-person: 1.7rem;
+    --font-size-form-title: 1.5rem;
+    
+    /* Sombras */
+    --box-shadow-form: 0 10px 20px rgba(0, 0, 0, 0.3);
+    --box-shadow-form-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --box-shadow-focus: 0 0 0 0.2rem rgba(31, 177, 131, 0.25);
+    --box-shadow-error: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
 }
 
+/* ============================= */
+/* ====== 2. RESET E BASE ====== */
+/* ============================= */
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    padding-top: var(--navbar-height);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+    transition: background-color var(--transition-speed-slow) ease-in-out, 
+                color var(--transition-speed-slow) ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ============================= */
+/* ====== 3. LAYOUT - NAVBAR ====== */
+/* ============================= */
 .navbar-brand {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 700;
-}
-
-.navbar .navbar-brand {
     display: flex;
     align-items: center;
-    /* Centraliza verticalmente o texto com a logo */
-    font-weight: bold;
-    font-size: 1.8rem;
-    /* Tamanho maior por padrão */
+    font-size: var(--font-size-navbar-brand);
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:visited,
+.navbar-brand:link {
+    color: inherit !important;
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
 }
 
 .navbar-brand img {
@@ -24,7 +91,7 @@ body {
 }
 
 .navbar-nav {
-    font-size: 1.2rem;
+    font-size: var(--font-size-navbar);
     margin-right: 2%;
     align-items: center;
 }
@@ -33,184 +100,343 @@ body {
     margin-right: 1%;
     margin-left: 1%;
     display: flex;
-    /* Torna o link um flex container */
     align-items: center;
-    /* Alinha os itens verticalmente */
+    transition: transform var(--transition-speed) ease-in-out, 
+                color var(--transition-speed) ease-in-out;
 }
 
-/* Aumenta o tamanho do ícone de perfil */
+.navbar-nav a:hover {
+    transform: scale(1.05);
+}
+
 .bi-person {
-    font-size: 1.7rem;
-    /* Ajuste o tamanho conforme necessário */
+    font-size: var(--font-size-icon-person);
 }
 
+/* ============================= */
+/* ====== 4. LAYOUT - FOOTER ====== */
+/* ============================= */
 .app-icons {
     display: flex;
-    /* Ativa o flexbox */
     justify-content: center;
-    /* Centraliza os itens horizontalmente */
     padding: 0;
-    /* Remove o padding padrão da lista */
     margin: 0;
-    /* Remove a margem padrão da lista */
 }
 
 .app-icon {
     width: 200px;
-    /* Define a largura desejada para as imagens */
     height: auto;
-    /* Mantém a proporção da imagem */
     margin: 0 10px;
-    /* Espaço entre as imagens */
 }
 
 .text-center {
     margin-top: 0%;
 }
 
-
-
 /* ============================= */
-/* ====== GERAL CLARO ====== */
+/* ====== 5. COMPONENTES - FORMULÁRIO DE PERFIL ====== */
 /* ============================= */
-.claro body {
-    font-family: Montserrat;
-    background-color: #ffffff;
-    color: #000000;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+.container.margin-top { /* Renomeado para mais clareza */
+    margin-top: var(--margin-top-perfil);
+    margin-bottom: 80px; /* Adicionado para dar espaço antes do footer */
 }
 
-.claro body .navbar {
-    background-color: #ffffff !important;
-    transition: background-color 0.5s ease-in-out;
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--bg-form-light);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--box-shadow-form);
+    transition: background-color var(--transition-speed-slow) ease-in-out,
+                box-shadow var(--transition-speed-slow) ease-in-out;
 }
 
-.claro body .navbar-brand {
-    color: #000000;
-    /* Cor do título no modo claro */
-    transition: color 0.3s ease-in-out;
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: var(--font-size-form-title);
+    font-weight: bold;
 }
 
-.claro body .navbar-nav a {
-    color: #000000 !important;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+.form-control {
+    transition: border-color var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease, 
+                background-color var(--transition-speed) ease !important;
 }
 
-.claro body .navbar-nav a:hover {
-    color: #348C70 !important;
-    transform: scale(1.05);
+.form-control:focus {
+    border-color: var(--primary-green) !important;
+    box-shadow: var(--box-shadow-focus) !important;
 }
 
-.claro body footer {
-    background-color: #f8f9fa;
-    color: #000000;
-    transition: background-color 0.5s ease-in-out;
+.form-control:disabled {
+    background-color: #e9ecef; /* Estilo Bootstrap para campos desabilitados */
+    opacity: 1;
 }
 
-.claro body footer a {
-    color: #000000;
-    transition: color 0.3s ease-in-out;
+/* Avatar */
+#avatar {
+    border: 3px solid var(--primary-green);
 }
 
-.claro body .navbar-nav .nav-link.active {
-    color: #348C70 !important;
-    /* Verde mais claro */
-}
-
-/* ============================= */
-/* ====== GERAL ESCURO  ====== */
-/* ============================= */
-.escuro body {
-    font-family: Montserrat !important;
-    background-color: #464545;
-    color: #ffffff;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-.escuro body .navbar-brand {
-    color: #ffffff;
-    /* Cor do título no modo escuro */
-    transition: color 0.3s ease-in-out;
-
-}
-
-.escuro body .navbar {
-    background-color: #414141 !important;
-    /* Cor de fundo da navbar no modo escuro */
-    transition: background-color 0.5s ease-in-out;
-}
-
-.escuro body .navbar-nav a {
-    color: #ffffff !important;
-    /* Cor dos links na navbar */
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.escuro body .navbar-nav a:hover {
-    color: #348C70 !important;
-    /* Cor dos links ao passar o mouse no modo escuro */
-    transform: scale(1.05);
-}
-
-.escuro body footer {
-    background-color: #343a40;
-    /* Fundo escuro do footer */
-    color: #ffffff;
-    /* Texto claro no footer */
-    transition: background-color 0.5s ease-in-out;
-}
-
-.escuro body footer a {
-    color: #ffffff;
-    /* Cor dos links no footer */
-    transition: color 0.3s ease-in-out;
-}
-
-.escuro body footer a:hover {
-    color: #17a2b8;
-    /* Cor dos links ao passar o mouse */
-}
-
-.escuro body .navbar-nav .nav-link.active {
-    color: #248c60 !important;
-    /* Verde mais claro */
+/* Feedback */
+#feedback {
+    font-weight: 500;
 }
 
 /* ============================= */
-/* ====== ANIMAÇÕES GERAIS ====== */
+/* ====== 6. COMPONENTES - BOTÕES ====== */
 /* ============================= */
-body {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.btn-primary,
+.btn-secondary,
+.btn-outline-primary {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: transform var(--transition-speed), 
+                background-color var(--transition-speed-slow) ease-in-out,
+                border-color var(--transition-speed-slow) ease-in-out,
+                color var(--transition-speed-slow) ease-in-out !important;
 }
 
 .btn-primary {
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    background-color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+    color: var(--text-light) !important;
 }
-
 
 .btn-primary:hover {
-    transform: scale(1.08);
+    background-color: var(--primary-green-hover) !important;
+    border-color: var(--primary-green-hover) !important;
+    transform: scale(1.05);
 }
 
+.btn-secondary {
+    background-color: var(--text-muted) !important;
+    border-color: var(--text-muted) !important;
+    color: var(--text-light) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-muted-hover) !important;
+    border-color: var(--text-muted-hover) !important;
+    transform: scale(1.05);
+}
+
+.btn-outline-primary {
+    color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-green) !important;
+    color: var(--text-light) !important;
+    transform: scale(1.05);
+}
 
 /* ============================= */
-/* ====== PERFIL ====== */
+/* ====== 7. TEMA CLARO ====== */
 /* ============================= */
-.container.margin-top {
-    margin-top: 200px;
-    justify-items: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    border-radius: 20px;
+.claro body {
+    font-family: 'Montserrat', sans-serif !important;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.claro .navbar {
+    background-color: var(--bg-light) !important;
+}
+
+.claro .navbar-brand {
+    color: var(--text-dark);
+}
+
+.claro .navbar-nav a {
+    color: var(--text-dark) !important;
+}
+
+.claro .navbar-nav a:hover {
+    color: var(--primary-green-hover) !important;
+}
+
+.claro .navbar-nav .nav-link.active {
+    color: var(--primary-green-hover) !important;
+}
+
+.claro footer {
+    background-color: var(--bg-footer-light);
+    color: var(--text-dark);
+}
+
+.claro footer a {
+    color: var(--text-dark);
+}
+
+/* Perfil modo claro */
+.claro .form-container {
+    background-color: var(--bg-form-light);
+    box-shadow: var(--box-shadow-form);
+}
+
+.claro .form-control:disabled {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.claro #feedback.text-success {
+    color: var(--primary-green-dark) !important;
+}
+
+.claro #feedback.text-danger {
+    color: var(--error-color) !important;
+}
+
+/* ============================= */
+/* ====== 8. TEMA ESCURO ====== */
+/* ============================= */
+.escuro body {
+    font-family: 'Montserrat', sans-serif !important;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.escuro .navbar {
+    background-color: var(--bg-navbar-dark) !important;
+}
+
+.escuro .navbar-brand {
+    color: var(--text-light);
+}
+
+.escuro .navbar-nav a {
+    color: var(--text-light) !important;
+}
+
+.escuro .navbar-nav a:hover {
+    color: var(--primary-green-hover) !important;
+}
+
+.escuro .navbar-nav .nav-link.active {
+    color: var(--primary-green-dark) !important;
+}
+
+.escuro footer {
+    background-color: var(--bg-footer-dark);
+    color: var(--text-light);
+}
+
+.escuro footer a {
+    color: var(--text-light);
+}
+
+.escuro footer a:hover {
+    color: #17a2b8;
+}
+
+/* Perfil modo escuro */
+.escuro .form-container {
+    background-color: var(--bg-form-dark) !important;
+    box-shadow: var(--box-shadow-form-dark);
+}
+
+.escuro .form-control {
+    background-color: #2c2c2c !important;
+    color: var(--text-light) !important;
+    border: 1px solid #555;
+}
+
+.escuro .form-control:focus {
+    border-color: var(--primary-green) !important;
+    box-shadow: var(--box-shadow-focus) !important;
+}
+
+.escuro .form-control:disabled {
+    background-color: #3a3a3a !important; /* Um pouco mais escuro que o fundo do input */
+    color: #adb5bd !important;
+    opacity: 0.7;
+}
+
+.escuro #feedback.text-success {
+    color: #28a745 !important; /* Um verde mais claro para contraste */
+}
+
+.escuro #feedback.text-danger {
+    color: #ff8a80 !important; /* Um vermelho mais claro para contraste */
+}
+
+/* ============================= */
+/* ====== 9. RESPONSIVIDADE ====== */
+/* ============================= */
+
+/* Telas médias e pequenas - Ajustes no formulário de perfil */
+@media (max-width: 768px) {
+    .container.margin-top {
+        margin-top: 150px; /* Reduz margin para telas menores */
+        padding: 20px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    #avatar {
+        width: 120px; /* Avatar menor */
+    }
+}
+
+@media (max-width: 576px) {
+    .container.margin-top {
+        margin-top: 100px;
+    }
+
+    .form-container {
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    .form-title {
+        font-size: 1.3rem;
+    }
+
+    #avatar {
+        width: 100px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline-primary {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+    
+    /* Footer responsivo: imagens uma embaixo da outra em telas pequenas */
+    .app-icons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-icon {
+        width: 180px !important;
+        margin: 5px 0 !important;
+    }
+}
+
+/* ============================= */
+/* ====== 10. ACESSIBILIDADE ====== */
+/* ============================= */
+/* Melhora a área de toque para mobile */
+.btn, .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Redução de movimento para usuários sensíveis */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }

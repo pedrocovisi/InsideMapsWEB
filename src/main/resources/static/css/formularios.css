@@ -6,31 +6,43 @@
     --primary-green: #1fb183;
     --primary-green-hover: #348C70;
     --primary-green-dark: #248c60;
-    
+
     /* Cores de texto */
     --text-light: #ffffff;
     --text-dark: #000000;
     --text-muted: #6c757d;
     --text-muted-hover: #495057;
-    
+
     /* Cores de fundo */
     --bg-light: #ffffff;
     --bg-dark: #464545;
     --bg-navbar-dark: #414141;
     --bg-input-dark: #2c2c2c;
     --bg-footer-dark: #343a40;
-    
+
     /* Cores de erro */
     --error-color: #e74c3c;
     --error-bg-light: #fdf2f2;
     --error-bg-dark: #3d2828;
     --error-text-dark: #ff6b6b;
-    
+
     /* Espaçamentos */
     --navbar-height: 80px;
     --border-radius: 10px;
+    --border-radius-large: 30px;
     --transition-speed: 0.3s;
-    
+    --transition-speed-slow: 0.5s;
+
+    /* Tamanhos de fonte */
+    --font-size-banner-h1: 3rem;
+    --font-size-banner-p: 1.25rem;
+    --font-size-navbar: 1.2rem;
+    --font-size-navbar-brand: 1.8rem;
+    --font-size-icon-person: 1.7rem;
+    --font-size-plan-title: 1.5rem;
+    --font-size-price: 2rem;
+    --font-size-card-body: 1.1rem;
+
     /* Sombras */
     --box-shadow-form: 0 10px 20px rgba(0, 0, 0, 0.3);
     --box-shadow-focus: 0 0 0 0.2rem rgba(31, 177, 131, 0.25);
@@ -41,7 +53,7 @@
 /* ====== 2. RESET E BASE ====== */
 /* ============================= */
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     padding-top: var(--navbar-height);
     opacity: 0;
     animation: fadeIn 0.5s ease-in forwards;
@@ -49,8 +61,13 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* ============================= */
@@ -61,48 +78,67 @@ body {
     font-weight: 700;
     display: flex;
     align-items: center;
-    font-size: 1.8rem !important; 
-  }
-  
-  .navbar-brand,
-  .navbar-brand:hover,
-  .navbar-brand:focus,
-  .navbar-brand:active,
-  .navbar-brand:visited,
-  .navbar-brand:link {
+    font-size: var(--font-size-navbar-brand) !important;
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:visited,
+.navbar-brand:link {
     color: inherit !important;
     text-decoration: none !important;
     outline: none !important;
     box-shadow: none !important;
     background-color: transparent !important;
-  }
-  
-  .navbar-brand img {
+}
+
+.navbar-brand img {
     margin-right: 3%;
-  }
-  
-  .navbar-nav {
-    font-size: 1.2rem; /* ✅ MESMO TAMANHO DO MEMBROS.CSS */
+}
+
+.navbar-nav {
+    font-size: var(--font-size-navbar);
     margin-right: 2%;
     align-items: center;
-  }
-  
-  .navbar-nav a {
-    margin: 0 1%;
+}
+
+.navbar-nav a {
+    margin-right: 1%;
+    margin-left: 1%;
     display: flex;
     align-items: center;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* ✅ MESMA TRANSIÇÃO */
-  }
-  
-  .navbar-nav a:hover {
-    transform: scale(1.05); /* ✅ MESMO EFEITO HOVER */
-  }
-  
-  .bi-person {
-    font-size: 1.7rem; /* ✅ MESMO TAMANHO DO MEMBROS.CSS */
-  }
-  
-  
+    transition: transform var(--transition-speed) ease-in-out,
+        color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a:hover {
+    transform: var(--transform-hover-card);
+}
+
+.bi-person {
+    font-size: var(--font-size-icon-person);
+}
+
+.btn-group .btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem; /* Ajuste conforme o tamanho desejado */
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-group i,
+.btn-group svg {
+  font-size: 1.3rem; /* Deixe igual ao do membros.html */
+  vertical-align: middle;
+  line-height: 1;
+}
+
+
 
 /* ============================= */
 /* ====== 4. LAYOUT - FOOTER ====== */
@@ -153,9 +189,9 @@ body {
 }
 
 .form-control {
-    transition: border-color var(--transition-speed) ease, 
-                box-shadow var(--transition-speed) ease, 
-                background-color var(--transition-speed) ease !important;
+    transition: border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        background-color var(--transition-speed) ease !important;
 }
 
 .form-control:focus {
@@ -172,8 +208,8 @@ body {
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 1rem;
-    transition: transform var(--transition-speed), 
-                background-color 0.5s ease-in-out !important;
+    transition: transform var(--transition-speed),
+        background-color 0.5s ease-in-out !important;
 }
 
 .btn-primary:hover {
@@ -278,9 +314,9 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     border: 2px solid var(--error-color) !important;
     background-color: var(--error-bg-light) !important;
     box-shadow: var(--box-shadow-error) !important;
-    transition: border-color var(--transition-speed) ease, 
-                box-shadow var(--transition-speed) ease, 
-                background-color var(--transition-speed) ease !important;
+    transition: border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        background-color var(--transition-speed) ease !important;
 }
 
 .campo-erro:focus {
@@ -306,8 +342,8 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 .campo-valido {
     border: 2px solid var(--primary-green) !important;
     background-color: #f0fff4 !important;
-    transition: border-color var(--transition-speed) ease, 
-                background-color var(--transition-speed) ease !important;
+    transition: border-color var(--transition-speed) ease,
+        background-color var(--transition-speed) ease !important;
 }
 
 .mb-3 {
@@ -341,8 +377,13 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 @keyframes spin {
-    0% { transform: translateY(-50%) rotate(0deg); }
-    100% { transform: translateY(-50%) rotate(360deg); }
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
 }
 
 /* ============================= */
@@ -506,4 +547,20 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 .escuro .form-control:focus {
     border-color: var(--primary-green) !important;
     box-shadow: var(--box-shadow-focus) !important;
+}
+
+/* ============================= */
+/* ====== 14. RESPONSIVIDADE ====== */
+/* ============================= */
+
+@media (max-width: 576px) {
+  .app-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app-icon {
+    width: 180px !important;
+    margin: 5px 0 !important;
+  }
 }

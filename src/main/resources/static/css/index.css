@@ -82,7 +82,7 @@ body {
   font-weight: 700;
   display: flex;
   align-items: center;
-  font-size: 1.8rem !important; 
+  font-size: var(--font-size-navbar-brand) !important;
 }
 
 .navbar-brand,
@@ -103,25 +103,45 @@ body {
 }
 
 .navbar-nav {
-  font-size: 1.2rem; /* ✅ MESMO TAMANHO DO MEMBROS.CSS */
+  font-size: var(--font-size-navbar);
   margin-right: 2%;
   align-items: center;
 }
 
 .navbar-nav a {
-  margin: 0 1%;
+  margin-right: 1%;
+  margin-left: 1%;
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* ✅ MESMA TRANSIÇÃO */
+  transition: transform var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out;
 }
 
 .navbar-nav a:hover {
-  transform: scale(1.05); /* ✅ MESMO EFEITO HOVER */
+  transform: var(--transform-hover-card);
 }
 
 .bi-person {
-  font-size: 1.7rem; /* ✅ MESMO TAMANHO DO MEMBROS.CSS */
+  font-size: var(--font-size-icon-person);
 }
+
+.btn-group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  height: 100%; /* Garante altura uniforme */
+}
+
+.btn-group i,
+.btn-group svg {
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 1.2rem; /* Ajuste para o mesmo tamanho dos ícones do membros.html */
+}
+
+
 
 
 
@@ -509,6 +529,8 @@ footer {
     justify-content: center;
   }
 
+  
+
   /* Seções Sobre Nós e Como Funciona - imagem abaixo do texto */
   .sobre-container,
   .como-funciona-container {
@@ -669,11 +691,6 @@ footer {
   .sobre-container {
     padding: 15px !important;
     border-radius: var(--border-radius) !important;
-  }
-
-  /* Cards */
-  .card-plan {
-    padding: 15px !important;
   }
 
   .card-header h4 {
