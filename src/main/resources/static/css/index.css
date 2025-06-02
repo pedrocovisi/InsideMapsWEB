@@ -1,16 +1,167 @@
 /* ============================= */
-/* ====== INDEX CLARO ====== */
+/* ====== 1. VARIÁVEIS CSS (CUSTOM PROPERTIES) ====== */
 /* ============================= */
+:root {
+  /* Cores principais */
+  --primary-green: #1fb183;
+  --primary-green-hover: #348C70;
+  --primary-green-dark: #248c60;
 
+  /* Cores de texto */
+  --text-light: #ffffff;
+  --text-dark: #000000;
+  --text-muted: #6c757d;
+  --text-muted-hover: #495057;
+
+  /* Cores de fundo */
+  --bg-light: #ffffff;
+  --bg-dark: #464545;
+  --bg-navbar-dark: #414141;
+  --bg-footer-light: #f8f9fa;
+  --bg-footer-dark: #343a40;
+  --bg-card-light: #ffffff;
+  --bg-card-dark: #3f3f3f;
+  --bg-banner-dark: #1c1c1c;
+
+  /* Cores específicas do index */
+  --card-header-dark: #348C70;
+  --card-shadow-light: rgba(0, 0, 0, 0.3);
+  --card-shadow-dark: rgba(255, 255, 255, 0.1);
+  --banner-shadow: rgba(0, 0, 0, 0.2);
+
+  /* Espaçamentos */
+  --navbar-height: 80px;
+  --border-radius: 10px;
+  --border-radius-large: 30px;
+  --transition-speed: 0.3s;
+  --transition-speed-slow: 0.5s;
+
+  /* Tamanhos de fonte */
+  --font-size-banner-h1: 3rem;
+  --font-size-banner-p: 1.25rem;
+  --font-size-navbar: 1.2rem;
+  --font-size-navbar-brand: 1.8rem;
+  --font-size-icon-person: 1.7rem;
+  --font-size-plan-title: 1.5rem;
+  --font-size-price: 2rem;
+  --font-size-card-body: 1.1rem;
+
+  /* Sombras */
+  --box-shadow-banner: 0 8px 16px var(--banner-shadow);
+  --box-shadow-card: 0 10px 20px var(--card-shadow-light);
+  --box-shadow-card-dark: 0 4px 20px var(--card-shadow-dark);
+}
+
+/* ============================= */
+/* ====== 2. RESET E BASE ====== */
+/* ============================= */
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  padding-top: var(--navbar-height);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+  transition: background-color var(--transition-speed-slow) ease-in-out,
+    color var(--transition-speed-slow) ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================= */
+/* ====== 3. LAYOUT - NAVBAR ====== */
+/* ============================= */
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem !important; 
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:visited,
+.navbar-brand:link {
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.navbar-brand img {
+  margin-right: 3%;
+}
+
+.navbar-nav {
+  font-size: 1.2rem; /* ✅ MESMO TAMANHO DO MEMBROS.CSS */
+  margin-right: 2%;
+  align-items: center;
+}
+
+.navbar-nav a {
+  margin: 0 1%;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* ✅ MESMA TRANSIÇÃO */
+}
+
+.navbar-nav a:hover {
+  transform: scale(1.05); /* ✅ MESMO EFEITO HOVER */
+}
+
+.bi-person {
+  font-size: 1.7rem; /* ✅ MESMO TAMANHO DO MEMBROS.CSS */
+}
+
+
+
+/* ============================= */
+/* ====== 4. LAYOUT - FOOTER ====== */
+/* ============================= */
+footer {
+  padding: 30px 0;
+}
+
+.app-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.app-icon {
+  width: 150px;
+  height: auto;
+  margin: 0 10px;
+}
+
+.text-center {
+  margin-top: 0;
+}
+
+/* ============================= */
+/* ====== 5. COMPONENTES - BANNER ====== */
+/* ============================= */
 .banner-container {
   position: relative;
   width: 70%;
-  margin: 0 auto;
-  margin-top: 40px !important;
+  margin: 40px auto 0;
   min-height: 50vh;
-  border-radius: 30px;
+  border-radius: var(--border-radius-large);
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow-banner);
   display: flex;
   align-items: stretch;
 }
@@ -26,51 +177,52 @@
   align-items: center;
   justify-content: flex-start;
   padding: 60px;
-  border-radius: 30px;
+  border-radius: var(--border-radius-large);
 }
 
 .banner-text {
-  color: white;
+  color: var(--text-light);
   max-width: 600px;
   width: 50%;
   text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* alinha filhos à esquerda */
+  align-items: flex-start;
 }
 
 .banner h1 {
-  font-size: 3rem;
+  font-size: var(--font-size-banner-h1);
   font-weight: bold;
   margin-bottom: 20px;
-  color: white;
+  color: var(--text-light);
 }
 
 .banner p {
-  font-size: 1.25rem;
+  font-size: var(--font-size-banner-p);
   margin-bottom: 30px;
-  color: white;
+  color: var(--text-light);
 }
-
 
 .banner .btn {
   align-self: flex-start;
 }
 
-
-.rouded-image {
-  border-radius: 5%;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+/* ============================= */
+/* ====== 6. COMPONENTES - CARDS DE PLANOS ====== */
+/* ============================= */
+.pricing-header h1 {
+  font-size: 2.5rem;
 }
 
-.text {
-  font-size: 1.25rem;
+.pricing-header p {
+  font-size: 1.2rem;
 }
 
 .card-plan {
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
-  transition: transform 0.3s, background-color 0.5s ease-in-out !important;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-card) !important;
+  transition: transform var(--transition-speed),
+    background-color var(--transition-speed-slow) ease-in-out !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -78,12 +230,55 @@
   height: auto;
   flex-grow: 1;
   min-height: 100%;
-  background-color: #ffffff;
+  background-color: var(--bg-card-light);
+}
+
+.card-plan:hover {
+  transform: translateY(-5px) !important;
+}
+
+.card-header {
+  font-weight: bold;
+  padding: 15px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  vertical-align: center;
+  width: 100%;
+}
+
+.plan-title {
+  margin: 0;
+  font-size: var(--font-size-plan-title);
+  color: var(--primary-green-hover) !important;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.price {
+  font-size: var(--font-size-price);
+  font-weight: bold;
+  color: var(--primary-green-hover) !important;
+  margin: 10px 0;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.card-body ul li {
+  padding: 5px 0;
+  font-size: var(--font-size-card-body);
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.card-body small {
+  color: var(--text-dark) !important;
+  transition: color var(--transition-speed) ease-in-out;
 }
 
 .card-plan .btn {
   margin-top: auto;
-  /* Empurra o botão para o final */
   width: 40%;
   margin: 10%;
 }
@@ -95,359 +290,305 @@
   align-items: stretch;
 }
 
-.card-plan:hover {
-  transform: translateY(-5px) !important;
-}
-
-.card-header {
-  font-weight: bold;
-  padding: 15px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  vertical-align: center;
-  width: 100%;
-}
-
-body .plan-title {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #348C70 !important;
-  transition: color 0.3s ease-in-out;
-}
-
-body .price {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #348C70 !important;
-  margin: 10px 0;
-  transition: color 0.3s ease-in-out;
-}
-
-.card-body {
-  flex-grow: 1;
-  
-}
-
-.card-body ul li {
-  padding: 5px 0;
-  font-size: 1.1rem;
-  text-align: left;
-  margin-bottom: 5px;
-}
-
-.card-body small {
-  color: #000000 !important;
-  transition: color 0.3s ease-in-out;
-}
-
-body .btn-primary {
-  background-color: #1fb183;
-  border: none;
+/* ============================= */
+/* ====== 7. COMPONENTES - BOTÕES ====== */
+/* ============================= */
+.btn-primary {
+  background-color: var(--primary-green) !important;
+  border: none !important;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1rem;
-  transition: transform 0.3s, background-color 0.5s ease-in-out !important;
+  transition: transform var(--transition-speed),
+    background-color var(--transition-speed-slow) ease-in-out !important;
 }
 
 .btn-primary:hover {
-  background-color: #348C70 !important;
-}
-
-
-/* ============================= */
-/* ====== INDEX ESCURO ====== */
-/* ============================= */
-.escuro body .banner {
-  background-color: #1c1c1c;
-  transition: background-color 0.5s ease-in-out;
-}
-
-.escuro body .banner h1,
-.escuro body .banner p {
-  color: #f5f5f5;
-
-}
-
-.escuro body .banner .img-fluid {
-  /* border: 5px solid #444444; */
-  transition: color 0.3s ease-in-out;
-}
-
-.escuro body .card-plan {
-  background-color: #3f3f3f;
-  transition: background-color 0.5s ease-in-out;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-}
-
-.escuro body .card-body {
-  color: #ffffff;
-  transition: color 0.3s ease-in-out;
-}
-
-.escuro body .card-body small {
-  color: #ffffff !important;
-  transition: color 0.3s ease-in-out;
-}
-
-
-.escuro body .card-header {
-  background-color: #348C70 !important;
-  transition: background-color 0.5s ease-in-out;
-
-}
-
-.escuro body .plan-title {
-  color: #ffffff !important;
-  transition: color 0.3s ease-in-out;
-}
-
-.escuro body .price {
-  color: #348C70 !important;
-  transition: color 0.3s ease-in-out;
-}
-
-.escuro body .btn-primary {
-  border: none;
-  background-color: #1fb183 !important;
-  transition: background-color 0.5s ease-in-out;
-}
-
-.escuro body .btn-primary:hover {
-  background-color: #348C70 !important;
-  transition: background-color 0.5s ease-in-out;
-}
-
-/* ============================= */
-/* ====== GERAL ====== */
-/* ============================= */
-body {
-  padding-top: 80px; /* Ajuste conforme a altura real da sua navbar */
-}
-
-.navbar-brand {
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 700;
-}
-
-.navbar .navbar-brand {
-  display: flex;
-  align-items: center;
-  /* Centraliza verticalmente o texto com a logo */
-  font-weight: bold;
-  font-size: 1.8rem;
-  /* Tamanho maior por padrão */
-}
-
-.navbar-brand img {
-  margin-right: 3%;
-}
-
-.navbar-nav {
-  font-size: 1.2rem;
-  margin-right: 2%;
-  align-items: center;
-}
-
-.navbar-nav a {
-  margin-right: 1%;
-  margin-left: 1%;
-  display: flex;
-  /* Torna o link um flex container */
-  align-items: center;
-  /* Alinha os itens verticalmente */
-}
-
-/* Aumenta o tamanho do ícone de perfil */
-.bi-person {
-  font-size: 1.7rem;
-  /* Ajuste o tamanho conforme necessário */
-}
-
-.btn-group .btn {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-group i {
-  vertical-align: middle;
-  line-height: 1;
-}
-
-
-.app-icons {
-  display: flex;
-  /* Ativa o flexbox */
-  justify-content: center;
-  /* Centraliza os itens horizontalmente */
-  padding: 0;
-  /* Remove o padding padrão da lista */
-  margin: 0;
-  /* Remove a margem padrão da lista */
-}
-
-.app-icon {
-  width: 200px;
-  /* Define a largura desejada para as imagens */
-  height: auto;
-  /* Mantém a proporção da imagem */
-  margin: 0 10px;
-  /* Espaço entre as imagens */
-}
-
-.text-center {
-  margin-top: 0%;
-}
-
-
-
-/* ============================= */
-/* ====== GERAL CLARO ====== */
-/* ============================= */
-.claro body {
-  font-family: Montserrat !important;
-  background-color: #ffffff;
-  color: #000000;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-.claro body .navbar {
-  background-color: #ffffff !important;
-  transition: background-color 0.5s ease-in-out;
-}
-
-.claro body .navbar-brand {
-  color: #000000;
-  /* Cor do título no modo claro */
-  transition: color 0.3s ease-in-out;
-}
-
-.claro body .navbar-nav a {
-  color: #000000 !important;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.claro body .navbar-nav a:hover {
-  color: #348C70 !important;
-  transform: scale(1.05);
-}
-
-.claro body footer {
-  background-color: #f8f9fa;
-  color: #000000;
-  transition: background-color 0.5s ease-in-out;
-}
-
-.claro body footer a {
-  color: #000000;
-  transition: color 0.3s ease-in-out;
-}
-
-.claro body .navbar-nav .nav-link.active {
-  color: #348C70 !important;
-  /* Verde mais claro */
-}
-
-/* ============================= */
-/* ====== GERAL ESCURO  ====== */
-/* ============================= */
-.escuro body {
-  font-family: Montserrat !important;
-  background-color: #464545;
-  color: #ffffff;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-.escuro body .navbar-brand {
-  color: #ffffff;
-  /* Cor do título no modo escuro */
-  transition: color 0.3s ease-in-out;
-
-}
-
-.escuro body .navbar {
-  background-color: #414141 !important;
-  /* Cor de fundo da navbar no modo escuro */
-  transition: background-color 0.5s ease-in-out;
-}
-
-.escuro body .navbar-nav a {
-  color: #ffffff !important;
-  /* Cor dos links na navbar */
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.escuro body .navbar-nav a:hover {
-  color: #348C70 !important;
-  /* Cor dos links ao passar o mouse no modo escuro */
-  transform: scale(1.05);
-}
-
-.escuro body footer {
-  background-color: #343a40;
-  /* Fundo escuro do footer */
-  color: #ffffff;
-  /* Texto claro no footer */
-  transition: background-color 0.5s ease-in-out;
-}
-
-.escuro body footer a {
-  color: #ffffff;
-  /* Cor dos links no footer */
-  transition: color 0.3s ease-in-out;
-}
-
-.escuro body footer a:hover {
-  color: #17a2b8;
-  /* Cor dos links ao passar o mouse */
-}
-
-.escuro body .navbar-nav .nav-link.active {
-  color: #248c60 !important;
-  /* Verde mais claro */
-}
-
-/* ============================= */
-/* ====== ANIMAÇÕES GERAIS ====== */
-/* ============================= */
-body {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.btn-primary {
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-
-.btn-primary:hover {
+  background-color: var(--primary-green-hover) !important;
   transform: scale(1.08);
 }
 
 /* ============================= */
-/* ====== RESPONSIVIDADE GERAL ====== */
+/* ====== 8. COMPONENTES - IMAGENS ====== */
 /* ============================= */
+.rouded-image {
+  border-radius: 5%;
+  box-shadow: var(--box-shadow-banner);
+}
 
-/* Container principal */
+/* ============================= */
+/* ====== 9. COMPONENTES - TEXTO ====== */
+/* ============================= */
+.text {
+  font-size: var(--font-size-banner-p);
+}
+
+.sobre-container {
+  padding: 30px !important;
+}
+
+/* ============================= */
+/* ====== 10. LAYOUT - CONTAINER ====== */
+/* ============================= */
 .container {
   padding: 0 15px;
   max-width: 1400px;
 }
 
-/* Ajustes gerais para telas pequenas */
+/* ============================= */
+/* ====== 11. TEMA CLARO ====== */
+/* ============================= */
+.claro body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.claro .navbar {
+  background-color: var(--bg-light) !important;
+}
+
+.claro .navbar-brand {
+  color: var(--text-dark);
+}
+
+.claro .navbar-nav a {
+  color: var(--text-dark) !important;
+}
+
+.claro .navbar-nav a:hover {
+  color: var(--primary-green-hover) !important;
+}
+
+.claro .navbar-nav .nav-link.active {
+  color: var(--primary-green-hover) !important;
+}
+
+.claro footer {
+  background-color: var(--bg-footer-light);
+  color: var(--text-dark);
+}
+
+.claro footer a {
+  color: var(--text-dark);
+}
+
+/* ============================= */
+/* ====== 12. TEMA ESCURO ====== */
+/* ============================= */
+.escuro body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.escuro .navbar {
+  background-color: var(--bg-navbar-dark) !important;
+}
+
+.escuro .navbar-brand {
+  color: var(--text-light);
+}
+
+.escuro .navbar-nav a {
+  color: var(--text-light) !important;
+}
+
+.escuro .navbar-nav a:hover {
+  color: var(--primary-green-hover) !important;
+}
+
+.escuro .navbar-nav .nav-link.active {
+  color: var(--primary-green-dark) !important;
+}
+
+.escuro footer {
+  background-color: var(--bg-footer-dark);
+  color: var(--text-light);
+}
+
+.escuro footer a {
+  color: var(--text-light);
+}
+
+.escuro footer a:hover {
+  color: #17a2b8;
+}
+
+/* Banner modo escuro */
+.escuro .banner {
+  background-color: var(--bg-banner-dark);
+}
+
+.escuro .banner h1,
+.escuro .banner p {
+  color: #f5f5f5;
+}
+
+/* Cards modo escuro */
+.escuro .card-plan {
+  background-color: var(--bg-card-dark);
+  box-shadow: var(--box-shadow-card-dark);
+}
+
+.escuro .card-body {
+  color: var(--text-light);
+}
+
+.escuro .card-body small {
+  color: var(--text-light) !important;
+}
+
+.escuro .card-header {
+  background-color: var(--card-header-dark) !important;
+}
+
+.escuro .plan-title {
+  color: var(--text-light) !important;
+}
+
+.escuro .price {
+  color: var(--primary-green-hover) !important;
+}
+
+.escuro .btn-primary {
+  background-color: var(--primary-green) !important;
+}
+
+.escuro .btn-primary:hover {
+  background-color: var(--primary-green-hover) !important;
+}
+
+/* ============================= */
+/* ====== 13. RESPONSIVIDADE ====== */
+/* ============================= */
+
+/* Telas médias - Tablets (992px e abaixo) */
+@media (max-width: 992px) {
+
+  /* Banner responsivo */
+  .banner h1 {
+    font-size: 2.2rem !important;
+  }
+
+  .banner p {
+    font-size: 1.1rem !important;
+  }
+
+  .banner .btn {
+    font-size: 0.9rem !important;
+    padding: 8px 16px !important;
+  }
+
+  .pricing-header h1 {
+    font-size: 2rem !important;
+  }
+
+  .pricing-header p {
+    font-size: 1rem !important;
+  }
+
+  .card-plan {
+    margin-bottom: 20px;
+  }
+
+  /* Navbar responsivo */
+  .navbar-collapse {
+    padding-top: 15px;
+  }
+
+  .navbar-nav {
+    margin-right: 0 !important;
+  }
+
+  .navbar-nav a {
+    margin: 5px 0 !important;
+    padding: 8px 15px !important;
+  }
+
+  .btn-group {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  /* Seções Sobre Nós e Como Funciona - imagem abaixo do texto */
+  .sobre-container,
+  .como-funciona-container {
+    flex-direction: column !important;
+    padding: 20px !important;
+    text-align: center !important;
+  }
+
+  .sobre-container .col-md-6,
+  .como-funciona-container .col-md-6 {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .sobre-container img,
+  .como-funciona-container img {
+    order: 2 !important;
+    /* Força a imagem para baixo */
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .sobre-container .text-content,
+  .como-funciona-container .text-content {
+    order: 1 !important;
+    /* Força o texto para cima */
+  }
+
+  .sobre-container h2,
+  .sobre-container p,
+  .como-funciona-container h2,
+  .como-funciona-container p {
+    order: 1 !important;
+    text-align: center !important;
+  }
+
+  /* Se as seções usam row do Bootstrap */
+  .sobre-container .row,
+  .como-funciona-container .row {
+    flex-direction: column !important;
+  }
+}
+
+
+
+/* Telas pequenas - Tablets pequenos e celulares grandes (768px e abaixo) */
 @media (max-width: 768px) {
+
+  /* Banner texto full width */
+  .banner-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+  }
+
+  .banner {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .banner h1,
+  .banner p {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .banner .btn {
+    align-self: center !important;
+    margin: 0 auto !important;
+  }
+
+  .banner-container {
+    width: 90% !important;
+    margin: 20px auto 0 !important;
+  }
+
+  /* Ajustes gerais */
   .container {
     padding: 0 10px;
   }
@@ -461,25 +602,50 @@ body {
   li {
     font-size: 1rem !important;
   }
-}
 
-/* ===== BANNER ===== */
-@media (max-width: 992px) {
-  .banner h1 {
-    font-size: 2.2rem !important;
+  /* Evita zoom em inputs em iOS */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
   }
 
-  .banner p {
-    font-size: 1.1rem !important;
+  /* Cards e layout */
+  .row.text-center {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .banner .btn {
+  .col-lg-4,
+  .col-md-6,
+  .col-sm-12 {
+    width: 100% !important;
+    max-width: 400px;
+  }
+
+  .card-plan .btn {
+    width: 60% !important;
+    margin: 5% auto !important;
+  }
+
+  /* Footer */
+  footer {
+    padding: 20px 0;
+  }
+
+  .app-icon {
+    width: 120px !important;
+  }
+
+  footer p {
     font-size: 0.9rem !important;
-    padding: 8px 16px !important;
   }
 }
 
+/* Telas muito pequenas - Celulares (576px e abaixo) */
 @media (max-width: 576px) {
+
+  /* Banner */
   .banner {
     padding: 20px 15px !important;
   }
@@ -498,80 +664,14 @@ body {
     width: 100% !important;
     margin: 15px auto !important;
   }
-}
 
-/* ===== SEÇÃO SOBRE NÓS ===== */
-.sobre-container {
-  padding: 30px !important;
-}
-
-@media (max-width: 992px) {
-  .sobre-container {
-    flex-direction: column !important;
-    padding: 20px !important;
-  }
-
-  .sobre-container .col-md-6 {
-    width: 100% !important;
-    margin-bottom: 20px;
-  }
-
-  .sobre-container img {
-    order: -1;
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 576px) {
+  /* Sobre container */
   .sobre-container {
     padding: 15px !important;
-    border-radius: 10px !important;
-  }
-}
-
-/* ===== CARDS DE PLANOS ===== */
-.pricing-header h1 {
-  font-size: 2.5rem;
-}
-
-.pricing-header p {
-  font-size: 1.2rem;
-}
-
-@media (max-width: 992px) {
-  .pricing-header h1 {
-    font-size: 2rem !important;
+    border-radius: var(--border-radius) !important;
   }
 
-  .pricing-header p {
-    font-size: 1rem !important;
-  }
-
-  .card-plan {
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .row.text-center {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .col-lg-4,
-  .col-md-6,
-  .col-sm-12 {
-    width: 100% !important;
-    max-width: 400px;
-  }
-
-  .card-plan .btn {
-    width: 60% !important;
-    margin: 5% auto !important;
-  }
-}
-
-@media (max-width: 576px) {
+  /* Cards */
   .card-plan {
     padding: 15px !important;
   }
@@ -592,38 +692,8 @@ body {
   .card-body ul li {
     font-size: 1rem !important;
   }
-}
 
-/* ===== FOOTER ===== */
-footer {
-  padding: 30px 0;
-}
-
-.app-icons {
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.app-icon {
-  width: 150px !important;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  footer {
-    padding: 20px 0;
-  }
-
-  .app-icon {
-    width: 120px !important;
-  }
-
-  footer p {
-    font-size: 0.9rem !important;
-  }
-}
-
-@media (max-width: 576px) {
+  /* Footer */
   .app-icons {
     flex-direction: column;
     align-items: center;
@@ -633,31 +703,8 @@ footer {
     width: 180px !important;
     margin: 5px 0 !important;
   }
-}
 
-/* ===== NAVBAR ===== */
-
-@media (max-width: 992px) {
-  .navbar-collapse {
-    padding-top: 15px;
-  }
-
-  .navbar-nav {
-    margin-right: 0 !important;
-  }
-
-  .navbar-nav a {
-    margin: 5px 0 !important;
-    padding: 8px 15px !important;
-  }
-
-  .btn-group {
-    margin-top: 10px;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 576px) {
+  /* Navbar */
   .navbar-brand {
     font-size: 1.3rem !important;
   }
@@ -671,24 +718,9 @@ footer {
   }
 }
 
-/* ===== ANIMAÇÕES ===== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* ===== MELHORIAS PARA DISPOSITIVOS MÓVEIS ===== */
-/* Evita zoom em inputs em iOS */
-@media (max-width: 768px) {
-
-  input,
-  select,
-  textarea {
-    font-size: 16px !important;
-  }
-}
+/* ============================= */
+/* ====== 14. ACESSIBILIDADE ====== */
+/* ============================= */
 
 /* Melhora a área de toque para mobile */
 .btn,
@@ -697,4 +729,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Redução de movimento para usuários sensíveis */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

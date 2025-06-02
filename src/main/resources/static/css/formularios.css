@@ -61,33 +61,48 @@ body {
     font-weight: 700;
     display: flex;
     align-items: center;
-    font-size: 1.8rem;
-}
-
-.navbar-brand img {
+    font-size: 1.8rem !important; 
+  }
+  
+  .navbar-brand,
+  .navbar-brand:hover,
+  .navbar-brand:focus,
+  .navbar-brand:active,
+  .navbar-brand:visited,
+  .navbar-brand:link {
+    color: inherit !important;
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+  
+  .navbar-brand img {
     margin-right: 3%;
-}
-
-.navbar-nav {
-    font-size: 1.2rem;
+  }
+  
+  .navbar-nav {
+    font-size: 1.2rem; /* ✅ MESMO TAMANHO DO MEMBROS.CSS */
     margin-right: 2%;
     align-items: center;
-}
-
-.navbar-nav a {
+  }
+  
+  .navbar-nav a {
     margin: 0 1%;
     display: flex;
     align-items: center;
-    transition: transform var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
-}
-
-.navbar-nav a:hover {
-    transform: scale(1.05);
-}
-
-.bi-person {
-    font-size: 1.7rem;
-}
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* ✅ MESMA TRANSIÇÃO */
+  }
+  
+  .navbar-nav a:hover {
+    transform: scale(1.05); /* ✅ MESMO EFEITO HOVER */
+  }
+  
+  .bi-person {
+    font-size: 1.7rem; /* ✅ MESMO TAMANHO DO MEMBROS.CSS */
+  }
+  
+  
 
 /* ============================= */
 /* ====== 4. LAYOUT - FOOTER ====== */
