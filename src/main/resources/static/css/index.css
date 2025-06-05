@@ -61,7 +61,7 @@ body {
   opacity: 0;
   animation: fadeIn 0.5s ease-in forwards;
   transition: background-color var(--transition-speed-slow) ease-in-out,
-    color var(--transition-speed-slow) ease-in-out;
+    color var(--transition-speed-slow) ease-in-out !important;
 }
 
 @keyframes fadeIn {
@@ -114,7 +114,7 @@ body {
   display: flex;
   align-items: center;
   transition: transform var(--transition-speed) ease-in-out,
-    color var(--transition-speed) ease-in-out;
+    color var(--transition-speed) ease-in-out !important;
 }
 
 .navbar-nav a:hover {
@@ -131,14 +131,16 @@ body {
   justify-content: center;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
-  height: 100%; /* Garante altura uniforme */
+  height: 100%;
+  /* Garante altura uniforme */
 }
 
 .btn-group i,
 .btn-group svg {
   vertical-align: middle;
   line-height: 1;
-  font-size: 1.2rem; /* Ajuste para o mesmo tamanho dos ícones do membros.html */
+  font-size: 1.2rem;
+  /* Ajuste para o mesmo tamanho dos ícones do membros.html */
 }
 
 
@@ -270,7 +272,7 @@ footer {
   margin: 0;
   font-size: var(--font-size-plan-title);
   color: var(--primary-green-hover) !important;
-  transition: color var(--transition-speed) ease-in-out;
+  transition: color var(--transition-speed) ease-in-out !important;
 }
 
 .price {
@@ -278,7 +280,7 @@ footer {
   font-weight: bold;
   color: var(--primary-green-hover) !important;
   margin: 10px 0;
-  transition: color var(--transition-speed) ease-in-out;
+  transition: color var(--transition-speed) ease-in-out !important;
 }
 
 .card-body {
@@ -294,7 +296,7 @@ footer {
 
 .card-body small {
   color: var(--text-dark) !important;
-  transition: color var(--transition-speed) ease-in-out;
+  transition: color var(--transition-speed) ease-in-out !important; 
 }
 
 .card-plan .btn {
@@ -356,40 +358,57 @@ footer {
 }
 
 /* ============================= */
-/* ====== 11. TEMA CLARO ====== */
+/* ====== 11. TEMA PADRÃO (CLARO) ====== */
 /* ============================= */
-.claro body {
+body {
   background-color: var(--bg-light);
   color: var(--text-dark);
 }
 
-.claro .navbar {
+.navbar {
   background-color: var(--bg-light) !important;
+  transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro .navbar-brand {
+.navbar-brand {
   color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
 }
 
-.claro .navbar-nav a {
+.navbar-nav a {
   color: var(--text-dark) !important;
+  transition: transform var(--transition-speed) ease-in-out, 
+              color var(--transition-speed) ease-in-out;
 }
 
-.claro .navbar-nav a:hover {
+.navbar-nav a:hover {
   color: var(--primary-green-hover) !important;
 }
 
-.claro .navbar-nav .nav-link.active {
+.navbar-nav .nav-link.active {
   color: var(--primary-green-hover) !important;
 }
 
-.claro footer {
+footer {
   background-color: var(--bg-footer-light);
   color: var(--text-dark);
+  transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro footer a {
+footer a {
   color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+/* Cards modo claro */
+.card-plan {
+  background-color: var(--bg-card-light);
+  transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+.card-body small {
+  color: var(--text-dark) !important;
+  transition: color var(--transition-speed) ease-in-out;
 }
 
 /* ============================= */
@@ -529,7 +548,7 @@ footer {
     justify-content: center;
   }
 
-  
+
 
   /* Seções Sobre Nós e Como Funciona - imagem abaixo do texto */
   .sobre-container,
@@ -754,4 +773,59 @@ footer {
     animation: none !important;
     transition: none !important;
   }
+}
+
+/* ============================= */
+/* ====== 15. ANIMAÇÕES ====== */
+/* ============================= */
+
+body {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-primary {
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out !important;
+}
+
+
+.btn-primary:hover {
+  transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== MELHORIAS PARA DISPOSITIVOS MÓVEIS ===== */
+/* Evita zoom em inputs em iOS */
+@media (max-width: 768px) {
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Melhora a área de toque para mobile */
+.btn,
+.nav-link {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
