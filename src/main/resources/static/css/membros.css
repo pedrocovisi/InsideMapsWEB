@@ -122,14 +122,16 @@ body {
   justify-content: center;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
-  height: 100%; /* Garante altura uniforme */
+  height: 100%;
+  /* Garante altura uniforme */
 }
 
 .btn-group i,
 .btn-group svg {
   vertical-align: middle;
   line-height: 1;
-  font-size: 1.2rem; /* Ajuste para o mesmo tamanho dos ícones do membros.html */
+  font-size: 1.2rem;
+  /* Ajuste para o mesmo tamanho dos ícones do membros.html */
 }
 
 
@@ -213,60 +215,66 @@ body {
 }
 
 /* ============================= */
-/* ====== 8. TEMA CLARO ====== */
+/* ====== 8. TEMA PADRÃO (CLARO) ====== */
 /* ============================= */
-.claro body {
+body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--bg-light);
   color: var(--text-dark);
-  transition: background-color var(--transition-speed-slow) ease-in-out,
-    color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro .navbar {
+.navbar {
   background-color: var(--bg-light) !important;
   transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro .navbar-brand {
+.navbar-brand {
   color: var(--text-dark);
   transition: color var(--transition-speed) ease-in-out;
 }
 
-.claro .navbar-nav a {
+.navbar-nav a {
   color: var(--text-dark) !important;
   transition: transform var(--transition-speed) ease-in-out,
     color var(--transition-speed) ease-in-out;
 }
 
-.claro .navbar-nav a:hover {
+.navbar-nav a:hover {
   color: var(--primary-green-hover) !important;
   transform: var(--transform-hover-card);
 }
 
-.claro .navbar-nav .nav-link.active {
+.navbar-nav .nav-link.active {
   color: var(--primary-green-hover) !important;
 }
 
-.claro footer {
+footer {
   background-color: var(--bg-footer-light);
   color: var(--text-dark);
   transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro footer a {
+footer a {
   color: var(--text-dark);
   transition: color var(--transition-speed) ease-in-out;
 }
 
 /* Cards modo claro */
-.claro .contact-card {
+.contact-card {
   background-color: var(--bg-card-light);
   color: var(--text-dark);
+  transition: background-color var(--transition-speed-slow) ease-in-out,
+    color var(--transition-speed) ease-in-out;
 }
 
-.claro .card-text {
+.card-text {
   color: var(--text-card);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.card-title {
+  color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
 }
 
 /* ============================= */
@@ -276,24 +284,18 @@ body {
   font-family: 'Montserrat', sans-serif !important;
   background-color: var(--bg-dark);
   color: var(--text-light);
-  transition: background-color var(--transition-speed-slow) ease-in-out,
-    color var(--transition-speed-slow) ease-in-out;
 }
 
 .escuro .navbar {
   background-color: var(--bg-navbar-dark) !important;
-  transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
 .escuro .navbar-brand {
   color: var(--text-light);
-  transition: color var(--transition-speed) ease-in-out;
 }
 
 .escuro .navbar-nav a {
   color: var(--text-light) !important;
-  transition: transform var(--transition-speed) ease-in-out,
-    color var(--transition-speed) ease-in-out;
 }
 
 .escuro .navbar-nav a:hover {
@@ -308,12 +310,10 @@ body {
 .escuro footer {
   background-color: var(--bg-footer-dark);
   color: var(--text-light);
-  transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
 .escuro footer a {
   color: var(--text-light);
-  transition: color var(--transition-speed) ease-in-out;
 }
 
 .escuro footer a:hover {
@@ -322,25 +322,18 @@ body {
 
 /* Cards modo escuro */
 .escuro .contact-card {
-  transition: transform 0.2s,
-    background-color var(--transition-speed-slow) ease-in-out,
-    color var(--transition-speed) ease-in-out !important;
   background-color: var(--bg-card-dark);
   color: var(--text-light);
 }
 
-.escuro .contact-card:hover {
-  transform: var(--transform-hover-card) !important;
-}
-
 .escuro .card-text {
   color: var(--text-light) !important;
-  transition: color var(--transition-speed) ease-in-out !important;
 }
 
 .escuro .card-title {
   color: var(--text-light);
 }
+
 
 /* ============================= */
 /* ====== 10. RESPONSIVIDADE ====== */

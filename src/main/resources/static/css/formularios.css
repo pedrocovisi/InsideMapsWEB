@@ -122,20 +122,22 @@ body {
 }
 
 .btn-group .btn {
-  min-width: 44px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem; /* Ajuste conforme o tamanho desejado */
-  padding: 0.5rem 0.75rem;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    /* Ajuste conforme o tamanho desejado */
+    padding: 0.5rem 0.75rem;
 }
 
 .btn-group i,
 .btn-group svg {
-  font-size: 1.3rem; /* Deixe igual ao do membros.html */
-  vertical-align: middle;
-  line-height: 1;
+    font-size: 1.3rem;
+    /* Deixe igual ao do membros.html */
+    vertical-align: middle;
+    line-height: 1;
 }
 
 
@@ -197,6 +199,29 @@ body {
 .form-control:focus {
     border-color: var(--primary-green) !important;
     box-shadow: var(--box-shadow-focus) !important;
+}
+
+/* Transições para inputs e textareas */
+.form-control,
+input,
+textarea,
+select {
+    transition: background-color var(--transition-speed-slow) ease-in-out,
+        color var(--transition-speed-slow) ease-in-out,
+        border-color var(--transition-speed) ease-in-out !important;
+}
+
+/* Transições para labels */
+.form-label,
+label {
+    transition: color var(--transition-speed-slow) ease-in-out;
+}
+
+/* Transições para placeholders */
+.form-control::placeholder,
+input::placeholder,
+textarea::placeholder {
+    transition: color var(--transition-speed-slow) ease-in-out;
 }
 
 /* ============================= */
@@ -387,40 +412,61 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 /* ============================= */
-/* ====== 12. TEMA CLARO ====== */
+/* ====== 12. TEMA PADRÃO (CLARO) ====== */
 /* ============================= */
-.claro body {
+body {
     background-color: var(--bg-light);
     color: var(--text-dark);
 }
 
-.claro .navbar {
+.navbar {
     background-color: var(--bg-light) !important;
+    transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro .navbar-brand {
+.navbar-brand {
     color: var(--text-dark);
+    transition: color var(--transition-speed) ease-in-out;
 }
 
-.claro .navbar-nav a {
+.navbar-nav a {
     color: var(--text-dark) !important;
+    transition: color var(--transition-speed) ease-in-out;
 }
 
-.claro .navbar-nav a:hover {
+.navbar-nav a:hover {
     color: var(--primary-green) !important;
 }
 
-.claro .navbar-nav .nav-link.active {
+.navbar-nav .nav-link.active {
     color: var(--primary-green) !important;
 }
 
-.claro footer {
+footer {
     background-color: #f8f9fa;
     color: var(--text-dark);
+    transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro footer a {
+footer a {
     color: var(--text-dark);
+    transition: color var(--transition-speed) ease-in-out;
+}
+
+/* Formulários modo claro */
+.form-container {
+    background-color: var(--bg-light);
+    transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+input,
+textarea {
+    background-color: var(--bg-light) !important;
+    color: var(--text-dark) !important;
+    border: 1px solid #dee2e6;
+    transition: background-color var(--transition-speed) ease-in-out,
+        color var(--transition-speed) ease-in-out,
+        border-color var(--transition-speed) ease-in-out;
 }
 
 /* ============================= */
@@ -549,18 +595,19 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     box-shadow: var(--box-shadow-focus) !important;
 }
 
+
 /* ============================= */
 /* ====== 14. RESPONSIVIDADE ====== */
 /* ============================= */
 
 @media (max-width: 576px) {
-  .app-icons {
-    flex-direction: column;
-    align-items: center;
-  }
+    .app-icons {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .app-icon {
-    width: 180px !important;
-    margin: 5px 0 !important;
-  }
+    .app-icon {
+        width: 180px !important;
+        margin: 5px 0 !important;
+    }
 }

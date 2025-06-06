@@ -229,54 +229,76 @@ tr {
 }
 
 /* ============================= */
-/* ====== 6. TEMA CLARO ====== */
+/* ====== 6. TEMA PADRÃO (CLARO) ====== */
 /* ============================= */
-.claro body {
+body {
   font-family: 'Montserrat', sans-serif !important;
   background-color: var(--bg-light);
   color: var(--text-dark);
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-.claro body .navbar {
+.navbar {
   background-color: var(--bg-light) !important;
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro body .navbar-brand {
+.navbar-brand {
   color: var(--text-dark);
-  transition: color 0.3s ease-in-out;
+  transition: color var(--transition-speed) ease-in-out;
 }
 
-.claro body .navbar-nav a {
+.navbar-nav a {
   color: var(--text-dark) !important;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: transform var(--transition-speed) ease-in-out, 
+              color var(--transition-speed) ease-in-out;
 }
 
-.claro body .navbar-nav .nav-link.active {
+.navbar-nav .nav-link.active {
   color: var(--primary-green-hover) !important;
 }
 
-.claro body footer {
+footer {
   background-color: var(--bg-footer-light);
   color: var(--text-dark);
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color var(--transition-speed-slow) ease-in-out;
 }
 
-.claro body footer a {
+footer a {
   color: var(--text-dark);
-  transition: color 0.3s ease-in-out;
+  transition: color var(--transition-speed) ease-in-out;
 }
 
-.claro body table,
-.claro body table thead,
-.claro body table tbody,
-.claro body table tr,
-.claro body table td,
-.claro body table th {
+/* Cards e tabelas modo claro */
+.card-plan {
+  background-color: var(--bg-card-light);
+  transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+.card-body {
+  color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.card-body small {
+  color: var(--text-dark) !important;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.card-header {
+  background-color: var(--primary-green-hover) !important;
+  transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+.plan-title {
+  color: var(--text-dark) !important;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+table, table thead, table tbody, table tr, table td, table th {
   background-color: var(--bg-light) !important;
-  color: var(--bg-dark) !important;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out !important;
+  color: var(--text-dark) !important;
+  transition: background-color var(--transition-speed-slow) ease-in-out, 
+              color var(--transition-speed-slow) ease-in-out !important;
 }
 
 /* ============================= */
@@ -286,122 +308,101 @@ tr {
   font-family: 'Montserrat', sans-serif !important;
   background-color: var(--bg-dark);
   color: var(--text-light);
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-.escuro body .navbar {
+.escuro .navbar {
   background-color: var(--bg-navbar-dark) !important;
-  transition: background-color 0.5s ease-in-out;
 }
 
-.escuro body .navbar-brand {
+.escuro .navbar-brand {
   color: var(--text-light);
-  transition: color 0.3s ease-in-out;
 }
 
-.escuro body .navbar-nav a {
+.escuro .navbar-nav a {
   color: var(--text-light) !important;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.escuro body .navbar-nav .nav-link.active {
+.escuro .navbar-nav .nav-link.active {
   color: var(--primary-green-dark) !important;
 }
 
-.escuro body footer {
+.escuro footer {
   background-color: var(--bg-footer-dark);
   color: var(--text-light);
-  transition: background-color 0.5s ease-in-out;
 }
 
-.escuro body footer a {
+.escuro footer a {
   color: var(--text-light);
-  transition: color 0.3s ease-in-out;
 }
 
-.escuro body footer a:hover {
+.escuro footer a:hover {
   color: #17a2b8;
 }
 
-.escuro body .card-plan {
+/* Cards e tabelas modo escuro */
+.escuro .card-plan {
   background-color: var(--bg-card-dark);
-  transition: background-color 0.5s ease-in-out;
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
-.escuro body .card-body {
+.escuro .card-body {
   color: var(--text-light);
-  transition: color 0.3s ease-in-out;
 }
 
-.escuro body .card-body small {
+.escuro .card-body small {
   color: var(--text-light) !important;
-  transition: color 0.3s ease-in-out;
 }
 
-.escuro body .card-header {
+.escuro .card-header {
   background-color: var(--primary-green-hover) !important;
-  transition: background-color 0.5s ease-in-out;
 }
 
-.escuro body .plan-title {
+.escuro .plan-title {
   color: var(--text-light) !important;
-  transition: color 0.3s ease-in-out;
 }
 
-.escuro body .price {
+.escuro .price {
   color: var(--primary-green-hover) !important;
-  transition: color 0.3s ease-in-out;
 }
 
-.escuro body .btn-primary {
+.escuro .btn-primary {
   border: none;
   background-color: var(--primary-green) !important;
-  transition: background-color 0.5s ease-in-out;
 }
 
-.escuro body .btn-primary:hover {
+.escuro .btn-primary:hover {
   background-color: var(--primary-green-hover) !important;
-  transition: background-color 0.5s ease-in-out;
 }
 
-.escuro body table,
-.escuro body table thead,
-.escuro body table tbody,
-.escuro body table tr,
-.escuro body table td,
-.escuro body table th {
+.escuro table,
+.escuro table thead,
+.escuro table tbody,
+.escuro table tr,
+.escuro table td,
+.escuro table th {
   background-color: var(--bg-dark) !important;
   color: var(--text-light) !important;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
+
 
 /* ============================= */
 /* ====== 8. RESPONSIVIDADE ====== */
 /* ============================= */
 
-/* Espaçamento entre cards quando empilham em telas pequenas */
-/* Telas médias - Cards em 2 colunas (se necessário) */
+/* Telas médias - Cards em 2 colunas */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .row.text-center {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    row-gap: 30px; /* Espaço vertical entre linhas de cards */
   }
 
-  .row.text-center>.col-md-6 {
-    flex: 0 0 50%;
-    /* 2 colunas */
+  .row.text-center > .col-md-6 {
+    flex: 0 0 50%; /* 2 colunas */
     max-width: 50%;
     padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: 0;
-    /* Remove margin-bottom aqui */
-  }
-
-  .row.text-center {
-    row-gap: 30px;
-    /* Espaço vertical entre linhas de cards */
   }
 }
 
@@ -411,22 +412,14 @@ tr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 10px;
-    /* Espaço vertical entre cards */
+    row-gap: 30px; /* ✅ AUMENTEI PARA 30px */
   }
 
-  .row.text-center>.col-sm-12 {
+  .row.text-center > .col-sm-12 {
     width: 100%;
     max-width: 400px;
-    /* Opcional: limitar largura do card */
-  }
-
-  /* Opcional: Remover margin do último card */
-  .row.text-center>.col-sm-12:last-child .card-plan {
-    margin-bottom: 0;
   }
 }
-
 
 /* Footer responsivo: imagens uma embaixo da outra em telas pequenas */
 @media (max-width: 576px) {
