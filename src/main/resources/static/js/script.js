@@ -44,3 +44,47 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Aguarda o documento carregar completamente
+document.addEventListener('DOMContentLoaded', () => {
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement; // Seleciona o elemento <html>
+
+    // Verifica se o botão existe na página
+    if (themeToggle) {
+
+        // Função para aplicar o tema salvo no localStorage
+        const applyStoredTheme = () => {
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme === 'escuro') {
+                htmlElement.classList.add('escuro');
+            } else {
+                htmlElement.classList.remove('escuro');
+            }
+        };
+
+        // Evento de clique no botão de alternar tema
+        themeToggle.addEventListener('click', () => {
+            // Alterna a classe 'escuro' no elemento <html>
+            htmlElement.classList.toggle('escuro');
+
+            // Salva a preferência do usuário no localStorage
+            if (htmlElement.classList.contains('escuro')) {
+                localStorage.setItem('theme', 'escuro');
+            } else {
+                localStorage.setItem('theme', 'claro');
+            }
+        });
+
+        // Aplica o tema correto ao carregar a página
+        applyStoredTheme();
+    }
+
+    // Inicializa todos os tooltips da página (necessário para a dica de ferramenta)
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+});
