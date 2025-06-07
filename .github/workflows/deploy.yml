@@ -5,7 +5,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # ou 'master', dependendo do nome da sua branch principal
+      - main
 
 # Permissões necessárias para o workflow
 permissions:
@@ -17,6 +17,10 @@ permissions:
 jobs:
   # Tarefa de build e deploy
   deploy:
+    # ADICIONE A SEÇÃO 'environment' ABAIXO
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       # 1. Baixa o código do seu repositório
@@ -31,8 +35,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # AQUI ESTÁ A MÁGICA:
-          # Especifique o caminho para a pasta que contém seu site
           path: './src/main/resources/static'
 
       # 4. Faz o deploy no GitHub Pages
