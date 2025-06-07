@@ -296,13 +296,16 @@ footer {
 
 .card-body small {
   color: var(--text-dark) !important;
-  transition: color var(--transition-speed) ease-in-out !important; 
+  transition: color var(--transition-speed) ease-in-out !important;
 }
 
 .card-plan .btn {
   margin-top: auto;
   width: 40%;
   margin: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .row {
@@ -377,8 +380,8 @@ body {
 
 .navbar-nav a {
   color: var(--text-dark) !important;
-  transition: transform var(--transition-speed) ease-in-out, 
-              color var(--transition-speed) ease-in-out;
+  transition: transform var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out;
 }
 
 .navbar-nav a:hover {

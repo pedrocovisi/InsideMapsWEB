@@ -179,8 +179,10 @@ body {
 }
 
 .card-img-top {
-  width: 100%;
   height: auto;
+  width: 100%; /* Garante que a imagem ocupe toda a largura do card */
+  aspect-ratio: 1 / 1; /* Define a proporção para 1:1 (um quadrado perfeito) */
+  object-fit: cover; /* Redimensiona a imagem para preencher o container, cortando o excesso sem distorcer */
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }
