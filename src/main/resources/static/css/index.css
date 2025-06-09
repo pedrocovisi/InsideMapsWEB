@@ -50,6 +50,12 @@
   --box-shadow-banner: 0 8px 16px var(--banner-shadow);
   --box-shadow-card: 0 10px 20px var(--card-shadow-light);
   --box-shadow-card-dark: 0 4px 20px var(--card-shadow-dark);
+
+  /* NOVAS VARIÁVEIS PARA FUNDO DE SEÇÃO */
+  --bg-section-variant-light: #d2d7db;
+  /* Um cinza muito claro para o tema claro */
+  --bg-section-variant-dark: #2c3034;
+  /* Um cinza escuro para o tema escuro */
 }
 
 /* ============================= */
@@ -233,91 +239,91 @@ footer {
   align-self: flex-start;
 }
 
-/* ============================= */
-/* ====== 6. COMPONENTES - CARDS DE PLANOS ====== */
-/* ============================= */
-.pricing-header h1 {
-  font-size: 2.5rem;
-}
+  /* ============================= */
+  /* ====== 6. COMPONENTES - CARDS DE PLANOS ====== */
+  /* ============================= */
+  .pricing-header h1 {
+    font-size: 2.5rem;
+  }
 
-.pricing-header p {
-  font-size: 1.2rem;
-}
+  .pricing-header p {
+    font-size: 1.2rem;
+  }
 
-.card-plan {
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow-card) !important;
-  transition: transform var(--transition-speed),
-    background-color var(--transition-speed-slow) ease-in-out !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: auto;
-  flex-grow: 1;
-  min-height: 100%;
-  background-color: var(--bg-card-light);
-}
+  .card-plan {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-card) !important;
+    transition: transform var(--transition-speed),
+      background-color var(--transition-speed-slow) ease-in-out !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    flex-grow: 1;
+    min-height: 100%;
+    background-color: var(--bg-card-light);
+  }
 
-.card-plan:hover {
-  transform: translateY(-5px) !important;
-}
+  .card-plan:hover {
+    transform: translateY(-5px) !important;
+  }
 
-.card-header {
-  font-weight: bold;
-  padding: 15px;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-  vertical-align: center;
-  width: 100%;
-}
+  .card-header {
+    font-weight: bold;
+    padding: 15px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    vertical-align: center;
+    width: 100%;
+  }
 
-.plan-title {
-  margin: 0;
-  font-size: var(--font-size-plan-title);
-  color: var(--primary-green-hover) !important;
-  transition: color var(--transition-speed) ease-in-out !important;
-}
+  .plan-title {
+    margin: 0;
+    font-size: var(--font-size-plan-title);
+    color: var(--primary-green-hover) !important;
+    transition: color var(--transition-speed) ease-in-out !important;
+  }
 
-.price {
-  font-size: var(--font-size-price);
-  font-weight: bold;
-  color: var(--primary-green-hover) !important;
-  margin: 10px 0;
-  transition: color var(--transition-speed) ease-in-out !important;
-}
+  .price {
+    font-size: var(--font-size-price);
+    font-weight: bold;
+    color: var(--primary-green-hover) !important;
+    margin: 10px 0;
+    transition: color var(--transition-speed) ease-in-out !important;
+  }
 
-.card-body {
-  flex-grow: 1;
-}
+  .card-body {
+    flex-grow: 1;
+  }
 
-.card-body ul li {
-  padding: 5px 0;
-  font-size: var(--font-size-card-body);
-  text-align: left;
-  margin-bottom: 5px;
-}
+  .card-body ul li {
+    padding: 5px 0;
+    font-size: var(--font-size-card-body);
+    text-align: left;
+    margin-bottom: 5px;
+  }
 
-.card-body small {
-  color: var(--text-dark) !important;
-  transition: color var(--transition-speed) ease-in-out !important;
-}
+  .card-body small {
+    color: var(--text-dark) !important;
+    transition: color var(--transition-speed) ease-in-out !important;
+  }
 
-.card-plan .btn {
-  margin-top: auto;
-  width: 40%;
-  margin: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .card-plan .btn {
+    margin-top: auto;
+    width: 40%;
+    margin: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-}
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+  }
 
 /* ============================================= */
 /* ====== 7. COMPONENTES - CARDS DE FUNCIONALIDADES ====== */
@@ -392,7 +398,6 @@ footer {
 /* ============================================= */
 .faq-section {
   padding: 80px 15px;
-  background-color: var(--bg-light);
   /* Fundo branco para diferenciar da seção de funcionalidades */
 }
 
@@ -541,6 +546,17 @@ footer a {
   color: var(--text-muted-light);
 }
 
+/* Estilos para as novas seções */
+.funcionalidades-section,
+.faq-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: var(--bg-section-variant-light);
+  /* Aplica a cor do tema claro */
+  transition: background-color var(--transition-speed) ease-in-out;
+}
+
+
 
 /* ============================= */
 /* ====== 14. TEMA ESCURO ====== */
@@ -646,10 +662,6 @@ footer a {
   color: var(--text-muted-dark);
 }
 
-.escuro .faq-section {
-  background-color: var(--bg-dark);
-}
-
 .escuro .accordion-item {
   background-color: var(--bg-card-dark);
   border-color: var(--border-color-dark);
@@ -669,6 +681,15 @@ footer a {
 .escuro .accordion-body {
   color: var(--text-muted-dark);
 }
+
+/* Dentro da sua seção de TEMA ESCURO */
+
+.escuro .funcionalidades-section,
+.escuro .faq-section {
+  background-color: var(--bg-section-variant-dark);
+  /* Aplica a cor do tema escuro */
+}
+
 
 /* ============================= */
 /* ====== 15. RESPONSIVIDADE ====== */
