@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("🚀 alterar.js carregado");
-    
+
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
     console.log("👤 Usuário logado:", usuarioLogado);
-    
+
     const form = document.getElementById('alterarSenhaForm');
     console.log("📋 Formulário encontrado:", !!form);
-    
+
     // Verificar se usuário está logado
     if (!usuarioLogado) {
         alert('Você precisa estar logado para alterar a senha.');
@@ -16,9 +16,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.setAttribute('novalidate', '');
 
-    // Função para validar senha (mínimo 6 caracteres, pelo menos 1 número)
     function validarSenha(senha) {
-        return senha.length >= 6 && /\d/.test(senha);
+        // Requisito 1: Pelo menos 6 caracteres
+        if (senha.length < 6) {
+            return { valido: false, mensagem: 'A senha deve ter no mínimo 6 caracteres.' };
+        }
+        // Requisito 2: Pelo menos 1 letra maiúscula
+        if (!/[A-Z]/.test(senha)) {
+            return { valido: false, mensagem: 'Deve conter pelo menos uma letra maiúscula.' };
+        }
+        // Requisito 3: Pelo menos 1 letra minúscula
+        if (!/[a-z]/.test(senha)) {
+            return { valido: false, mensagem: 'Deve conter pelo menos uma letra minúscula.' };
+        }
+        // Requisito 4: Pelo menos 1 número
+        if (!/\d/.test(senha)) { // \d é um atalho para [0-9]
+            return { valido: false, mensagem: 'Deve conter pelo menos um número.' };
+        }
+        // Requisito 5: Pelo menos 1 caractere especial
+        if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`]/.test(senha)) {
+            return { valido: false, mensagem: 'Deve conter pelo menos um caractere especial (ex: !@#$%).' };
+        }
+
+        // Se todos os requisitos foram atendidos
+        return { valido: true, mensagem: 'Senha válida' };
     }
 
     // Função para exibir erro
@@ -144,10 +165,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (campos.confirmarSenha.classList.contains('campo-erro')) {
             removerErro(campos.confirmarSenha);
         }
-        
+
         const novaSenha = campos.novaSenha.value;
         const confirmarSenha = campos.confirmarSenha.value;
-        
+
         if (confirmarSenha && novaSenha && confirmarSenha === novaSenha) {
             marcarComoValido(campos.confirmarSenha);
         }
@@ -157,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
         console.log("📤 Formulário enviado");
-        
+
         limparErros();
 
         const senhaAtual = campos.senhaAtual.value;
@@ -211,15 +232,15 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const userId = usuarioLogado.usuario?.id || usuarioLogado.id;
             console.log("🆔 User ID:", userId);
-            
+
             const response = await fetch(`http://localhost:8080/api/usuarios/${userId}/alterar-senha`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     senhaAtual: senhaAtual,
-                    novaSenha: novaSenha 
+                    novaSenha: novaSenha
                 })
             });
 
@@ -231,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 const errorText = await response.text().catch(() => 'Erro desconhecido');
                 console.log("❌ Erro:", errorText);
-                
+
                 if (response.status === 400) {
                     if (errorText.includes('Senha atual incorreta') || errorText.includes('senha atual')) {
                         exibirErro(campos.senhaAtual, 'Senha atual incorreta');

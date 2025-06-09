@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("🚀 DOM carregado, iniciando cadastro.js");
-  
+
   const form = document.querySelector("form");
   if (!form) {
     console.error("❌ Formulário não encontrado!");
     return;
   }
-  
+
   console.log("✅ Formulário encontrado");
   form.setAttribute('novalidate', '');
 
@@ -16,10 +16,37 @@ document.addEventListener("DOMContentLoaded", () => {
     return regex.test(email);
   }
 
-  // Função para validar senha (mínimo 6 caracteres, pelo menos 1 número)
+  /**
+     * Valida uma senha com base em um conjunto de requisitos de complexidade.
+     * @param {string} senha - A senha a ser validada.
+     * @returns {{valido: boolean, mensagem: string}} Um objeto com o status e a mensagem de erro.
+     */
   function validarSenha(senha) {
-    return senha.length >= 6 && /\d/.test(senha);
+    // Requisito 1: Pelo menos 6 caracteres
+    if (senha.length < 6) {
+      return { valido: false, mensagem: 'A senha deve ter no mínimo 6 caracteres.' };
+    }
+    // Requisito 2: Pelo menos 1 letra maiúscula
+    if (!/[A-Z]/.test(senha)) {
+      return { valido: false, mensagem: 'Deve conter pelo menos uma letra maiúscula.' };
+    }
+    // Requisito 3: Pelo menos 1 letra minúscula
+    if (!/[a-z]/.test(senha)) {
+      return { valido: false, mensagem: 'Deve conter pelo menos uma letra minúscula.' };
+    }
+    // Requisito 4: Pelo menos 1 número
+    if (!/\d/.test(senha)) { // \d é um atalho para [0-9]
+      return { valido: false, mensagem: 'Deve conter pelo menos um número.' };
+    }
+    // Requisito 5: Pelo menos 1 caractere especial
+    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`]/.test(senha)) {
+      return { valido: false, mensagem: 'Deve conter pelo menos um caractere especial (ex: !@#$%).' };
+    }
+
+    // Se todos os requisitos foram atendidos
+    return { valido: true, mensagem: 'Senha válida' };
   }
+
 
   // Função para validar idade (mínimo 13 anos) - CORRIGIDA
   function validarIdade(dataNascimento) {
@@ -28,11 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let idade = hoje.getFullYear() - nascimento.getFullYear(); // ← CORRIGIDO: const para let
     const mesAtual = hoje.getMonth();
     const mesNascimento = nascimento.getMonth();
-    
+
     if (mesAtual < mesNascimento || (mesAtual === mesNascimento && hoje.getDate() < nascimento.getDate())) {
-        idade--; // ← AGORA FUNCIONA: pode alterar porque é let
+      idade--; // ← AGORA FUNCIONA: pode alterar porque é let
     }
-    
+
     return idade >= 13;
   }
 
@@ -95,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("❌ Alguns elementos do formulário não foram encontrados!");
     console.error("Elementos faltando:", {
       nome: !campos.nome ? "FALTANDO" : "OK",
-      email: !campos.email ? "FALTANDO" : "OK", 
+      email: !campos.email ? "FALTANDO" : "OK",
       senha: !campos.senha ? "FALTANDO" : "OK",
       dataNascimento: !campos.dataNascimento ? "FALTANDO" : "OK"
     });
@@ -124,8 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Validação da senha em tempo real
   campos.senha.addEventListener('blur', () => {
-    if (!validarSenha(campos.senha.value)) {
-      exibirErro(campos.senha, 'Senha deve ter pelo menos 6 caracteres e conter pelo menos 1 número');
+    const validacao = validarSenha(campos.senha.value);
+    if (!validacao.valido) {
+      exibirErro(campos.senha, validacao.mensagem);
     } else {
       removerErro(campos.senha);
     }
@@ -148,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (event) => {
     console.log("🚀 Submit do formulário iniciado");
     event.preventDefault();
-    
+
     // Limpa erros anteriores
     limparErros();
     console.log("✅ Erros anteriores limpos");
@@ -180,9 +208,9 @@ document.addEventListener("DOMContentLoaded", () => {
       temErro = true;
     }
 
-    if (!senha || !validarSenha(senha)) {
-      console.log("❌ Erro: Senha inválida");
-      exibirErro(campos.senha, 'Senha deve ter pelo menos 6 caracteres e conter pelo menos 1 número');
+    const validacaoSenha = validarSenha(senha);
+    if (!validacaoSenha.valido) {
+      exibirErro(campos.senha, validacaoSenha.mensagem);
       temErro = true;
     }
 
@@ -231,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       console.log("🌐 Iniciando requisição para API...");
-      
+
       const response = await fetch("http://localhost:8080/api/usuarios", {
         method: "POST",
         headers: {
@@ -248,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "login.html";
       } else {
         console.log("❌ Erro na resposta da API - Status:", response.status);
-        
+
         let errorData;
         try {
           errorData = await response.json();
@@ -258,14 +286,14 @@ document.addEventListener("DOMContentLoaded", () => {
           errorData = await response.text();
           console.log("📄 Dados do erro (texto):", errorData);
         }
-        
+
         // Se o erro for um objeto com campos específicos (do backend)
         if (typeof errorData === 'object' && errorData !== null) {
           console.log("🔍 Processando erros específicos por campo");
-          
+
           // Limpa erros anteriores
           limparErros();
-          
+
           // Exibe erros específicos para cada campo
           if (errorData.nome) {
             console.log("❌ Erro no campo nome:", errorData.nome);
@@ -283,12 +311,12 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("❌ Erro no campo dataNascimento:", errorData.dataNascimento);
             exibirErro(campos.dataNascimento, errorData.dataNascimento);
           }
-          
+
           // Se houver outros erros não específicos
-          const outrosErros = Object.keys(errorData).filter(key => 
+          const outrosErros = Object.keys(errorData).filter(key =>
             !['nome', 'email', 'senha', 'dataNascimento'].includes(key)
           );
-          
+
           if (outrosErros.length > 0) {
             console.log("⚠️ Outros erros encontrados:", outrosErros);
             alert(`Erro ao cadastrar: ${Object.values(errorData).join(', ')}`);

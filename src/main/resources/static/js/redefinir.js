@@ -2,10 +2,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById('redefinirSenhaForm');
     form.setAttribute('novalidate', '');
 
-    // Função para validar senha (mínimo 6 caracteres, pelo menos 1 número)
+    /**
+     * Valida uma senha com base em um conjunto de requisitos de complexidade.
+     * @param {string} senha - A senha a ser validada.
+     * @returns {{valido: boolean, mensagem: string}} Um objeto com o status e a mensagem de erro.
+     */
     function validarSenha(senha) {
-        return senha.length >= 6 && /\d/.test(senha);
+        // Requisito 1: Pelo menos 6 caracteres
+        if (senha.length < 6) {
+            return { valido: false, mensagem: 'A senha deve ter no mínimo 6 caracteres.' };
+        }
+        // Requisito 2: Pelo menos 1 letra maiúscula
+        if (!/[A-Z]/.test(senha)) {
+            return { valido: false, mensagem: 'Deve conter pelo menos uma letra maiúscula.' };
+        }
+        // Requisito 3: Pelo menos 1 letra minúscula
+        if (!/[a-z]/.test(senha)) {
+            return { valido: false, mensagem: 'Deve conter pelo menos uma letra minúscula.' };
+        }
+        // Requisito 4: Pelo menos 1 número
+        if (!/\d/.test(senha)) { // \d é um atalho para [0-9]
+            return { valido: false, mensagem: 'Deve conter pelo menos um número.' };
+        }
+        // Requisito 5: Pelo menos 1 caractere especial
+        if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`]/.test(senha)) {
+            return { valido: false, mensagem: 'Deve conter pelo menos um caractere especial (ex: !@#$%).' };
+        }
+
+        // Se todos os requisitos foram atendidos
+        return { valido: true, mensagem: 'Senha válida' };
     }
+
 
     // Função para verificar se as senhas coincidem
     function senhasCoincidentes(senha1, senha2) {
@@ -67,24 +94,16 @@ document.addEventListener("DOMContentLoaded", () => {
         confirmarSenha: document.getElementById("confirmarSenha")
     };
 
-    // Validação da nova senha em tempo real (blur)
+    // ALTERADO: Validação da nova senha em tempo real
     campos.novaSenha.addEventListener('blur', () => {
-        const senha = campos.novaSenha.value;
-        
-        if (!senha) {
-            exibirErro(campos.novaSenha, 'Nova senha é obrigatória');
-        } else if (senha.length < 6) {
-            exibirErro(campos.novaSenha, 'Senha deve ter pelo menos 6 caracteres');
-        } else if (!/\d/.test(senha)) {
-            exibirErro(campos.novaSenha, 'Senha deve conter pelo menos 1 número');
+        const validacao = validarSenha(campos.novaSenha.value);
+        if (!validacao.valido) {
+            exibirErro(campos.novaSenha, validacao.mensagem);
         } else {
             marcarComoValido(campos.novaSenha);
-            // Revalida confirmação se já foi preenchida
-            if (campos.confirmarSenha.value) {
-                validarConfirmacaoSenha();
-            }
         }
     });
+
 
     // Função para validar confirmação de senha
     function validarConfirmacaoSenha() {
@@ -109,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (campos.novaSenha.classList.contains('campo-erro')) {
             removerErro(campos.novaSenha);
         }
-        
+
         // Se confirmação já foi preenchida, revalida
         if (campos.confirmarSenha.value) {
             if (campos.confirmarSenha.classList.contains('campo-erro')) {
@@ -123,11 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (campos.confirmarSenha.classList.contains('campo-erro')) {
             removerErro(campos.confirmarSenha);
         }
-        
+
         // Validação em tempo real para senhas coincidentes
         const novaSenha = campos.novaSenha.value;
         const confirmarSenha = campos.confirmarSenha.value;
-        
+
         if (confirmarSenha && novaSenha && confirmarSenha === novaSenha) {
             marcarComoValido(campos.confirmarSenha);
         }
@@ -146,28 +165,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
-        
-        // Limpa erros anteriores
         limparErros();
 
         const novaSenha = campos.novaSenha.value;
         const confirmarSenha = campos.confirmarSenha.value;
-
         let temErro = false;
 
-        // Validações completas no submit
-        if (!novaSenha) {
-            exibirErro(campos.novaSenha, 'Nova senha é obrigatória');
-            temErro = true;
-        } else if (!validarSenha(novaSenha)) {
-            if (novaSenha.length < 6) {
-                exibirErro(campos.novaSenha, 'Senha deve ter pelo menos 6 caracteres');
-            } else {
-                exibirErro(campos.novaSenha, 'Senha deve conter pelo menos 1 número');
-            }
+        // ALTERADO: Validação completa da nova senha no submit
+        const validacaoSenha = validarSenha(novaSenha);
+        if (!validacaoSenha.valido) {
+            exibirErro(campos.novaSenha, validacaoSenha.mensagem);
             temErro = true;
         }
 
+        // Validação da confirmação de senha (sem alterações)
         if (!confirmarSenha) {
             exibirErro(campos.confirmarSenha, 'Confirmação de senha é obrigatória');
             temErro = true;
@@ -176,10 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
             temErro = true;
         }
 
-        // Se há erros, não envia o formulário
-        if (temErro) {
-            return;
-        }
+        if (temErro) return;
 
         // Desabilita o botão de submit durante o envio
         const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('input[type="submit"]');
@@ -197,9 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ 
-                    token: token, 
-                    novaSenha: novaSenha 
+                body: JSON.stringify({
+                    token: token,
+                    novaSenha: novaSenha
                 })
             });
 
@@ -210,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 // Trata diferentes tipos de erro
                 const errorText = await response.text().catch(() => 'Erro desconhecido');
-                
+
                 if (response.status === 400) {
                     if (errorText.includes('Token')) {
                         alert('Token inválido ou expirado. Você será redirecionado para solicitar uma nova recuperação.');
@@ -239,4 +247,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+
 });
