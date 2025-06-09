@@ -188,7 +188,7 @@ footer {
 /* ============================= */
 .banner-container {
   position: relative;
-  width: 70%;
+  width: 83%;
   margin: 40px auto 0;
   min-height: 50vh;
   border-radius: var(--border-radius-large);
@@ -786,6 +786,29 @@ footer a {
   .como-funciona-container .row {
     flex-direction: column !important;
   }
+
+  .info-section {
+    /* Força o empilhamento vertical */
+    flex-direction: column !important;
+    text-align: center; /* Centraliza o texto quando empilhado */
+}
+
+.info-section .col-md-6 {
+    /* Força cada coluna a ocupar 100% da largura */
+    width: 100% !important;
+    max-width: 650px; /* Limite para não ficar largo demais em tablets */
+}
+
+/* Garante que o texto venha antes da imagem na seção "Sobre Nós" */
+.info-section .order-md-2 {
+    order: 1 !important; /* Texto para cima */
+}
+.info-section .order-md-1 {
+    order: 2 !important; /* Imagem para baixo */
+    margin-top: 30px; /* Espaço entre texto e imagem */
+}
+
+  
 }
 
 

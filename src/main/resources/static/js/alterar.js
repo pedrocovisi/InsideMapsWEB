@@ -103,28 +103,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Validações em tempo real (igual ao código anterior)
+    // Validação da Senha Atual (Blur)
     campos.senhaAtual.addEventListener('blur', () => {
-        const senha = campos.senhaAtual.value;
-        if (!senha) {
+        if (!campos.senhaAtual.value) {
             exibirErro(campos.senhaAtual, 'Senha atual é obrigatória');
         } else {
             removerErro(campos.senhaAtual);
         }
     });
 
+    // Validação da Nova Senha (Blur)
     campos.novaSenha.addEventListener('blur', () => {
-        const senha = campos.novaSenha.value;
-        if (!senha) {
-            exibirErro(campos.novaSenha, 'Nova senha é obrigatória');
-        } else if (senha.length < 6) {
-            exibirErro(campos.novaSenha, 'Nova senha deve ter pelo menos 6 caracteres');
-        } else if (!/\d/.test(senha)) {
-            exibirErro(campos.novaSenha, 'Nova senha deve conter pelo menos 1 número');
+        const validacao = validarSenha(campos.novaSenha.value);
+        if (!validacao.valido) {
+            exibirErro(campos.novaSenha, validacao.mensagem);
         } else {
             marcarComoValido(campos.novaSenha);
-            if (campos.confirmarSenha.value) {
-                validarConfirmacaoSenha();
-            }
         }
     });
 
@@ -142,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     campos.confirmarSenha.addEventListener('blur', validarConfirmacaoSenha);
+    campos.confirmarSenha.addEventListener('input', validarConfirmacaoSenha);
 
     // Validação durante digitação
     campos.senhaAtual.addEventListener('input', () => {
