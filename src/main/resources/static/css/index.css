@@ -64,6 +64,10 @@ body {
     color var(--transition-speed-slow) ease-in-out !important;
 }
 
+h2 {
+  font-weight: 700 !important;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -315,8 +319,58 @@ footer {
   align-items: stretch;
 }
 
+/* ============================================= */
+/* ====== 7. COMPONENTES - CARDS DE FUNCIONALIDADES ====== */
+/* ============================================= */
+.funcionalidades-section {
+  padding: 80px 15px;
+}
+
+.funcionalidades-section h2 {
+  font-weight: 700;
+  margin-bottom: 4rem;
+}
+
+.funcionalidade-card {
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius);
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--shadow-color-light);
+  transition: transform var(--transition-speed) ease-in-out,
+    background-color var(--transition-speed) ease-in-out,
+    border-color var(--transition-speed) ease-in-out,
+    box-shadow var(--transition-speed) ease-in-out !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.funcionalidade-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 8px 25px var(--shadow-color-hover-light);
+}
+
+.funcionalidade-card i {
+  font-size: 3.5rem;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.funcionalidade-card h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.funcionalidade-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
 /* ============================= */
-/* ====== 7. COMPONENTES - BOTÕES ====== */
+/* ====== 8. COMPONENTES - BOTÕES ====== */
 /* ============================= */
 .btn-primary {
   background-color: var(--primary-green) !important;
@@ -333,8 +387,67 @@ footer {
   transform: scale(1.08);
 }
 
+/* ============================================= */
+/* ====== 9. COMPONENTES - SEÇÃO DE FAQ ====== */
+/* ============================================= */
+.faq-section {
+  padding: 80px 15px;
+  background-color: var(--bg-light);
+  /* Fundo branco para diferenciar da seção de funcionalidades */
+}
+
+.accordion-item {
+  background-color: var(--bg-card-light);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius) !important;
+  /* Força o border-radius */
+  margin-bottom: 1rem;
+  overflow: hidden;
+  /* Garante que os cantos arredondados sejam aplicados corretamente */
+}
+
+/* Remove a borda padrão entre os itens e a sombra quando aberto */
+.accordion-item:first-of-type,
+.accordion-item:last-of-type {
+  border-radius: var(--border-radius) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: var(--primary-green);
+}
+
+.accordion-button {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Estilo do botão quando o accordion NÃO está colapsado (aberto) */
+.accordion-button:not(.collapsed) {
+  color: var(--primary-green);
+  background-color: rgba(31, 177, 131, 0.05);
+  /* Um fundo verde bem sutil */
+  box-shadow: none;
+}
+
+.accordion-body {
+  color: var(--text-muted-light);
+  line-height: 1.7;
+}
+
+/* Transições para o tema */
+.faq-section,
+.accordion-item,
+.accordion-button,
+.accordion-body {
+  transition: background-color var(--transition-speed) ease-in-out,
+    border-color var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out;
+}
+
+
 /* ============================= */
-/* ====== 8. COMPONENTES - IMAGENS ====== */
+/* ====== 10. COMPONENTES - IMAGENS ====== */
 /* ============================= */
 .rouded-image {
   border-radius: 5%;
@@ -342,7 +455,7 @@ footer {
 }
 
 /* ============================= */
-/* ====== 9. COMPONENTES - TEXTO ====== */
+/* ====== 11. COMPONENTES - TEXTO ====== */
 /* ============================= */
 .text {
   font-size: var(--font-size-banner-p);
@@ -353,7 +466,7 @@ footer {
 }
 
 /* ============================= */
-/* ====== 10. LAYOUT - CONTAINER ====== */
+/* ====== 12. LAYOUT - CONTAINER ====== */
 /* ============================= */
 .container {
   padding: 0 15px;
@@ -361,7 +474,7 @@ footer {
 }
 
 /* ============================= */
-/* ====== 11. TEMA PADRÃO (CLARO) ====== */
+/* ====== 13. TEMA PADRÃO (CLARO) ====== */
 /* ============================= */
 body {
   background-color: var(--bg-light);
@@ -403,19 +516,34 @@ footer a {
   transition: color var(--transition-speed) ease-in-out;
 }
 
-/* Cards modo claro */
-.card-plan {
-  background-color: var(--bg-card-light);
-  transition: background-color var(--transition-speed-slow) ease-in-out;
-}
+
 
 .card-body small {
   color: var(--text-dark) !important;
   transition: color var(--transition-speed) ease-in-out;
 }
 
+/* ALTERAÇÃO APLICADA: */
+.card-plan,
+.funcionalidade-card {
+  background-color: var(--bg-card-light);
+  border-color: var(--border-color-light);
+  box-shadow: 0 4px 12px var(--shadow-color-light);
+
+  /* A transição agora observa a mudança de todas estas propriedades */
+  transition: background-color var(--transition-speed) ease-in-out,
+    border-color var(--transition-speed) ease-in-out,
+    box-shadow var(--transition-speed) ease-in-out;
+}
+
+
+.funcionalidade-card p {
+  color: var(--text-muted-light);
+}
+
+
 /* ============================= */
-/* ====== 12. TEMA ESCURO ====== */
+/* ====== 14. TEMA ESCURO ====== */
 /* ============================= */
 .escuro body {
   background-color: var(--bg-dark);
@@ -466,9 +594,11 @@ footer a {
 }
 
 /* Cards modo escuro */
-.escuro .card-plan {
+.escuro .card-plan,
+.escuro .funcionalidade-card {
   background-color: var(--bg-card-dark);
-  box-shadow: var(--box-shadow-card-dark);
+  border-color: var(--border-color-dark);
+  box-shadow: 0 4px 12px var(--shadow-color-dark);
 }
 
 .escuro .card-body {
@@ -499,8 +629,49 @@ footer a {
   background-color: var(--primary-green-hover) !important;
 }
 
+.escuro .funcionalidade-card {
+  border-color: var(--border-color-dark);
+  box-shadow: 0 4px 12px var(--shadow-color-dark);
+}
+
+.escuro .funcionalidade-card:hover {
+  box-shadow: 0 8px 25px var(--shadow-color-hover-dark);
+}
+
+.escuro .funcionalidade-card h4 {
+  color: var(--text-light);
+}
+
+.escuro .funcionalidade-card p {
+  color: var(--text-muted-dark);
+}
+
+.escuro .faq-section {
+  background-color: var(--bg-dark);
+}
+
+.escuro .accordion-item {
+  background-color: var(--bg-card-dark);
+  border-color: var(--border-color-dark);
+}
+
+.escuro .accordion-button {
+  background-color: var(--bg-card-dark);
+  color: var(--text-light);
+}
+
+.escuro .accordion-button:not(.collapsed) {
+  color: var(--primary-green);
+  background-color: rgba(31, 177, 131, 0.15);
+  /* Fundo verde um pouco mais forte no escuro */
+}
+
+.escuro .accordion-body {
+  color: var(--text-muted-dark);
+}
+
 /* ============================= */
-/* ====== 13. RESPONSIVIDADE ====== */
+/* ====== 15. RESPONSIVIDADE ====== */
 /* ============================= */
 
 /* Telas médias - Tablets (992px e abaixo) */
@@ -758,7 +929,7 @@ footer a {
 }
 
 /* ============================= */
-/* ====== 14. ACESSIBILIDADE ====== */
+/* ====== 16. ACESSIBILIDADE ====== */
 /* ============================= */
 
 /* Melhora a área de toque para mobile */
@@ -779,7 +950,7 @@ footer a {
 }
 
 /* ============================= */
-/* ====== 15. ANIMAÇÕES ====== */
+/* ====== 17. ANIMAÇÕES ====== */
 /* ============================= */
 
 body {
@@ -835,7 +1006,7 @@ body {
 
 
 /* ======================================= */
-/* ====== BOTÃO DE ALTERNAR TEMA ======= */
+/* ====== 18. COMPONENTES - BOTÃO DE ALTERNAR TEMA ======= */
 /* ======================================= */
 
 #theme-toggle {
