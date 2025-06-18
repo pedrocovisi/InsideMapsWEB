@@ -528,8 +528,10 @@ body {
 .establishment-item {
     display: flex;
     align-items: center;
-    background-color: transparent; /* Fundo transparente para um visual mais limpo */
-    border: 1px solid #e0e0e0;      /* Borda sutil */
+    background-color: transparent;
+    /* Fundo transparente para um visual mais limpo */
+    border: 1px solid #e0e0e0;
+    /* Borda sutil */
     color: var(--text-dark);
     padding: 12px;
     border-radius: 8px;
@@ -537,7 +539,8 @@ body {
 }
 
 .establishment-item i {
-    color: var(--primary-green); /* Ícone verde para destaque */
+    color: var(--primary-green);
+    /* Ícone verde para destaque */
     margin-right: 10px;
     transition: color 0.3s ease;
 }
@@ -545,12 +548,14 @@ body {
 .establishment-item:hover {
     background-color: var(--primary-green);
     border-color: var(--primary-green);
-    color: var(--text-light); /* Texto fica branco no hover */
+    color: var(--text-light);
+    /* Texto fica branco no hover */
     transform: translateY(-3px);
 }
 
 .establishment-item:hover i {
-    color: var(--text-light); /* Ícone também fica branco no hover */
+    color: var(--text-light);
+    /* Ícone também fica branco no hover */
 }
 
 .cta-banner {
@@ -672,22 +677,27 @@ textarea {
 }
 
 .escuro input:-webkit-autofill,
+.escuro input:-webkit-autofill:hover,
+.escuro input:-webkit-autofill:focus,
+.escuro input:-webkit-autofill:active,
 .escuro textarea:-webkit-autofill,
-.escuro select:-webkit-autofill {
-    background-color: var(--bg-input-dark) !important;
+.escuro textarea:-webkit-autofill:hover,
+.escuro textarea:-webkit-autofill:focus,
+.escuro textarea:-webkit-autofill:active,
+.escuro select:-webkit-autofill,
+.escuro select:-webkit-autofill:hover,
+.escuro select:-webkit-autofill:focus,
+.escuro select:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 1000px var(--bg-input-dark) inset !important;
+    box-shadow: 0 0 0 1000px var(--bg-input-dark) inset !important;
+    background-color: var(--bg-input-dark) !important;
     -webkit-text-fill-color: var(--text-light) !important;
     color: var(--text-light) !important;
     caret-color: var(--text-light) !important;
     border: 1px solid #555 !important;
+    transition: background-color 0s, color 0s;
 }
 
-.escuro input:-webkit-autofill:focus,
-.escuro textarea:-webkit-autofill:focus,
-.escuro select:-webkit-autofill:focus {
-    border: 1px solid #777 !important;
-    outline: none !important;
-}
 
 /* Toggle senha modo escuro */
 .escuro .password-toggle,
@@ -748,12 +758,14 @@ textarea {
 
 /* --- ESTILOS MELHORADOS PARA TEMA ESCURO --- */
 .escuro .establishment-item {
-    border-color: #555;      /* Borda mais escura para o tema escuro */
+    border-color: #555;
+    /* Borda mais escura para o tema escuro */
     color: var(--text-light);
 }
 
 .escuro .establishment-item:hover {
-    background-color: var(--primary-green-hover); /* Tom de verde um pouco diferente para o hover no escuro */
+    background-color: var(--primary-green-hover);
+    /* Tom de verde um pouco diferente para o hover no escuro */
     border-color: var(--primary-green-hover);
 }
 
