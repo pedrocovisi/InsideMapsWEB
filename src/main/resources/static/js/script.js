@@ -45,6 +45,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const btnAssinar = document.getElementById('btn-assinar');
+
+    if (btn-assinar) {
+        btn-assinar.addEventListener('click', (event) => {
+            event.preventDefault(); // Impede o comportamento padrão do link
+
+            // Verifica se o usuário está logado
+            const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+            if (usuarioLogado && usuarioLogado !== 'null') {
+                // Usuário está logado - vai para o perfil
+                window.location.href = 'pagamento.html';
+            } else {
+                // Usuário não está logado - vai para o login
+                window.location.href = 'login.html';
+            }
+        });
+    }
+});
+
 // Aguarda o documento carregar completamente
 document.addEventListener('DOMContentLoaded', () => {
 
