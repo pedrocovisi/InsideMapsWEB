@@ -35,33 +35,36 @@ document.addEventListener("DOMContentLoaded", () => {
             const usuarioLogado = localStorage.getItem('usuarioLogado');
 
             if (usuarioLogado && usuarioLogado !== 'null') {
-                // Usuário está logado - vai para o perfil
                 window.location.href = 'perfil.html';
             } else {
-                // Usuário não está logado - vai para o login
+                // Limpa qualquer destino anterior e manda para login
+                localStorage.removeItem('paginaDestino');
                 window.location.href = 'login.html';
             }
+            
+            
         });
     }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const btnAssinar = document.getElementById('btn-assinar');
+    const btnAssinar = document.getElementById('btnAssinar');
 
-    if (btn-assinar) {
-        btn-assinar.addEventListener('click', (event) => {
+    if (btnAssinar) {
+        btnAssinar.addEventListener('click', (event) => {
             event.preventDefault(); // Impede o comportamento padrão do link
 
             // Verifica se o usuário está logado
             const usuarioLogado = localStorage.getItem('usuarioLogado');
 
             if (usuarioLogado && usuarioLogado !== 'null') {
-                // Usuário está logado - vai para o perfil
                 window.location.href = 'pagamento.html';
             } else {
-                // Usuário não está logado - vai para o login
+                alert("Você não está logado. Redirecionando para login.");
+                // Salva a página de destino antes de ir para login
+                localStorage.setItem('paginaDestino', 'pagamento.html');
                 window.location.href = 'login.html';
-            }
+            }            
         });
     }
 });

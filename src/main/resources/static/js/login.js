@@ -90,6 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     form.addEventListener("submit", async (event) => {
+      if (!localStorage.getItem("paginaDestino")) {
+        localStorage.removeItem("paginaDestino");
+      }
       event.preventDefault();
       
       // Limpa erros anteriores
@@ -143,13 +146,21 @@ document.addEventListener("DOMContentLoaded", () => {
   
         if (response.ok) {
           const data = await response.json();
-  
+        
           // Armazena os dados do usuário logado
           localStorage.setItem("usuarioLogado", JSON.stringify(data));
-  
+        
           alert("Login realizado com sucesso!");
-          window.location.href = "index.html";
-        } else {
+        
+          // Verifica se existe página de destino
+          const destino = localStorage.getItem("paginaDestino");
+          if (destino) {
+            localStorage.removeItem("paginaDestino"); // Limpa para não reutilizar
+            window.location.href = destino;
+          } else {
+            window.location.href = "index.html";
+          }
+        }else {
           // Trata diferentes tipos de erro
           const errorText = await response.text().catch(() => 'Erro desconhecido');
           
