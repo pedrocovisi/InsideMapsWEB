@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!usuarioLogado) {
         alert("Você não está logado. Redirecionando para login.");
+        localStorage.removeItem('paginaDestino');
         window.location.href = "login.html";
         return;
     }
